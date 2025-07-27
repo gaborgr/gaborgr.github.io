@@ -10,9 +10,25 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        amber: {
+                            400: '#FFB000',
+                            500: '#FF9500',
+                            600: '#FF7B00',
+                        },
+                        retro: {
+                            bg: '#000000',
+                            text: '#FFB000',
+                            highlight: '#FF7B00',
+                            border: '#FF9500',
+                        }
+                    },
                     animation: {
                         'float': 'float 3s ease-in-out infinite',
                         'fade-in': 'fadeIn 1s ease-in',
+                        'blink': 'blink 1s step-end infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                        'glitch': 'glitch 2s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -22,6 +38,23 @@
                         fadeIn: {
                             '0%': { opacity: '0' },
                             '100%': { opacity: '1' },
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        },
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        },
+                        glitch: {
+                            '0%': { textShadow: '0.05em 0 0 #FF7B00, -0.05em -0.025em 0 #000' },
+                            '14%': { textShadow: '0.05em 0 0 #FF7B00, -0.05em -0.025em 0 #000' },
+                            '15%': { textShadow: '-0.05em 0.025em 0 #FF7B00, 0.025em 0.025em 0 #000' },
+                            '49%': { textShadow: '-0.05em 0.025em 0 #FF7B00, 0.025em 0.025em 0 #000' },
+                            '50%': { textShadow: '0.025em 0 0 #FF7B00, 0 -0.025em 0 #000' },
+                            '99%': { textShadow: '0.025em 0 0 #FF7B00, 0 -0.025em 0 #000' },
+                            '100%': { textShadow: '-0.025em 0 0 #FF7B00, 0 0.025em 0 #000' },
                         }
                     }
                 }
@@ -29,29 +62,153 @@
         }
     </script>
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        body {
+            background-color: #000;
+            color: #FFB000;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow-x: hidden;
         }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(255, 176, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 176, 0, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(255, 176, 0, 0.05) 50%,
+                transparent 100%
+            );
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 101;
+        }
+        
+        .crt-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0.2) 100%
+            );
+            pointer-events: none;
+            z-index: 99;
+        }
+        
+        .terminal-border {
+            border: 1px solid #FF9500;
+            box-shadow: 0 0 10px rgba(255, 149, 0, 0.5),
+                        inset 0 0 10px rgba(255, 149, 0, 0.3);
+        }
+        
+        .terminal-header {
+            background-color: #111;
+            border-bottom: 1px solid #FF9500;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+            background-color: #FF5E00;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #FF9500;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #FF9500; }
+        }
+        
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 0 15px rgba(255, 149, 0, 0.5);
+        }
+        
+        .progress-bar {
+            background-color: #222;
+            height: 4px;
+        }
+        
+        .progress-fill {
+            background-color: #FF9500;
+            height: 100%;
+        }
+        
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+        
+        .glitch-text {
+            animation: glitch 2s linear infinite;
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans antialiased">
+<body class="font-mono">
+    <div class="crt-effect"></div>
+    
     <!-- Navigation -->
-    <nav class="gradient-bg text-white shadow-lg">
+    <nav class="bg-retro-bg terminal-border sticky top-0 z-50">
+        <div class="terminal-header">
+            <div class="flex">
+                <div class="terminal-button"></div>
+                <div class="terminal-button bg-amber-500"></div>
+                <div class="terminal-button bg-amber-600"></div>
+            </div>
+            <div class="ml-2 text-retro-text text-sm">gabriel_guerra.exe</div>
+        </div>
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold">Gabriel Guerra</div>
+                <div class="text-2xl font-bold glitch-text">>_ Gabriel Guerra</div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="hover:text-blue-200 transition">About</a>
-                    <a href="#projects" class="hover:text-blue-200 transition">Projects</a>
-                    <a href="#experience" class="hover:text-blue-200 transition">Experience</a>
-                    <a href="#contact" class="hover:text-blue-200 transition">Contact</a>
+                    <a href="#about" class="hover:text-amber-400 transition">[About]</a>
+                    <a href="#projects" class="hover:text-amber-400 transition">[Projects]</a>
+                    <a href="#experience" class="hover:text-amber-400 transition">[Experience]</a>
+                    <a href="#contact" class="hover:text-amber-400 transition">[Contact]</a>
                 </div>
                 <div class="md:hidden">
-                    <button class="mobile-menu-button">
+                    <button class="mobile-menu-button text-retro-text hover:text-amber-400">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -60,72 +217,74 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20">
+    <section class="py-20 bg-retro-bg terminal-border mx-4 mt-6">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 flex justify-center mb-10 md:mb-0">
-                <!-- Placeholder for your photo - Replace with your image -->
-                <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl animate-float">
+                <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-amber-500 shadow-lg animate-float relative">
+                    <div class="absolute inset-0 bg-amber-500 opacity-10"></div>
                     <img src="./assets/foto_perfil.jpg" alt="Gabriel Guerra" class="w-full h-full object-cover">
                 </div>
             </div>
             <div class="md:w-1/2 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Gabriel Guerra</h1>
-                <h2 class="text-2xl md:text-3xl mb-6 text-blue-200 animate-fade-in">Python Developer & Tech Enthusiast</h2>
-                <p class="text-lg mb-8 animate-fade-in">Former accountant transitioning to software development with passion for Python, AI, and building innovative solutions.</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">> Gabriel Guerra <span class="cursor">_</span></h1>
+                <h2 class="text-2xl md:text-3xl mb-6 text-amber-400 animate-fade-in">$ Python Developer & Tech Enthusiast</h2>
+                <p class="text-lg mb-8 animate-fade-in">// Former accountant transitioning to software development<br>// Passion for Python, AI, and building innovative solutions</p>
                 <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="#contact" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-semibold hover:bg-blue-100 transition">Hire Me</a>
-                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-800 transition">View Projects</a>
+                    <a href="#contact" class="bg-amber-500 text-retro-bg px-6 py-3 rounded-lg font-semibold hover:bg-amber-600 transition">> Hire Me</a>
+                    <a href="#projects" class="border-2 border-amber-500 text-amber-500 px-6 py-3 rounded-lg font-semibold hover:bg-amber-500 hover:text-retro-bg transition">> View Projects</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-retro-bg terminal-border mx-4 mt-6">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">About Me</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-amber-400">> About Me <span class="text-retro-text">_</span></h2>
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">My Journey</h3>
-                    <p class="text-gray-600 mb-4">
-                        Certified Public Accountant with 12+ years of financial experience who decided to pursue my true passion in technology. 
-                        I bring a unique perspective combining financial expertise with emerging tech skills.
+                    <h3 class="text-2xl font-semibold mb-4 text-amber-400">$ My Journey</h3>
+                    <p class="mb-4">
+                        > Certified Public Accountant with 12+ years of financial experience<br>
+                        > Decided to pursue my true passion in technology<br>
+                        > Unique perspective combining financial expertise with tech skills
                     </p>
-                    <p class="text-gray-600 mb-6">
-                        I'm available for relocation, on-site or remote work, and excited to contribute to innovative projects in the tech industry.
+                    <p class="mb-6">
+                        > Available for relocation, on-site or remote work<br>
+                        > Excited to contribute to innovative projects in tech
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Adaptable</span>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Problem Solver</span>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Team Player</span>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Fast Learner</span>
+                        <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-3 py-1 rounded-full text-sm">Adaptable</span>
+                        <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-3 py-1 rounded-full text-sm">Problem Solver</span>
+                        <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-3 py-1 rounded-full text-sm">Team Player</span>
+                        <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-3 py-1 rounded-full text-sm">Fast Learner</span>
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Technical Skills</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-amber-400">$ Technical Skills</h3>
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-medium text-gray-700">Python Development</h4>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                            <h4 class="font-medium">> Python Development</h4>
+                            <div class="progress-bar rounded-full mt-2">
+                                <div class="progress-fill rounded-full" style="width: 85%"></div>
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-medium text-gray-700">Django & FastAPI</h4>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+                            <h4 class="font-medium">> Django & FastAPI</h4>
+                            <div class="progress-bar rounded-full mt-2">
+                                <div class="progress-fill rounded-full" style="width: 80%"></div>
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-medium text-gray-700">Data Analysis</h4>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                            <h4 class="font-medium">> Data Analysis</h4>
+                            <div class="progress-bar rounded-full mt-2">
+                                <div class="progress-fill rounded-full" style="width: 75%"></div>
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-medium text-gray-700">Web Scraping</h4>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 70%"></div>
+                            <h4 class="font-medium">> Web Scraping</h4>
+                            <div class="progress-bar rounded-full mt-2">
+                                <div class="progress-fill rounded-full" style="width: 70%"></div>
                             </div>
                         </div>
                     </div>
@@ -135,61 +294,61 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
+    <section id="projects" class="py-20 bg-retro-bg terminal-border mx-4 mt-6">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Projects</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-amber-400">> My Projects <span class="text-retro-text">_</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                <div class="project-card bg-black rounded-lg overflow-hidden terminal-border transition duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-amber-500 opacity-10"></div>
                         <img src="https://github.com/gaborgr/fastapi-jwt-auth/blob/main/docs/images/dashboard.PNG?raw=true" alt="FastAPI JWT Auth" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">FastAPI JWT Auth</h3>
-                        <p class="text-gray-600 mb-4">Authentication system using JWT tokens with FastAPI</p>
+                        <h3 class="text-xl font-bold mb-2 text-amber-400">> FastAPI JWT Auth</h3>
+                        <p class="mb-4">// Authentication system using JWT tokens with FastAPI</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">FastAPI</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">JWT</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">FastAPI</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">JWT</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">Python</span>
                         </div>
-                        <a href="https://github.com/gaborgr/fastapi-jwt-auth" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                        <a href="https://github.com/gaborgr/fastapi-jwt-auth" class="text-amber-400 hover:text-amber-300 font-medium">> View Project →</a>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                <div class="project-card bg-black rounded-lg overflow-hidden terminal-border transition duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-amber-500 opacity-10"></div>
                         <img src="https://github.com/gaborgr/weatherly-django-rest/blob/main/docs/images/result.PNG?raw=true" alt="Weatherly Django REST" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">Weatherly Django REST</h3>
-                        <p class="text-gray-600 mb-4">Weather application built with Django REST framework</p>
+                        <h3 class="text-xl font-bold mb-2 text-amber-400">> Weatherly Django REST</h3>
+                        <p class="mb-4">// Weather application built with Django REST framework</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Django</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">REST API</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">Django</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">REST API</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">Python</span>
                         </div>
-                        <a href="https://github.com/gaborgr/weatherly-django-rest" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                        <a href="https://github.com/gaborgr/weatherly-django-rest" class="text-amber-400 hover:text-amber-300 font-medium">> View Project →</a>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                <div class="project-card bg-black rounded-lg overflow-hidden terminal-border transition duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-amber-500 opacity-10"></div>
                         <img src="https://github.com/gaborgr/django-coffeeshop/blob/main/docs/images/home.PNG?raw=true" alt="Django Coffee Shop" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">Django Coffee Shop</h3>
-                        <p class="text-gray-600 mb-4">E-commerce site for a coffee shop built with Django</p>
+                        <h3 class="text-xl font-bold mb-2 text-amber-400">> Django Coffee Shop</h3>
+                        <p class="mb-4">// E-commerce site for a coffee shop built with Django</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Django</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">E-commerce</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">Django</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">E-commerce</span>
+                            <span class="bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded text-xs">Python</span>
                         </div>
-                        <a href="https://github.com/gaborgr/django-coffeeshop" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                        <a href="https://github.com/gaborgr/django-coffeeshop" class="text-amber-400 hover:text-amber-300 font-medium">> View Project →</a>
                     </div>
                 </div>
             </div>
@@ -197,23 +356,23 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-white">
+    <section id="experience" class="py-20 bg-retro-bg terminal-border mx-4 mt-6">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Professional Experience</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-amber-400">> Professional Experience <span class="text-retro-text">_</span></h2>
             <div class="max-w-3xl mx-auto">
-                <div class="border-l-4 border-blue-500 pl-8 pb-8 relative">
-                    <div class="absolute -left-2 top-0 w-4 h-4 bg-blue-500 rounded-full"></div>
+                <div class="border-l-4 border-amber-500 pl-8 pb-8 relative">
+                    <div class="absolute -left-2.5 top-0 w-4 h-4 bg-amber-500 rounded-full"></div>
                     <div class="mb-6">
-                        <h3 class="text-xl font-bold text-gray-800">Head of Account</h3>
-                        <h4 class="text-lg text-gray-600">GL Events Chile | 2022 - 2024</h4>
-                        <p class="text-gray-600 mt-2">Managed financial accounts and led accounting operations for the Chilean division of this global events company.</p>
+                        <h3 class="text-xl font-bold text-amber-400">$ Head of Account</h3>
+                        <h4 class="text-lg">GL Events Chile | 2022 - 2024</h4>
+                        <p class="mt-2">> Managed financial accounts and led accounting operations<br>> Chilean division of global events company</p>
                     </div>
                     
-                    <div class="absolute -left-2 top-0 w-4 h-4 bg-blue-500 rounded-full"></div>
+                    <div class="absolute -left-2.5 top-0 w-4 h-4 bg-amber-500 rounded-full"></div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-800">Certified Public Accountant</h3>
-                        <h4 class="text-lg text-gray-600">Various Companies | 2010 - 2022</h4>
-                        <p class="text-gray-600 mt-2">12+ years of financial experience across different industries, developing analytical skills and business acumen.</p>
+                        <h3 class="text-xl font-bold text-amber-400">$ Certified Public Accountant</h3>
+                        <h4 class="text-lg">Various Companies | 2010 - 2022</h4>
+                        <p class="mt-2">> 12+ years of financial experience across industries<br>> Developed analytical skills and business acumen</p>
                     </div>
                 </div>
             </div>
@@ -221,39 +380,39 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="gradient-bg text-white py-20">
+    <section id="contact" class="py-20 bg-retro-bg terminal-border mx-4 mt-6">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-amber-400">> Get In Touch <span class="text-retro-text">_</span></h2>
             <div class="max-w-4xl mx-auto flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <h3 class="text-2xl font-semibold mb-6 text-amber-400">$ Contact Information</h3>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-4 text-blue-200"></i>
+                            <i class="fas fa-envelope mt-1 mr-4 text-amber-500"></i>
                             <div>
                                 <h4 class="font-medium">Email</h4>
-                                <a href="mailto:gguerra.code@gmail.com" class="hover:text-blue-200">gguerra.code@gmail.com</a>
+                                <a href="mailto:gguerra.code@gmail.com" class="hover:text-amber-300">> gguerra.code@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-4 text-blue-200"></i>
+                            <i class="fas fa-phone-alt mt-1 mr-4 text-amber-500"></i>
                             <div>
                                 <h4 class="font-medium">Phone</h4>
-                                <a href="tel:+56952124663" class="hover:text-blue-200">+56 952124663</a>
+                                <a href="tel:+56952124663" class="hover:text-amber-300">> +56 952124663</a>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fab fa-github mt-1 mr-4 text-blue-200"></i>
+                            <i class="fab fa-github mt-1 mr-4 text-amber-500"></i>
                             <div>
                                 <h4 class="font-medium">GitHub</h4>
-                                <a href="https://github.com/gaborgr" target="_blank" class="hover:text-blue-200">github.com/gaborgr</a>
+                                <a href="https://github.com/gaborgr" target="_blank" class="hover:text-amber-300">> github.com/gaborgr</a>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-200"></i>
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-amber-500"></i>
                             <div>
                                 <h4 class="font-medium">Location</h4>
-                                <p>Available for relocation, remote or on-site work</p>
+                                <p>> Available for relocation, remote or on-site work</p>
                             </div>
                         </div>
                     </div>
@@ -262,17 +421,17 @@
                     <form action="https://formspree.io/f/xblkyrbq" method="POST" class="space-y-4">
                         <div>
                             <label for="name" class="block mb-1">Name</label>
-                            <input type="text" name="name" id="name" class="w-full px-4 py-2 rounded bg-blue-900 bg-opacity-50 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="text" name="name" id="name" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500">
                         </div>
                         <div>
-                            <label for="email" class="block mb-1" >Email</label>
-                            <input type="email" name="email" id="email" class="w-full px-4 py-2 rounded bg-blue-900 bg-opacity-50 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <label for="email" class="block mb-1">Email</label>
+                            <input type="email" name="email" id="email" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500">
                         </div>
                         <div>
                             <label for="message" class="block mb-1">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded bg-blue-900 bg-opacity-50 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"></textarea>
                         </div>
-                        <button type="submit" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-semibold hover:bg-blue-100 transition w-full">Send Message</button>
+                        <button type="submit" class="bg-amber-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-amber-600 transition w-full">> Send Message</button>
                     </form>
                 </div>
             </div>
@@ -280,26 +439,55 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-8">
+    <footer class="bg-black text-amber-500 py-8 terminal-border mx-4 mt-6">
         <div class="container mx-auto px-6 text-center">
             <div class="flex justify-center space-x-6 mb-6">
-                <a href="https://github.com/gaborgr" target="_blank" class="hover:text-blue-200">
+                <a href="https://github.com/gaborgr" target="_blank" class="hover:text-amber-300">
                     <i class="fab fa-github text-2xl"></i>
                 </a>
-                <a href="mailto:gguerra.code@gmail.com" class="hover:text-blue-200">
+                <a href="mailto:gguerra.code@gmail.com" class="hover:text-amber-300">
                     <i class="fas fa-envelope text-2xl"></i>
                 </a>
-                <!-- Add more social links as needed -->
+                <a href="https://linkedin.com/in/yourprofile" class="hover:text-amber-300">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
             </div>
-            <p>&copy; 2024 Gabriel Guerra. All rights reserved.</p>
+            <p class="text-sm">> Copyright © 2024 Gabriel Guerra. All rights reserved. <span class="cursor">_</span></p>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle functionality
         document.querySelector('.mobile-menu-button').addEventListener('click', function() {
-            // You would implement mobile menu toggle here
-            alert('Mobile menu would open here in a full implementation');
+            const navLinks = document.querySelector('.md\\:flex.space-x-8');
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('flex-col');
+            navLinks.classList.toggle('absolute');
+            navLinks.classList.toggle('top-16');
+            navLinks.classList.toggle('right-4');
+            navLinks.classList.toggle('bg-black');
+            navLinks.classList.toggle('p-4');
+            navLinks.classList.toggle('terminal-border');
+            navLinks.classList.toggle('space-y-4');
+        });
+        
+        // Add typewriter effect to elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.typewriter');
+            elements.forEach(el => {
+                const text = el.textContent;
+                el.textContent = '';
+                let i = 0;
+                const typing = setInterval(() => {
+                    if (i < text.length) {
+                        el.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typing);
+                    }
+                }, 100);
+            });
         });
     </script>
 </body>
