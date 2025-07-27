@@ -3,10 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de Prueba</title>
+    <title>Gabriel Guerra | Python Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
 </head>
-<body>
-    <h1>Hola Gabo!</h1>
-    <h3>Aprendiendo a usar GIT Pages</h3>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Gabriel Guerra</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-blue-200 transition">About</a>
+                    <a href="#projects" class="hover:text-blue-200 transition">Projects</a>
+                    <a href="#experience" class="hover:text-blue-200 transition">Experience</a>
+                    <a href="#contact" class="hover:text-blue-200 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 flex justify-center mb-10 md:mb-0">
+                <!-- Placeholder for your photo - Replace with your image -->
+                <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl animate-float">
+                    <img src="./assets/foto_perfil.jpg" alt="Gabriel Guerra" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Gabriel Guerra</h1>
+                <h2 class="text-2xl md:text-3xl mb-6 text-blue-200 animate-fade-in">Python Developer & Tech Enthusiast</h2>
+                <p class="text-lg mb-8 animate-fade-in">Former accountant transitioning to software development with passion for Python, AI, and building innovative solutions.</p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#contact" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-semibold hover:bg-blue-100 transition">Hire Me</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-800 transition">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">About Me</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">My Journey</h3>
+                    <p class="text-gray-600 mb-4">
+                        Certified Public Accountant with 12+ years of financial experience who decided to pursue my true passion in technology. 
+                        I bring a unique perspective combining financial expertise with emerging tech skills.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        I'm available for relocation, on-site or remote work, and excited to contribute to innovative projects in the tech industry.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Adaptable</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Problem Solver</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Team Player</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Fast Learner</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">Technical Skills</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium text-gray-700">Python Development</h4>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700">Django & FastAPI</h4>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700">Data Analysis</h4>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700">Web Scraping</h4>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                        <img src="https://github.com/gaborgr/fastapi-jwt-auth/blob/main/docs/images/dashboard.PNG?raw=true" alt="FastAPI JWT Auth" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">FastAPI JWT Auth</h3>
+                        <p class="text-gray-600 mb-4">Authentication system using JWT tokens with FastAPI</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">FastAPI</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">JWT</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                        <a href="https://github.com/gaborgr/fastapi-jwt-auth" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                        <img src="https://github.com/gaborgr/weatherly-django-rest/blob/main/docs/images/result.PNG?raw=true" alt="Weatherly Django REST" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Weatherly Django REST</h3>
+                        <p class="text-gray-600 mb-4">Weather application built with Django REST framework</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Django</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">REST API</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                        <a href="https://github.com/gaborgr/weatherly-django-rest" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                        <img src="https://github.com/gaborgr/django-coffeeshop/blob/main/docs/images/home.PNG?raw=true" alt="Django Coffee Shop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Django Coffee Shop</h3>
+                        <p class="text-gray-600 mb-4">E-commerce site for a coffee shop built with Django</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Django</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">E-commerce</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                        <a href="https://github.com/gaborgr/django-coffeeshop" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                        <img src="https://private-user-images.githubusercontent.com/170987265/452839057-c883bad9-741c-4ada-8b7e-9367cec542b8.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTM2MzM1NDMsIm5iZiI6MTc1MzYzMzI0MywicGF0aCI6Ii8xNzA5ODcyNjUvNDUyODM5MDU3LWM4ODNiYWQ5LTc0MWMtNGFkYS04YjdlLTkzNjdjZWM1NDJiOC5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcyN1QxNjIwNDNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MmU3Y2M5Zjg3OWY0Y2EyYWNmYjE4NTkyZWIwNjI1NWU0ODU1OTk0OTM0NTkyOTYxMjY3ZDBkZjVmYmQ3ZWQ1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.qY3u28Jv9QBXEwXF9JAfWS8NsxGmCBYj1J4XcF8HW-M" alt="Task Manager CLI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Task Manager (CLI)</h3>
+                        <p class="text-gray-600 mb-4">Command-line task management application</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">CLI</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Productivity</span>
+                        </div>
+                        <a href="https://github.com/gaborgr/task-manager" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                        <img src="https://via.placeholder.com/400x250" alt="Free Xbox Games Scraper" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Free Xbox Games Scraper</h3>
+                        <p class="text-gray-600 mb-4">Scraper that finds free games in Xbox store using Selenium</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Selenium</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Web Scraping</span>
+                        </div>
+                        <a href="https://github.com/gaborgr/free-xbox-games" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <!-- Placeholder for project image - Replace with your project screenshot -->
+                        <img src="https://private-user-images.githubusercontent.com/170987265/390099729-e635e71c-8405-42b6-a278-382e3990fe54.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTM2MzM2MTUsIm5iZiI6MTc1MzYzMzMxNSwicGF0aCI6Ii8xNzA5ODcyNjUvMzkwMDk5NzI5LWU2MzVlNzFjLTg0MDUtNDJiNi1hMjc4LTM4MmUzOTkwZmU1NC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcyN1QxNjIxNTVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZjYxNWZmZTdiNWY0MjIwYWY2ZjJkNDk0YTk1M2Y2YzVhOTU0NjQyMjZmNDAwMDZhZjAwMGM0NTMzOTIzZmI2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.fGAlhnnUsPuQR6qafyKyj-BIBEAnAIPX2xUHjGILPsM" alt="InventoryMate" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">InventoryMate</h3>
+                        <p class="text-gray-600 mb-4">Basic inventory management system with Django</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Django</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Inventory</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                        <a href="https://github.com/gaborgr/project-inventorymate" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Professional Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="border-l-4 border-blue-500 pl-8 pb-8 relative">
+                    <div class="absolute -left-2 top-0 w-4 h-4 bg-blue-500 rounded-full"></div>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">Head of Account</h3>
+                        <h4 class="text-lg text-gray-600">GL Events Chile | 2022 - 2024</h4>
+                        <p class="text-gray-600 mt-2">Managed financial accounts and led accounting operations for the Chilean division of this global events company.</p>
+                    </div>
+                    
+                    <div class="absolute -left-2 top-0 w-4 h-4 bg-blue-500 rounded-full"></div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Certified Public Accountant</h3>
+                        <h4 class="text-lg text-gray-600">Various Companies | 2010 - 2022</h4>
+                        <p class="text-gray-600 mt-2">12+ years of financial experience across different industries, developing analytical skills and business acumen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-4 text-blue-200"></i>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <a href="mailto:gguerra.code@gmail.com" class="hover:text-blue-200">gguerra.code@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-4 text-blue-200"></i>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <a href="tel:+56952124663" class="hover:text-blue-200">+56 952124663</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fab fa-github mt-1 mr-4 text-blue-200"></i>
+                            <div>
+                                <h4 class="font-medium">GitHub</h4>
+                                <a href="https://github.com/gaborgr" target="_blank" class="hover:text-blue-200">github.com/gaborgr</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-200"></i>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p>Available for relocation, remote or on-site work</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 rounded bg-blue-900 bg-opacity-50 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 rounded bg-blue-900 bg-opacity-50 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded bg-blue-900 bg-opacity-50 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-semibold hover:bg-blue-100 transition w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://github.com/gaborgr" target="_blank" class="hover:text-blue-200">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="mailto:gguerra.code@gmail.com" class="hover:text-blue-200">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+                <!-- Add more social links as needed -->
+            </div>
+            <p>&copy; 2024 Gabriel Guerra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            // You would implement mobile menu toggle here
+            alert('Mobile menu would open here in a full implementation');
+        });
+    </script>
 </body>
 </html>
