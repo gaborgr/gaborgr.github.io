@@ -40,7 +40,15 @@
         @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
 
         * {
+            box-sizing: border-box;
             font-family: "JetBrains Mono", "Courier New", monospace;
+        }
+
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -97,6 +105,12 @@
             padding: 0.5rem 1rem;
             display: flex;
             align-items: center;
+            gap: 0.5rem;
+            min-width: 0;
+        }
+
+        .terminal-header span {
+            min-width: 0;
         }
 
         .glitch-text {
@@ -184,6 +198,13 @@
             max-height: 420px;
         }
 
+        .nav-brand {
+            max-width: 48vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
         .tech-logo-card {
             border: 1px solid rgba(255, 149, 0, 0.25);
             background: rgba(0, 0, 0, 0.4);
@@ -200,6 +221,72 @@
             height: 28px;
             object-fit: contain;
             filter: grayscale(0.1) brightness(0.95);
+        }
+
+        .tech-ticker-wrap {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            cursor: grab;
+            touch-action: pan-x;
+            user-select: none;
+            border: 1px solid rgba(255, 149, 0, 0.25);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .tech-ticker-wrap::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tech-ticker-track {
+            display: flex;
+            gap: 0.75rem;
+            width: max-content;
+            align-items: stretch;
+        }
+
+        .tech-ticker-item {
+            min-width: 142px;
+            max-width: 142px;
+            border: 1px solid rgba(255, 149, 0, 0.25);
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 0.5rem;
+            padding: 0.75rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .nav-brand {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .terminal-header {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .terminal-header span {
+                font-size: 0.66rem;
+                line-height: 1.25;
+                overflow-wrap: anywhere;
+            }
+
+            .cursor {
+                height: 16px;
+            }
+
+            .tech-logo {
+                height: 24px;
+            }
         }
 
         @keyframes blink {
@@ -267,7 +354,7 @@
 
     <nav class="fixed w-full top-0 z-50 bg-retro-bg/80 backdrop-blur-md border-b border-retro-border/30">
         <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center gap-3">
-            <div class="text-lg sm:text-xl font-bold whitespace-nowrap">
+            <div class="nav-brand text-base sm:text-xl font-bold">
                 <span class="text-amber-500">></span> GABRIEL<span class="text-amber-600">_GUERRA</span>
             </div>
 
@@ -328,7 +415,7 @@
 
                         <h1 class="text-4xl md:text-6xl font-bold mb-2 glitch-text">Gabriel Guerra</h1>
 
-                        <h2 class="text-xl md:text-2xl mb-4 text-amber-400/90 flex items-center gap-2 justify-center md:justify-start">
+                        <h2 class="text-xl md:text-2xl mb-4 text-amber-400/90 flex flex-wrap items-center gap-2 justify-center md:justify-start">
                             <span class="text-amber-600">></span>
                             <span data-i18n="hero.role">Developer of Scalable Solutions</span>
                             <span class="cursor"></span>
@@ -449,7 +536,33 @@
                 </div>
                 <p class="text-sm text-gray-300 mb-6" data-i18n="tech.subtitle">Stack observed across current product work: web apps, mobile apps, data layers, cloud infrastructure, and deployment tooling.</p>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                <div class="sm:hidden mb-2">
+                    <p class="text-[11px] text-amber-400/80 mb-3" data-i18n="tech.mobileHint">[ drag or swipe to scan stack ]</p>
+                    <div id="tech-ticker-wrap" class="tech-ticker-wrap" aria-label="Technology stack ticker">
+                        <div id="tech-ticker-track" class="tech-ticker-track">
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/javascript.svg" alt="JavaScript logo"><span class="text-xs text-amber-300">JavaScript</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/python.svg" alt="Python logo"><span class="text-xs text-amber-300">Python</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/django.svg" alt="Django logo"><span class="text-xs text-amber-300">Django</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/expo.svg" alt="Expo logo"><span class="text-xs text-amber-300">Expo</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/docker.svg" alt="Docker logo"><span class="text-xs text-amber-300">Docker</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/tailwindcss.svg" alt="Tailwind CSS logo"><span class="text-xs text-amber-300">Tailwind</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/postgresql.svg" alt="PostgreSQL logo"><span class="text-xs text-amber-300">PostgreSQL</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/sqlite.svg" alt="SQLite logo"><span class="text-xs text-amber-300">SQLite</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/redis.svg" alt="Redis logo"><span class="text-xs text-amber-300">Redis</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/supabase.svg" alt="Supabase logo"><span class="text-xs text-amber-300">Supabase</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/stripe_wordmark.svg" alt="Stripe logo"><span class="text-xs text-amber-300">Stripe</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/vercel.svg" alt="Vercel logo"><span class="text-xs text-amber-300">Vercel</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/aws_light.svg" alt="AWS logo"><span class="text-xs text-amber-300">AWS</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/cloudflare.svg" alt="Cloudflare logo"><span class="text-xs text-amber-300">Cloudflare</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/git.svg" alt="Git logo"><span class="text-xs text-amber-300">Git</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/github_light.svg" alt="GitHub logo"><span class="text-xs text-amber-300">GitHub</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/google-cloud.svg" alt="Google Cloud logo"><span class="text-xs text-amber-300">Google Cloud</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/bash.svg" alt="Bash logo"><span class="text-xs text-amber-300">Bash</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/javascript.svg" alt="JavaScript logo"><span class="text-xs text-amber-300">JavaScript</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/python.svg" alt="Python logo"><span class="text-xs text-amber-300">Python</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/django.svg" alt="Django logo"><span class="text-xs text-amber-300">Django</span></div>
@@ -461,13 +574,13 @@
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/redis.svg" alt="Redis logo"><span class="text-xs text-amber-300">Redis</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/supabase.svg" alt="Supabase logo"><span class="text-xs text-amber-300">Supabase</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/stripe_wordmark.svg" alt="Stripe logo"><span class="text-xs text-amber-300">Stripe</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/vercel_dark.svg" alt="Vercel logo"><span class="text-xs text-amber-300">Vercel</span></div>
+                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/vercel.svg" alt="Vercel logo"><span class="text-xs text-amber-300">Vercel</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/aws_light.svg" alt="AWS logo"><span class="text-xs text-amber-300">AWS</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/cloudflare.svg" alt="Cloudflare logo"><span class="text-xs text-amber-300">Cloudflare</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/git.svg" alt="Git logo"><span class="text-xs text-amber-300">Git</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/github_dark.svg" alt="GitHub logo"><span class="text-xs text-amber-300">GitHub</span></div>
+                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/github_light.svg" alt="GitHub logo"><span class="text-xs text-amber-300">GitHub</span></div>
                     <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/google-cloud.svg" alt="Google Cloud logo"><span class="text-xs text-amber-300">Google Cloud</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/bash_dark.svg" alt="Bash logo"><span class="text-xs text-amber-300">Bash</span></div>
+                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/bash.svg" alt="Bash logo"><span class="text-xs text-amber-300">Bash</span></div>
                 </div>
             </div>
         </div>
@@ -771,6 +884,7 @@
                 "expertise.tag6": "Forecasting",
                 "tech.title": "> TECHNOLOGY TOOLING_",
                 "tech.subtitle": "Stack observed across current product work: web apps, mobile apps, data layers, cloud infrastructure, and deployment tooling.",
+                "tech.mobileHint": "[ drag or swipe to scan stack ]",
                 "solutions.title": "> BUILT SOLUTIONS_",
                 "projects.repo": "[ Repository ]",
                 "projects.live": "[ Live Site ]",
@@ -850,6 +964,7 @@
                 "expertise.tag6": "Forecasting",
                 "tech.title": "> HERRAMIENTAS TECNOLOGICAS_",
                 "tech.subtitle": "Stack observado en trabajo de producto actual: apps web, apps mobile, capas de datos, infraestructura cloud y tooling de despliegue.",
+                "tech.mobileHint": "[ arrastra o desliza para explorar stack ]",
                 "solutions.title": "> SOLUCIONES IMPLEMENTADAS_",
                 "projects.repo": "[ Repositorio ]",
                 "projects.live": "[ Sitio Web ]",
@@ -900,6 +1015,9 @@
         const mobileMenuButton = document.querySelector(".mobile-menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
         const mobileLinks = document.querySelectorAll("[data-mobile-link]");
+        const techTickerWrap = document.getElementById("tech-ticker-wrap");
+        const techTickerTrack = document.getElementById("tech-ticker-track");
+        let techTickerInitialized = false;
 
         function updateLanguageButtons(lang) {
             languageButtons.forEach((button) => {
@@ -947,6 +1065,84 @@
             updateLanguageButtons(selectedLanguage);
         }
 
+        function initMobileTechTicker() {
+            if (techTickerInitialized || !techTickerWrap || !techTickerTrack) {
+                return;
+            }
+
+            if (window.innerWidth >= 640) {
+                return;
+            }
+
+            const baseItems = Array.from(techTickerTrack.children);
+            if (!baseItems.length) {
+                return;
+            }
+
+            baseItems.forEach((item) => {
+                techTickerTrack.appendChild(item.cloneNode(true));
+            });
+
+            techTickerInitialized = true;
+
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            let paused = reduceMotion;
+            let lastTimestamp = 0;
+            let resumeTimeout;
+            const speed = 0.035;
+
+            const normalizeTickerOffset = () => {
+                const midpoint = techTickerWrap.scrollWidth / 2;
+                if (!midpoint) {
+                    return;
+                }
+
+                if (techTickerWrap.scrollLeft >= midpoint) {
+                    techTickerWrap.scrollLeft -= midpoint;
+                }
+            };
+
+            const animateTicker = (timestamp) => {
+                if (!lastTimestamp) {
+                    lastTimestamp = timestamp;
+                }
+
+                const delta = timestamp - lastTimestamp;
+                lastTimestamp = timestamp;
+
+                if (!paused) {
+                    techTickerWrap.scrollLeft += delta * speed;
+                    normalizeTickerOffset();
+                }
+
+                window.requestAnimationFrame(animateTicker);
+            };
+
+            const pauseTicker = () => {
+                paused = true;
+                window.clearTimeout(resumeTimeout);
+            };
+
+            const resumeTicker = (delay = 800) => {
+                window.clearTimeout(resumeTimeout);
+                resumeTimeout = window.setTimeout(() => {
+                    if (!reduceMotion) {
+                        paused = false;
+                    }
+                }, delay);
+            };
+
+            techTickerWrap.addEventListener("pointerdown", pauseTicker);
+            techTickerWrap.addEventListener("pointerup", () => resumeTicker(500));
+            techTickerWrap.addEventListener("pointercancel", () => resumeTicker(500));
+            techTickerWrap.addEventListener("touchstart", pauseTicker, { passive: true });
+            techTickerWrap.addEventListener("touchend", () => resumeTicker(500), { passive: true });
+            techTickerWrap.addEventListener("touchcancel", () => resumeTicker(500), { passive: true });
+            techTickerWrap.addEventListener("scroll", normalizeTickerOffset, { passive: true });
+
+            window.requestAnimationFrame(animateTicker);
+        }
+
         languageButtons.forEach((button) => {
             button.addEventListener("click", () => {
                 applyLanguage(button.dataset.langButton);
@@ -965,7 +1161,10 @@
             });
         });
 
+        window.addEventListener("resize", initMobileTechTicker, { passive: true });
+
         applyLanguage("en");
+        initMobileTechTicker();
     </script>
 </body>
 </html>
