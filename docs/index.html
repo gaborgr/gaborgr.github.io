@@ -210,6 +210,39 @@
             word-break: break-word;
         }
 
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: calc(1rem + env(safe-area-inset-bottom));
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid rgba(255, 149, 0, 0.6);
+            border-radius: 9999px;
+            color: #FFB000;
+            background: rgba(0, 0, 0, 0.75);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            transform: translateY(12px);
+            pointer-events: none;
+            transition: opacity 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+            z-index: 120;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            border-color: rgba(255, 176, 0, 0.9);
+        }
+
+        .back-to-top:focus-visible {
+            outline: 2px solid rgba(255, 176, 0, 0.9);
+            outline-offset: 2px;
+        }
+
         .tech-logo-card {
             border: 1px solid rgba(255, 149, 0, 0.25);
             background: rgba(0, 0, 0, 0.4);
@@ -848,6 +881,10 @@
         </div>
     </section>
 
+    <button id="back-to-top" type="button" class="back-to-top sm:hidden flex items-center justify-center" aria-label="Back to top" data-i18n-aria-label="a11y.backToTop">
+        <i class="fas fa-arrow-up text-sm"></i>
+    </button>
+
     <footer class="py-8 text-center text-amber-700/50 text-xs border-t border-amber-500/20 px-4">
         <p data-i18n="footer.copy">> SYSTEM READY. GABRIEL GUERRA - (C) 2026 - DEVELOPER WITH FINANCE DNA</p>
     </footer>
@@ -857,6 +894,7 @@
             en: {
                 "meta.title": "Gabriel Guerra | Developer - Full Stack & Fintech",
                 "a11y.openMenu": "Open menu",
+                "a11y.backToTop": "Back to top",
                 "nav.stack": "[stack]",
                 "nav.solutions": "[solutions]",
                 "nav.fintech": "[fintech]",
@@ -937,6 +975,7 @@
             es: {
                 "meta.title": "Gabriel Guerra | Desarrollador - Full Stack & Fintech",
                 "a11y.openMenu": "Abrir menu",
+                "a11y.backToTop": "Volver arriba",
                 "nav.stack": "[stack]",
                 "nav.solutions": "[soluciones]",
                 "nav.fintech": "[fintech]",
@@ -1022,7 +1061,9 @@
         const mobileLinks = document.querySelectorAll("[data-mobile-link]");
         const techTickerWrap = document.getElementById("tech-ticker-wrap");
         const techTickerTrack = document.getElementById("tech-ticker-track");
+        const backToTopButton = document.getElementById("back-to-top");
         let techTickerInitialized = false;
+        let backToTopTicking = false;
 
         function updateLanguageButtons(lang) {
             languageButtons.forEach((button) => {
@@ -1148,6 +1189,27 @@
             window.requestAnimationFrame(animateTicker);
         }
 
+        function updateBackToTopVisibility() {
+            if (!backToTopButton) {
+                return;
+            }
+
+            const shouldShow = window.innerWidth < 640 && window.scrollY > 280;
+            backToTopButton.classList.toggle("visible", shouldShow);
+        }
+
+        function handleBackToTopScroll() {
+            if (backToTopTicking) {
+                return;
+            }
+
+            backToTopTicking = true;
+            window.requestAnimationFrame(() => {
+                updateBackToTopVisibility();
+                backToTopTicking = false;
+            });
+        }
+
         languageButtons.forEach((button) => {
             button.addEventListener("click", () => {
                 applyLanguage(button.dataset.langButton);
@@ -1166,10 +1228,19 @@
             });
         });
 
-        window.addEventListener("resize", initMobileTechTicker, { passive: true });
+        backToTopButton?.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("scroll", handleBackToTopScroll, { passive: true });
+        window.addEventListener("resize", () => {
+            initMobileTechTicker();
+            updateBackToTopVisibility();
+        }, { passive: true });
 
         applyLanguage("en");
         initMobileTechTicker();
+        updateBackToTopVisibility();
     </script>
 </body>
 </html>
