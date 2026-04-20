@@ -205,6 +205,11 @@
             white-space: nowrap;
         }
 
+        .contact-title {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
         .tech-logo-card {
             border: 1px solid rgba(255, 149, 0, 0.25);
             background: rgba(0, 0, 0, 0.4);
@@ -551,13 +556,13 @@
                             <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/redis.svg" alt="Redis logo"><span class="text-xs text-amber-300">Redis</span></div>
                             <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/supabase.svg" alt="Supabase logo"><span class="text-xs text-amber-300">Supabase</span></div>
                             <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/stripe_wordmark.svg" alt="Stripe logo"><span class="text-xs text-amber-300">Stripe</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/vercel.svg" alt="Vercel logo"><span class="text-xs text-amber-300">Vercel</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/vercel_dark.svg" alt="Vercel logo"><span class="text-xs text-amber-300">Vercel</span></div>
                             <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/aws_light.svg" alt="AWS logo"><span class="text-xs text-amber-300">AWS</span></div>
                             <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/cloudflare.svg" alt="Cloudflare logo"><span class="text-xs text-amber-300">Cloudflare</span></div>
                             <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/git.svg" alt="Git logo"><span class="text-xs text-amber-300">Git</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/github_light.svg" alt="GitHub logo"><span class="text-xs text-amber-300">GitHub</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/github_dark.svg" alt="GitHub logo"><span class="text-xs text-amber-300">GitHub</span></div>
                             <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/google-cloud.svg" alt="Google Cloud logo"><span class="text-xs text-amber-300">Google Cloud</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/bash.svg" alt="Bash logo"><span class="text-xs text-amber-300">Bash</span></div>
+                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/bash_dark.svg" alt="Bash logo"><span class="text-xs text-amber-300">Bash</span></div>
                         </div>
                     </div>
                 </div>
@@ -785,38 +790,38 @@
     <section id="contact" class="py-20 px-4">
         <div class="container mx-auto max-w-4xl">
             <div class="terminal-window bg-black/60 p-6 md:p-10 rounded-lg">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-amber-400 inline-block border-b-2 border-amber-600 pb-2" data-i18n="contact.title">> ESTABLISH_CONNECTION_</h2>
-                    <p class="text-gray-400 mt-4 text-sm" data-i18n="contact.subtitle">Available for freelance projects, product consulting, and long-term developer roles.</p>
+                <div class="text-center mb-8 px-1">
+                    <h2 class="contact-title text-xl sm:text-3xl font-bold text-amber-400 inline-block max-w-full leading-tight border-b-2 border-amber-600 pb-2" data-i18n="contact.title">> ESTABLISH_CONNECTION_</h2>
+                    <p class="text-gray-400 mt-4 text-sm max-w-xl mx-auto" data-i18n="contact.subtitle">Available for freelance projects, product consulting, and long-term developer roles.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center">
+                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center shrink-0">
                                 <i class="fas fa-envelope text-amber-500"></i>
                             </div>
-                            <div>
+                            <div class="min-w-0">
                                 <div class="text-xs text-amber-600" data-i18n="contact.emailLabel">EMAIL</div>
-                                <a href="mailto:gguerra.code@gmail.com" class="text-lg hover:text-amber-300 break-all">gguerra.code@gmail.com</a>
+                                <a href="mailto:gguerra.code@gmail.com" class="block text-base sm:text-lg leading-snug hover:text-amber-300 break-all">gguerra.code@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center">
+                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center shrink-0">
                                 <i class="fab fa-github text-amber-500"></i>
                             </div>
-                            <div>
+                            <div class="min-w-0">
                                 <div class="text-xs text-amber-600" data-i18n="contact.githubLabel">GITHUB</div>
-                                <a href="https://github.com/gaborgr" target="_blank" rel="noopener noreferrer" class="text-lg hover:text-amber-300">/gaborgr</a>
+                                <a href="https://github.com/gaborgr" target="_blank" rel="noopener noreferrer" class="block text-base sm:text-lg leading-snug hover:text-amber-300 break-words">/gaborgr</a>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center">
+                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center shrink-0">
                                 <i class="fab fa-linkedin-in text-amber-500"></i>
                             </div>
-                            <div>
+                            <div class="min-w-0">
                                 <div class="text-xs text-amber-600" data-i18n="contact.linkedinLabel">LINKEDIN</div>
-                                <a href="https://www.linkedin.com/in/gguerra-code/" target="_blank" rel="noopener noreferrer" class="text-lg hover:text-amber-300">/in/gguerra-code</a>
+                                <a href="https://www.linkedin.com/in/gguerra-code/" target="_blank" rel="noopener noreferrer" class="block text-base sm:text-lg leading-snug hover:text-amber-300 break-words">/in/gguerra-code</a>
                             </div>
                         </div>
                     </div>
