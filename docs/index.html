@@ -1,1337 +1,955 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Guerra | Developer - Full Stack & Fintech</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        amber: {
-                            400: "#FFB000",
-                            500: "#FF9500",
-                            600: "#FF7B00",
-                        },
-                        retro: {
-                            bg: "#0A0A0A",
-                            text: "#FFB000",
-                            highlight: "#FF7B00",
-                            border: "#FF9500",
-                            dim: "#888888",
-                        }
-                    },
-                    animation: {
-                        "float": "float 4s ease-in-out infinite",
-                        "fade-in": "fadeIn 0.8s ease-out",
-                        "blink": "blink 1s step-end infinite",
-                        "scanline": "scanline 10s linear infinite",
-                        "glitch": "glitch 3s linear infinite",
-                        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-                    },
-                }
-            }
-        };
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gabriel Guerra · Software Developer · Django, React Native, Next.js</title>
+    <meta name="description"
+        content="Software developer and product engineer based in Santiago, Chile. Backend developer on a production Django platform and founder of Teddy Code, with 9 Android apps and 6 web products live.">
+    <meta name="author" content="Gabriel Guerra">
+    <link rel="canonical" href="https://gaborgr.github.io/">
+    <meta name="theme-color" content="#0a0b0d">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gaborgr.github.io/">
+    <meta property="og:title" content="Gabriel Guerra · Software Developer">
+    <meta property="og:description"
+        content="Fifteen products live: 9 Android apps and 6 web products, built and shipped end to end. Django, React Native, Next.js.">
+    <meta property="og:image" content="https://gaborgr.github.io/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gabriel Guerra · Software Developer">
+    <meta name="twitter:description"
+        content="Fifteen products live: 9 Android apps and 6 web products, built and shipped end to end.">
+    <meta name="twitter:image" content="https://gaborgr.github.io/assets/og.png">
+
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="./assets/styles.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gabriel Guerra",
+        "url": "https://gaborgr.github.io/",
+        "image": "https://gaborgr.github.io/assets/pic.jpg",
+        "jobTitle": "Software Developer",
+        "email": "mailto:gguerra.code@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santiago",
+            "addressCountry": "CL"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Teddy Code LLC",
+            "url": "https://teddy-code.com/"
+        },
+        "knowsLanguage": ["Spanish", "English"],
+        "knowsAbout": ["Python", "Django", "PostgreSQL", "TypeScript", "React Native", "Next.js", "Supabase", "Docker"],
+        "sameAs": [
+            "https://www.linkedin.com/in/gguerra-code/",
+            "https://github.com/gaborgr",
+            "https://teddy-code.com/"
+        ]
+    }
     </script>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
-
-        * {
-            box-sizing: border-box;
-            font-family: "JetBrains Mono", "Courier New", monospace;
-        }
-
-        html,
-        body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            background-color: #0A0A0A;
-            color: #FFB000;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(0deg, rgba(255, 176, 0, 0.02) 0px, rgba(0, 0, 0, 0.2) 2px, transparent 3px);
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 10, 0.4) 100%);
-            pointer-events: none;
-            z-index: 101;
-        }
-
-        .scanline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 0%, rgba(255, 149, 0, 0.06) 50%, transparent 100%);
-            animation: scanline 8s linear infinite;
-            pointer-events: none;
-            z-index: 102;
-        }
-
-        .terminal-window {
-            border: 1px solid #FF9500;
-            box-shadow: 0 0 20px rgba(255, 149, 0, 0.15), inset 0 0 10px rgba(255, 149, 0, 0.1);
-            backdrop-filter: blur(2px);
-        }
-
-        .terminal-header {
-            background: linear-gradient(90deg, #111 0%, #1A1A1A 100%);
-            border-bottom: 1px solid #FF9500;
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-width: 0;
-        }
-
-        .terminal-header span {
-            min-width: 0;
-        }
-
-        .glitch-text {
-            text-shadow: 0.05em 0 0 rgba(255, 123, 0, 0.3), -0.05em -0.025em 0 rgba(0, 0, 0, 0.5);
-            animation: glitch 4s linear infinite;
-        }
-
-        .finance-tag {
-            border: 1px solid #FFB000;
-            background: rgba(255, 176, 0, 0.05);
-            color: #FFB000;
-            transition: all 0.2s;
-        }
-
-        .finance-tag:hover {
-            background: rgba(255, 176, 0, 0.15);
-            border-color: #FF7B00;
-        }
-
-        .project-card {
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid #333;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: #FF9500;
-            box-shadow: 0 10px 25px -5px rgba(255, 149, 0, 0.3);
-        }
-
-        .placeholder-card {
-            border-style: dashed;
-            border-color: rgba(255, 149, 0, 0.35);
-        }
-
-        .placeholder-card:hover {
-            border-color: rgba(255, 176, 0, 0.7);
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background-color: #FF9500;
-            vertical-align: middle;
-            margin-left: 5px;
-            animation: blink 1s infinite;
-        }
-
-        .lang-switch {
-            display: inline-flex;
-            align-items: center;
-            border: 1px solid rgba(255, 149, 0, 0.5);
-            border-radius: 9999px;
-            padding: 0.15rem;
-            background: rgba(0, 0, 0, 0.65);
-            gap: 0.15rem;
-        }
-
-        .lang-switch button {
-            border: 0;
-            background: transparent;
-            color: #FFB000;
-            font-weight: 700;
-            font-size: 0.72rem;
-            letter-spacing: 0.05em;
-            padding: 0.35rem 0.7rem;
-            border-radius: 9999px;
-            transition: all 0.2s;
-        }
-
-        .lang-switch button.active {
-            background: #FF9500;
-            color: #101010;
-        }
-
-        .mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease;
-            border-top: 1px solid rgba(255, 149, 0, 0.2);
-        }
-
-        .mobile-menu.open {
-            max-height: 420px;
-        }
-
-        .nav-brand {
-            max-width: 48vw;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .contact-title {
-            overflow-wrap: anywhere;
-            word-break: break-word;
-        }
-
-        .back-to-top {
-            position: fixed;
-            right: 1rem;
-            bottom: calc(1rem + env(safe-area-inset-bottom));
-            width: 2.5rem;
-            height: 2.5rem;
-            border: 1px solid rgba(255, 149, 0, 0.6);
-            border-radius: 9999px;
-            color: #FFB000;
-            background: rgba(0, 0, 0, 0.75);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-            opacity: 0;
-            transform: translateY(12px);
-            pointer-events: none;
-            transition: opacity 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
-            z-index: 120;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .back-to-top:hover {
-            border-color: rgba(255, 176, 0, 0.9);
-        }
-
-        .back-to-top:focus-visible {
-            outline: 2px solid rgba(255, 176, 0, 0.9);
-            outline-offset: 2px;
-        }
-
-        .tech-logo-card {
-            border: 1px solid rgba(255, 149, 0, 0.25);
-            background: rgba(0, 0, 0, 0.4);
-            transition: all 0.25s;
-        }
-
-        .tech-logo-card:hover {
-            border-color: rgba(255, 176, 0, 0.75);
-            transform: translateY(-3px);
-        }
-
-        .tech-logo {
-            width: auto;
-            height: 28px;
-            object-fit: contain;
-            filter: grayscale(0.1) brightness(0.95);
-        }
-
-        .tech-ticker-wrap {
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            cursor: grab;
-            touch-action: pan-x;
-            user-select: none;
-            border: 1px solid rgba(255, 149, 0, 0.25);
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            background: rgba(0, 0, 0, 0.35);
-        }
-
-        .tech-ticker-wrap::-webkit-scrollbar {
-            display: none;
-        }
-
-        .tech-ticker-track {
-            display: flex;
-            gap: 0.75rem;
-            width: max-content;
-            align-items: stretch;
-        }
-
-        .tech-ticker-item {
-            min-width: 142px;
-            max-width: 142px;
-            border: 1px solid rgba(255, 149, 0, 0.25);
-            background: rgba(0, 0, 0, 0.45);
-            border-radius: 0.5rem;
-            padding: 0.75rem 0.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            text-align: center;
-        }
-
-        @media (min-width: 640px) {
-            .nav-brand {
-                max-width: none;
-            }
-        }
-
-        @media (max-width: 639px) {
-            .terminal-header {
-                padding: 0.5rem 0.75rem;
-            }
-
-            .terminal-header span {
-                font-size: 0.66rem;
-                line-height: 1.25;
-                overflow-wrap: anywhere;
-            }
-
-            .cursor {
-                height: 16px;
-            }
-
-            .tech-logo {
-                height: 24px;
-            }
-        }
-
-        @keyframes blink {
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        @keyframes scanline {
-            0% {
-                transform: translateY(-100%);
-            }
-
-            100% {
-                transform: translateY(100%);
-            }
-        }
-
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        @keyframes glitch {
-            0%,
-            100% {
-                transform: translate(0, 0);
-            }
-
-            20% {
-                transform: translate(-1px, 1px);
-            }
-
-            40% {
-                transform: translate(1px, -1px);
-            }
-
-            60% {
-                transform: translate(-1px, 0);
-            }
-
-            80% {
-                transform: translate(1px, 1px);
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
 </head>
-<body class="relative z-0">
-    <div class="scanline"></div>
 
-    <nav class="fixed w-full top-0 z-50 bg-retro-bg/80 backdrop-blur-md border-b border-retro-border/30">
-        <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center gap-3">
-            <div class="nav-brand text-base sm:text-xl font-bold">
-                <span class="text-amber-500">></span> GABRIEL<span class="text-amber-600">_GUERRA</span>
+<body>
+    <a class="skip-link" href="#work" data-i18n="a11y.skip">Skip to the work</a>
+
+    <nav class="nav" id="nav">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#top">
+                <span class="brand-mark">GG</span>
+                <span>Gabriel Guerra</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#work" data-i18n="nav.work">Work</a>
+                <a href="#experience" data-i18n="nav.experience">Experience</a>
+                <a href="#how" data-i18n="nav.how">How I build</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
             </div>
 
-            <div class="hidden md:flex space-x-6 lg:space-x-8 text-xs lg:text-sm tracking-wider">
-                <a href="#expertise" class="hover:text-amber-400 transition" data-i18n="nav.stack">[stack]</a>
-                <a href="#solutions" class="hover:text-amber-400 transition" data-i18n="nav.solutions">[solutions]</a>
-                <a href="#finance-bg" class="hover:text-amber-400 transition" data-i18n="nav.fintech">[fintech]</a>
-                <a href="#contact" class="hover:text-amber-400 transition" data-i18n="nav.contact">[connect]</a>
-            </div>
-
-            <div class="hidden md:flex items-center gap-3">
-                <div class="lang-switch" role="group" aria-label="Language switch">
-                    <button type="button" data-lang-button="en">EN</button>
-                    <button type="button" data-lang-button="es">ES</button>
+            <div class="nav-right">
+                <div class="lang" role="group" aria-label="Language">
+                    <button type="button" data-lang="en">EN</button>
+                    <button type="button" data-lang="es">ES</button>
                 </div>
-            </div>
-
-            <div class="md:hidden flex items-center gap-2">
-                <div class="lang-switch" role="group" aria-label="Language switch mobile">
-                    <button type="button" data-lang-button="en">EN</button>
-                    <button type="button" data-lang-button="es">ES</button>
-                </div>
-                <button class="mobile-menu-btn text-amber-500" aria-label="Open menu" aria-expanded="false" data-i18n-aria-label="a11y.openMenu">
-                    <i class="fas fa-terminal text-2xl"></i>
+                <a class="btn btn-ghost btn-sm" href="./cv/gabriel-guerra-cv.pdf" target="_blank" rel="noopener"
+                    data-i18n="nav.cv">CV</a>
+                <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu"
+                    aria-label="Open menu" data-i18n-aria-label="a11y.menu">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M3 6h18M3 12h18M3 18h18" />
+                    </svg>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-black/95 px-6">
-            <div class="py-4 flex flex-col gap-4 text-sm tracking-wider">
-                <a href="#expertise" class="hover:text-amber-400 transition" data-mobile-link data-i18n="nav.stack">[stack]</a>
-                <a href="#solutions" class="hover:text-amber-400 transition" data-mobile-link data-i18n="nav.solutions">[solutions]</a>
-                <a href="#finance-bg" class="hover:text-amber-400 transition" data-mobile-link data-i18n="nav.fintech">[fintech]</a>
-                <a href="#contact" class="hover:text-amber-400 transition" data-mobile-link data-i18n="nav.contact">[connect]</a>
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="wrap">
+                <a href="#work" data-mobile data-i18n="nav.work">Work</a>
+                <a href="#experience" data-mobile data-i18n="nav.experience">Experience</a>
+                <a href="#how" data-mobile data-i18n="nav.how">How I build</a>
+                <a href="#contact" data-mobile data-i18n="nav.contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="terminal-window bg-black/50 p-6 md:p-10 rounded-lg relative overflow-hidden">
-                <div class="absolute top-0 right-0 text-amber-600/10 text-7xl md:text-9xl font-bold select-none">{/}</div>
-
-                <div class="flex flex-col md:flex-row items-center gap-10">
-                    <div class="md:w-1/3 flex justify-center">
-                        <div class="w-52 h-52 md:w-72 md:h-72 rounded-full border-2 border-amber-500 p-1 animate-float">
-                            <div class="w-full h-full rounded-full border border-amber-600/50 overflow-hidden bg-gradient-to-b from-amber-900/20 to-black">
-                                <img src="./assets/pic.jpg" alt="Gabriel Guerra" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500">
-                            </div>
-                        </div>
+    <header class="hero" id="top">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <div class="status">
+                        <span class="dot"></span>
+                        <span data-i18n="hero.status">Open to remote roles · Santiago, Chile (UTC-3) · EN / ES</span>
                     </div>
 
-                    <div class="md:w-2/3 text-center md:text-left">
-                        <div class="inline-block px-3 py-1 border border-amber-500/50 rounded-full text-xs mb-4 bg-black/50">
-                            <span class="text-amber-400">$></span>
-                            <span data-i18n="hero.system">SYSTEM ACTIVE: FULL STACK & FINTECH</span>
-                        </div>
+                    <h1 data-i18n-html="hero.title">Fifteen products live.<br><span class="hl">Built and shipped by
+                            me.</span></h1>
 
-                        <h1 class="text-4xl md:text-6xl font-bold mb-2 glitch-text">Gabriel Guerra</h1>
+                    <p class="hero-lead" data-i18n-html="hero.lead">I am a software developer working on a production
+                        <strong>Django</strong> platform at Syzlab, and the founder of <strong>Teddy Code</strong>,
+                        where I have released 9 Android apps and 6 web products in the last 12 months. Before software I
+                        spent nearly 18 years in audit and finance, up to Controller, which is why I ask what a feature
+                        does to the business before asking how to build it.
+                    </p>
 
-                        <h2 class="text-xl md:text-2xl mb-4 text-amber-400/90 flex flex-wrap items-center gap-2 justify-center md:justify-start">
-                            <span class="text-amber-600">></span>
-                            <span data-i18n="hero.role">Developer of Scalable Solutions</span>
-                            <span class="cursor"></span>
-                        </h2>
-
-                        <p class="text-gray-300 mb-6 text-sm md:text-base leading-relaxed border-l-2 border-amber-700 pl-4" data-i18n-html="hero.description">
-                            Product-focused developer building web and mobile solutions with pragmatic execution.<br class="hidden md:block"><span class="text-amber-400">>></span> SHIPPED: 8 apps live on Google Play and 5 web products in production, built end-to-end as founder of Teddy Code studio.<br class="hidden md:block"><span class="text-amber-400">>></span> FINANCE BACKGROUND: I do not just ship software, I understand the business layer behind every technical decision.
-                        </p>
-
-                        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                            <a href="#solutions" class="bg-amber-600 hover:bg-amber-500 text-black font-bold py-3 px-6 rounded transition flex items-center gap-2">
-                                <i class="fas fa-code-branch"></i>
-                                <span data-i18n="hero.ctaSolutions">VIEW SOLUTIONS</span>
-                            </a>
-                            <a href="#finance-bg" class="border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-black font-bold py-3 px-6 rounded transition flex items-center gap-2">
-                                <i class="fas fa-chart-line"></i>
-                                <span data-i18n="hero.ctaFintech">FINTECH PROFILE</span>
-                            </a>
-                        </div>
+                    <div class="hero-cta">
+                        <a class="btn btn-primary" href="#work">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                            <span data-i18n="hero.ctaWork">See the work</span>
+                        </a>
+                        <a class="btn btn-ghost" href="./cv/gabriel-guerra-cv.pdf" target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" />
+                            </svg>
+                            <span data-i18n="hero.ctaCv">Download CV</span>
+                        </a>
                     </div>
                 </div>
+
+                <div class="portrait">
+                    <img src="./assets/pic.jpg" alt="Gabriel Guerra" width="300" height="300">
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-n">9</div>
+                    <div class="stat-l" data-i18n="stats.apps">Android apps live on Google Play</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n">6</div>
+                    <div class="stat-l" data-i18n="stats.web">Web products in production</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n">12</div>
+                    <div class="stat-l" data-i18n="stats.months">Months to ship all of it</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n">1</div>
+                    <div class="stat-l" data-i18n="stats.job">Full-time engineering job in parallel</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="stack">
+        <div class="wrap">
+            <div class="eyebrow" data-i18n="stack.title">Daily stack</div>
+            <div class="stack-row">
+                <span class="chip"><img src="./assets/logos/python.svg" alt="" loading="lazy">Python</span>
+                <span class="chip"><img src="./assets/logos/django.svg" alt="" loading="lazy">Django</span>
+                <span class="chip"><img src="./assets/logos/postgresql.svg" alt="" loading="lazy">PostgreSQL</span>
+                <span class="chip"><img src="./assets/logos/javascript.svg" alt="" loading="lazy">JavaScript</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">React Native</span>
+                <span class="chip"><img src="./assets/logos/expo.svg" alt="" loading="lazy">Expo</span>
+                <span class="chip">Next.js</span>
+                <span class="chip"><img src="./assets/logos/supabase.svg" alt="" loading="lazy">Supabase</span>
+                <span class="chip"><img src="./assets/logos/docker.svg" alt="" loading="lazy">Docker</span>
+                <span class="chip"><img src="./assets/logos/redis.svg" alt="" loading="lazy">Redis</span>
+                <span class="chip"><img src="./assets/logos/aws_light.svg" alt="" loading="lazy">AWS S3</span>
+                <span class="chip"><img src="./assets/logos/vercel.svg" alt="" loading="lazy">Vercel</span>
+                <span class="chip"><img src="./assets/logos/cloudflare.svg" alt="" loading="lazy">Cloudflare</span>
+                <span class="chip"><img src="./assets/logos/tailwindcss.svg" alt="" loading="lazy">Tailwind</span>
+                <span class="chip"><img src="./assets/logos/git.svg" alt="" loading="lazy">Git</span>
             </div>
         </div>
     </section>
 
-    <section id="expertise" class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="terminal-window bg-black/40 p-6 md:p-8 rounded-lg">
-                <div class="terminal-header mb-6">
-                    <div class="flex gap-2 mr-4">
-                        <div class="w-3 h-3 rounded-full bg-amber-600"></div>
-                        <div class="w-3 h-3 rounded-full bg-amber-600/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-amber-600/20"></div>
+    <section id="work">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div class="eyebrow" data-i18n="work.eyebrow">Selected work</div>
+                <h2 data-i18n="work.title">Products you can open right now</h2>
+                <p data-i18n="work.subtitle">Every product below is live, public and was designed, built and released by
+                    me under Teddy Code. No mockups, no case studies of work that never shipped.</p>
+            </div>
+
+            <article class="feature reveal">
+                <div class="feature-shot phone">
+                    <img src="./assets/shots/playro-app.webp" alt="Playro app screen" loading="lazy" width="460"
+                        height="954">
+                </div>
+                <div class="feature-body">
+                    <div class="kicker">
+                        <span class="badge-live" data-i18n="badge.play">LIVE ON GOOGLE PLAY</span>
+                        <span data-i18n="work.playroKicker">Social product · Mobile + web</span>
                     </div>
-                    <span class="text-xs text-amber-500">gabriel@dev:~$ cat skills_stack.conf</span>
+                    <h3>Playro</h3>
+                    <p data-i18n="work.playroDesc">Social matchmaking for gamers: find teammates by game, platform,
+                        language and playstyle, then chat before jumping into a lobby.</p>
+                    <p data-i18n="work.playroTech">Full product cycle on my own: definition, UI design, React Native
+                        app, Supabase backend with row level security, push notifications, store assets and the release
+                        pipeline. The web counterpart runs against the same production backend.</p>
+                    <div class="tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Expo</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">RLS</span>
+                        <span class="tag">Push</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.playro"
+                            target="_blank" rel="noopener">Google Play</a>
+                        <a class="link" href="https://playro.app/" target="_blank" rel="noopener">playro.app</a>
+                        <a class="link" href="https://web.playro.app/" target="_blank"
+                            rel="noopener">web.playro.app</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature flip reveal">
+                <div class="feature-shot browser">
+                    <img src="./assets/shots/qualipath.webp" alt="QualiPath home page" loading="lazy" width="1200"
+                        height="750">
+                </div>
+                <div class="feature-body">
+                    <div class="kicker">
+                        <span class="badge-live" data-i18n="badge.web">LIVE ON THE WEB</span>
+                        <span data-i18n="work.qualipathKicker">Decision engine · Verified data</span>
+                    </div>
+                    <h3>QualiPath</h3>
+                    <p data-i18n="work.qualipathDesc">Tell it your profession, where you qualified and where you want to
+                        work, and it returns the competent authority, the documents, the fees and the work permit route.
+                    </p>
+                    <p data-i18n="work.qualipathTech">83 verified routes across 18 destinations. Every requirement is
+                        linked to its official source with the date it was checked, so the answer can be audited instead
+                        of trusted. Structured data and SEO built in from the first commit.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Structured data</span>
+                        <span class="tag">SEO</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://qualipath.co/" target="_blank" rel="noopener">qualipath.co</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature reveal">
+                <div class="feature-shot browser">
+                    <img src="./assets/shots/hallazgo.webp" alt="Hallazgo home page" loading="lazy" width="1200"
+                        height="750">
+                </div>
+                <div class="feature-body">
+                    <div class="kicker">
+                        <span class="badge-live" data-i18n="badge.web">LIVE ON THE WEB</span>
+                        <span data-i18n="work.hallazgoKicker">Editorial · Automated pipeline</span>
+                    </div>
+                    <h3>Hallazgo</h3>
+                    <p data-i18n="work.hallazgoDesc">A daily Spanish-language magazine of verified global opportunities:
+                        migration, housing, funding and tech programs.</p>
+                    <p data-i18n="work.hallazgoTech">The interesting part is not the site, it is the pipeline behind it.
+                        An AI agent runs headless on a schedule, researches, and publishes straight to the database.
+                        Incremental static regeneration picks it up, so there is no deploy per article and no human in
+                        the loop for a normal day.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">ISR</span>
+                        <span class="tag">Claude API</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://hallazgo.app/" target="_blank" rel="noopener">hallazgo.app</a>
+                    </div>
+                </div>
+            </article>
+
+            <div class="section-head reveal" style="margin-top:48px">
+                <div class="eyebrow" data-i18n="work.moreEyebrow">The rest of the catalogue</div>
+                <h2 data-i18n="work.moreTitle">Eleven more products in production</h2>
+            </div>
+
+            <div class="grid-cards">
+                <article class="card reveal">
+                    <div class="card-shot"><img src="./assets/shots/stusher-app.webp" alt="Stusher screenshot" loading="lazy"></div>
+                    <div class="card-head">
+                        <img src="./assets/apps/stusher-icon.png" alt="Stusher icon" loading="lazy">
+                        <div>
+                            <h3>Stusher</h3>
+                            <div class="contact-k" data-i18n="badge.play">LIVE ON GOOGLE PLAY</div>
+                        </div>
+                    </div>
+                    <p data-i18n="cards.stusher">Three personalized movie and series picks in 30 seconds, based on the
+                        streaming services you already pay for. Serverless Edge Functions keep the API keys out of the
+                        client bundle.</p>
+                    <div class="tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Expo</span>
+                        <span class="tag">Edge Functions</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.stusher"
+                            target="_blank" rel="noopener">Google Play</a>
+                        <a class="link" href="https://stusher.app/" target="_blank" rel="noopener">stusher.app</a>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-shot"><img src="./assets/shots/channelberry.webp" alt="ChannelBerry screenshot" loading="lazy"></div>
+                    <div class="card-head">
+                        <div>
+                            <h3>ChannelBerry</h3>
+                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                        </div>
+                    </div>
+                    <p data-i18n="cards.channelberry">An editorial guide to YouTube: 93 channels reviewed by hand and
+                        published in 5 languages, on a git-versioned catalogue plus the YouTube Data API with ISR
+                        caching to stay inside the free quota.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">YouTube API</span>
+                        <span class="tag">i18n</span>
+                        <span class="tag">ISR</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://channelberry.com/" target="_blank"
+                            rel="noopener">channelberry.com</a>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-shot"><img src="./assets/shots/quecalifico.webp" alt="QueCalifico screenshot" loading="lazy"></div>
+                    <div class="card-head">
+                        <div>
+                            <h3>QueCalifico</h3>
+                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                        </div>
+                    </div>
+                    <p data-i18n="cards.quecalifico">A financial eligibility engine for people living in the United
+                        States without a Social Security Number. Compares cards, loans and accounts across 48
+                        institutions, each requirement traced to its source. Fully static, no backend to pay for.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Static export</span>
+                        <span class="tag">Tailwind</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://quecalifico.com/" target="_blank"
+                            rel="noopener">quecalifico.com</a>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-shot"><img src="./assets/shots/fadechats.webp" alt="FadeChats screenshot" loading="lazy"></div>
+                    <div class="card-head">
+                        <div>
+                            <h3>FadeChats</h3>
+                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                        </div>
+                    </div>
+                    <p data-i18n="cards.fadechats">A disposable chat for two people with no signup. Peer to peer over
+                        WebRTC, so message content never touches a server and the room disappears when it ends.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">WebRTC</span>
+                        <span class="tag">TypeScript</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://fadechats.app/" target="_blank" rel="noopener">fadechats.app</a>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-shot"><img src="./assets/shots/playroweb.webp" alt="Playro Web screenshot" loading="lazy"></div>
+                    <div class="card-head">
+                        <img src="./assets/apps/playro-icon.png" alt="Playro icon" loading="lazy">
+                        <div>
+                            <h3>Playro Web</h3>
+                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                        </div>
+                    </div>
+                    <p data-i18n="cards.playroweb">The web counterpart of the Playro app, sharing the same production
+                        Supabase backend and the same row level security policies as the mobile client.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">RLS</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://web.playro.app/" target="_blank"
+                            rel="noopener">web.playro.app</a>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-head">
+                        <div>
+                            <h3 data-i18n="cards.utilitiesTitle">Seven utility apps</h3>
+                            <div class="contact-k" data-i18n="badge.play7">7 APPS LIVE ON GOOGLE PLAY</div>
+                        </div>
+                    </div>
+                    <div class="icon-row">
+                        <img src="./assets/apps/decibra-icon.png" alt="Decibra icon" loading="lazy">
+                        <img src="./assets/apps/magniyo-icon.png" alt="Magniyo icon" loading="lazy">
+                        <img src="./assets/apps/osito-icon.png" alt="Osito icon" loading="lazy">
+                        <img src="./assets/apps/arrullo-icon.png" alt="Arrullo icon" loading="lazy">
+                        <img src="./assets/apps/avicalma-icon.png" alt="AviCalma icon" loading="lazy">
+                        <img src="./assets/apps/tiltza-icon.png" alt="Tiltza icon" loading="lazy">
+                        <img src="./assets/apps/wheelza-icon.png" alt="Wheelza icon" loading="lazy">
+                    </div>
+                    <p data-i18n="cards.utilities">Decibra (sound meter), Magniyo (magnifier), Osito (baby log), Arrullo
+                        (sleep sounds, procedurally generated audio), AviCalma (fear of flying, bilingual), Tiltza
+                        (bubble level) and Wheelza (decision wheel). All offline-first, all on one shared release
+                        pipeline.</p>
+                    <div class="tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Expo</span>
+                        <span class="tag">MMKV</span>
+                        <span class="tag">EAS CI/CD</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://play.google.com/store/apps/developer?id=Teddy+Code+Studios"
+                            target="_blank" rel="noopener" data-i18n="cards.allApps">All apps on Google Play</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div class="eyebrow" data-i18n="exp.eyebrow">Experience</div>
+                <h2 data-i18n="exp.title">Production code, and a business background under it</h2>
+            </div>
+
+            <div class="exp">
+                <article class="exp-card reveal">
+                    <div class="exp-top">
+                        <h3>Syzlab</h3>
+                        <span class="exp-when" data-i18n="exp.syzlabWhen">Dec 2025 · present</span>
+                    </div>
+                    <div class="exp-role" data-i18n="exp.syzlabRole">Backend Developer</div>
+                    <div class="exp-meta" data-i18n="exp.syzlabMeta">Consumer dating platform in production · Django,
+                        JavaScript, HTMX, WebSockets, PostgreSQL, AWS S3, Docker</div>
+                    <ul>
+                        <li data-i18n="exp.syzlab1">Built an A/B testing system end to end: live user split by variant,
+                            tracking of conversion, behaviour, cancellations and revenue per group, and reports the team
+                            can actually read.</li>
+                        <li data-i18n="exp.syzlab2">Shipped a reported-image control using SHA-256 and perceptual
+                            hashing to catch repeat uploads and flag suspicious profiles.</li>
+                        <li data-i18n="exp.syzlab3">Built Ghost Mode, an internal survey manager and the support
+                            helpdesk workflow inside an existing codebase.</li>
+                        <li data-i18n="exp.syzlab4">Work across backend, frontend, data models, testing, deployment and
+                            production troubleshooting. English at work, every day.</li>
+                    </ul>
+                    <div class="callout">
+                        <div class="callout-title" data-i18n="exp.calloutTitle">What that A/B system taught me</div>
+                        <p data-i18n="exp.callout">I tested giving the location filter away for free, expecting an easy
+                            win. Engagement went up and revenue went down. The test did not just pick a winner, it
+                            proved the filter was something people would pay for instead of a nice to have. Happy users
+                            and a healthy business are two different metrics.</p>
+                    </div>
+                </article>
+
+                <article class="exp-card reveal">
+                    <div class="exp-top">
+                        <h3>Teddy Code LLC</h3>
+                        <span class="exp-when" data-i18n="exp.teddyWhen">Sep 2025 · present</span>
+                    </div>
+                    <div class="exp-role" data-i18n="exp.teddyRole">Founder and Software Developer</div>
+                    <div class="exp-meta" data-i18n="exp.teddyMeta">React Native, Expo, Next.js, TypeScript, Supabase,
+                        EAS cloud builds, Vercel, Cloudflare</div>
+                    <ul>
+                        <li data-i18n="exp.teddy1">Nine Android apps and six web products released, each one from idea
+                            to store listing or production domain, after hours and next to a full-time job.</li>
+                        <li data-i18n="exp.teddy2">One shared release pipeline across the mobile catalogue: EAS cloud
+                            builds, versioned store assets, in-app legal pages mirrored on the web.</li>
+                        <li data-i18n="exp.teddy3">Product decisions included: what to build, what to cut, what to
+                            monetize and when a product is not worth finishing.</li>
+                    </ul>
+                </article>
+
+                <article class="exp-compact reveal">
+                    <div class="exp-top">
+                        <h3 data-i18n="exp.financeTitle">Audit, accounting and finance</h3>
+                        <span class="exp-when">2006 · 2024</span>
+                    </div>
+                    <p data-i18n="exp.financeBody">Controller and Head of Accounting at GL Events Chile, and before that
+                        roles at Bupa, Edelcta, CMPC, Unilever, PDVSA Industrial, UHY International and KPMG, where I
+                        started as an auditor. I built a finance team from scratch, wrote its procedures, ran ERP
+                        migrations and reported to people who only cared about the number at the end. That is the part
+                        that does not show up in a git history and shows up in every technical decision.</p>
+                    <div class="tags">
+                        <span class="tag" data-i18n="exp.tag1">Business impact</span>
+                        <span class="tag" data-i18n="exp.tag2">Internal controls</span>
+                        <span class="tag" data-i18n="exp.tag3">IFRS and compliance</span>
+                        <span class="tag" data-i18n="exp.tag4">Team leadership</span>
+                        <span class="tag" data-i18n="exp.tag5">Stakeholder reporting</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="how" id="how">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div class="eyebrow" data-i18n="how.eyebrow">How I build</div>
+                <h2 data-i18n="how.title">Coding agents, used the way a lead uses a team</h2>
+                <p data-i18n="how.subtitle">Fifteen products in twelve months next to a full-time job only works with
+                    agents in the loop. It works because of how I use them, not because they write code while I look
+                    away.</p>
+            </div>
+
+            <div class="how-grid">
+                <article class="how-item reveal">
+                    <h3><span class="how-num">01</span><span data-i18n="how.t1">Plan first</span></h3>
+                    <p data-i18n="how.d1">Architecture, scope and data model are decided before a single line is
+                        generated. The agent implements a plan, it does not invent one.</p>
+                </article>
+                <article class="how-item reveal">
+                    <h3><span class="how-num">02</span><span data-i18n="how.t2">Small diffs</span></h3>
+                    <p data-i18n="how.d2">One change at a time, reviewed line by line. A diff I cannot explain does not
+                        get merged, no matter how well it runs.</p>
+                </article>
+                <article class="how-item reveal">
+                    <h3><span class="how-num">03</span><span data-i18n="how.t3">I own the result</span></h3>
+                    <p data-i18n="how.d3">If it breaks in production it is mine. I read what ships, I debug it myself
+                        and I can defend every decision in a review.</p>
+                </article>
+                <article class="how-item reveal">
+                    <h3><span class="how-num">04</span><span data-i18n="how.t4">In production, not just in my
+                            editor</span></h3>
+                    <p data-i18n="how.d4">The Claude API runs inside Hallazgo's publishing pipeline, MCP servers and
+                        headless automation handle the repetitive parts, and CI on EAS and Vercel ships the rest.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
+                <h2 data-i18n="contact.title">Looking for a remote engineering role</h2>
+                <p data-i18n="contact.subtitle">Product engineering, backend or full-stack, in a team that ships. I work
+                    from Santiago, Chile (UTC-3), with comfortable overlap for the Americas and most of Europe, and I
+                    can be hired as a contractor, through an EOR or B2B. I work in Spanish and English.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-list">
+                        <a class="contact-item" href="mailto:gguerra.code@gmail.com">
+                            <span class="contact-ico">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m2 7 10 6 10-6" />
+                                </svg>
+                            </span>
+                            <span>
+                                <span class="contact-k" data-i18n="contact.email">Email</span>
+                                <span class="contact-v">gguerra.code@gmail.com</span>
+                            </span>
+                        </a>
+                        <a class="contact-item" href="https://www.linkedin.com/in/gguerra-code/" target="_blank"
+                            rel="noopener">
+                            <span class="contact-ico">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24H.24Zm7.5 0h4.31v2.15h.06a4.72 4.72 0 0 1 4.25-2.33c4.55 0 5.39 3 5.39 6.86V24h-4.5v-7.17c0-1.71-.03-3.9-2.38-3.9-2.38 0-2.74 1.86-2.74 3.78V24h-4.5Z" />
+                                </svg>
+                            </span>
+                            <span>
+                                <span class="contact-k">LinkedIn</span>
+                                <span class="contact-v">/in/gguerra-code</span>
+                            </span>
+                        </a>
+                        <a class="contact-item" href="https://github.com/gaborgr" target="_blank" rel="noopener">
+                            <span class="contact-ico">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.15v3.19c0 .31.21.67.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z" />
+                                </svg>
+                            </span>
+                            <span>
+                                <span class="contact-k">GitHub</span>
+                                <span class="contact-v">/gaborgr</span>
+                            </span>
+                        </a>
+                        <a class="contact-item" href="./cv/gabriel-guerra-cv.pdf" target="_blank" rel="noopener">
+                            <span class="contact-ico">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 3v5h5M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" />
+                                </svg>
+                            </span>
+                            <span>
+                                <span class="contact-k" data-i18n="contact.cvLabel">Resume</span>
+                                <span class="contact-v" data-i18n="contact.cvValue">Download the CV in PDF</span>
+                            </span>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <form action="https://formspree.io/f/xblkyrbq" method="POST">
                     <div>
-                        <h3 class="text-2xl font-bold text-amber-400 mb-4 flex items-center">
-                            <i class="fas fa-server mr-3 text-sm"></i>
-                            <span data-i18n="expertise.engineeringTitle">SOFTWARE ENGINEERING</span>
-                        </h3>
-                        <p class="text-gray-300 mb-4 text-sm leading-relaxed" data-i18n="expertise.engineeringIntro">
-                            I focus on shipping reliable products and improving depth through real client and personal builds.
-                        </p>
-                        <div class="space-y-3 text-sm">
-                            <div class="border border-amber-500/25 rounded bg-black/30 p-4">
-                                <h4 class="font-bold text-amber-300 mb-1" data-i18n="expertise.scope1Title">Full Stack Product Delivery</h4>
-                                <p class="text-gray-400" data-i18n="expertise.scope1Desc">Build and iterate web products with clear architecture, practical UX, and maintainable backend flows.</p>
-                            </div>
-                            <div class="border border-amber-500/25 rounded bg-black/30 p-4">
-                                <h4 class="font-bold text-amber-300 mb-1" data-i18n="expertise.scope2Title">Mobile App Execution</h4>
-                                <p class="text-gray-400" data-i18n="expertise.scope2Desc">Develop React Native + Expo experiences with production-minded navigation, state, and platform polish.</p>
-                            </div>
-                            <div class="border border-amber-500/25 rounded bg-black/30 p-4">
-                                <h4 class="font-bold text-amber-300 mb-1" data-i18n="expertise.scope3Title">Data & Integrations</h4>
-                                <p class="text-gray-400" data-i18n="expertise.scope3Desc">Design relational data models, connect third-party APIs, and keep data flows predictable.</p>
-                            </div>
-                            <div class="border border-amber-500/25 rounded bg-black/30 p-4">
-                                <h4 class="font-bold text-amber-300 mb-1" data-i18n="expertise.scope4Title">Cloud & Deployment Growth</h4>
-                                <p class="text-gray-400" data-i18n="expertise.scope4Desc">Ship with Docker and modern hosting while continuously strengthening CI/CD and cloud operations.</p>
-                            </div>
-                        </div>
+                        <label for="name" data-i18n="contact.nameLabel">Your name</label>
+                        <input id="name" type="text" name="name" required data-i18n-placeholder="contact.namePh"
+                            placeholder="Jane Doe">
                     </div>
-
-                    <div class="border-t md:border-l md:border-t-0 border-amber-500/30 md:pl-8 pt-6 md:pt-0">
-                        <h3 class="text-2xl font-bold text-amber-400 mb-4 flex items-center">
-                            <i class="fas fa-brain mr-3 text-sm"></i>
-                            <span data-i18n="expertise.strategyTitle">STRATEGIC STACK</span>
-                        </h3>
-                        <p class="text-gray-300 mb-4 text-sm leading-relaxed" data-i18n-html="expertise.differentiator">
-                            <span class="text-amber-500">></span> Core differentiation: <strong>Business Logic + Clean Code</strong>.
-                        </p>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-start gap-2">
-                                <span class="text-amber-500 mt-1">>></span>
-                                <span data-i18n-html="expertise.bullet1"><strong class="text-amber-300">Real scalability:</strong> I design systems for tomorrow's traffic, not just today's MVP.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-amber-500 mt-1">>></span>
-                                <span data-i18n-html="expertise.bullet2"><strong class="text-amber-300">Team delivery:</strong> Agile workflows, code reviews, and smooth collaboration across product and engineering.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-amber-500 mt-1">>></span>
-                                <span data-i18n-html="expertise.bullet3"><strong class="text-amber-300">Embedded finance mindset:</strong> I understand KPIs, ROI, and operational efficiency. I can speak both CFO and CTO language.</span>
-                            </li>
-                        </ul>
-                        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            <div class="finance-tag rounded text-center py-1 text-xs" data-i18n="expertise.tag1">Data Analysis</div>
-                            <div class="finance-tag rounded text-center py-1 text-xs" data-i18n="expertise.tag2">Financial Modeling</div>
-                            <div class="finance-tag rounded text-center py-1 text-xs" data-i18n="expertise.tag3">ERP / CRM</div>
-                            <div class="finance-tag rounded text-center py-1 text-xs" data-i18n="expertise.tag4">SAP (Power User)</div>
-                            <div class="finance-tag rounded text-center py-1 text-xs" data-i18n="expertise.tag5">Automation (RPA)</div>
-                            <div class="finance-tag rounded text-center py-1 text-xs" data-i18n="expertise.tag6">Forecasting</div>
-                        </div>
+                    <div>
+                        <label for="email" data-i18n="contact.emailLabel">Email</label>
+                        <input id="email" type="email" name="email" required data-i18n-placeholder="contact.emailPh"
+                            placeholder="jane@company.com">
                     </div>
-                </div>
+                    <div>
+                        <label for="message" data-i18n="contact.msgLabel">Message</label>
+                        <textarea id="message" name="message" rows="4" required data-i18n-placeholder="contact.msgPh"
+                            placeholder="Role, team and what you are building"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit" data-i18n="contact.send">Send message</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <section id="tech-stack" class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="terminal-window bg-black/45 p-6 md:p-8 rounded-lg">
-                <div class="terminal-header mb-6">
-                    <div class="flex gap-2 mr-4">
-                        <div class="w-3 h-3 rounded-full bg-amber-600"></div>
-                        <div class="w-3 h-3 rounded-full bg-amber-600/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-amber-600/20"></div>
-                    </div>
-                    <span class="text-xs text-amber-500">gabriel@dev:~$ ls ./assets/logos --skill-audit</span>
-                </div>
-
-                <div class="flex items-center gap-4 mb-4">
-                    <h2 class="text-2xl md:text-3xl font-bold text-amber-400" data-i18n="tech.title">> TECHNOLOGY TOOLING_</h2>
-                    <div class="h-px flex-grow bg-gradient-to-r from-amber-500/50 to-transparent"></div>
-                </div>
-                <p class="text-sm text-gray-300 mb-6" data-i18n="tech.subtitle">Stack observed across current product work: web apps, mobile apps, data layers, cloud infrastructure, and deployment tooling.</p>
-
-                <div class="sm:hidden mb-2">
-                    <p class="text-[11px] text-amber-400/80 mb-3" data-i18n="tech.mobileHint">[ drag or swipe to scan stack ]</p>
-                    <div id="tech-ticker-wrap" class="tech-ticker-wrap" aria-label="Technology stack ticker">
-                        <div id="tech-ticker-track" class="tech-ticker-track">
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/javascript.svg" alt="JavaScript logo"><span class="text-xs text-amber-300">JavaScript</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/python.svg" alt="Python logo"><span class="text-xs text-amber-300">Python</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/django.svg" alt="Django logo"><span class="text-xs text-amber-300">Django</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/expo.svg" alt="Expo logo"><span class="text-xs text-amber-300">Expo</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/docker.svg" alt="Docker logo"><span class="text-xs text-amber-300">Docker</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/tailwindcss.svg" alt="Tailwind CSS logo"><span class="text-xs text-amber-300">Tailwind</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/postgresql.svg" alt="PostgreSQL logo"><span class="text-xs text-amber-300">PostgreSQL</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/sqlite.svg" alt="SQLite logo"><span class="text-xs text-amber-300">SQLite</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/redis.svg" alt="Redis logo"><span class="text-xs text-amber-300">Redis</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/supabase.svg" alt="Supabase logo"><span class="text-xs text-amber-300">Supabase</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/stripe_wordmark.svg" alt="Stripe logo"><span class="text-xs text-amber-300">Stripe</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/vercel_dark.svg" alt="Vercel logo"><span class="text-xs text-amber-300">Vercel</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/aws_light.svg" alt="AWS logo"><span class="text-xs text-amber-300">AWS</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/cloudflare.svg" alt="Cloudflare logo"><span class="text-xs text-amber-300">Cloudflare</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/git.svg" alt="Git logo"><span class="text-xs text-amber-300">Git</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/github_dark.svg" alt="GitHub logo"><span class="text-xs text-amber-300">GitHub</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/google-cloud.svg" alt="Google Cloud logo"><span class="text-xs text-amber-300">Google Cloud</span></div>
-                            <div class="tech-ticker-item"><img class="tech-logo" src="./assets/logos/bash_dark.svg" alt="Bash logo"><span class="text-xs text-amber-300">Bash</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hidden sm:grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/javascript.svg" alt="JavaScript logo"><span class="text-xs text-amber-300">JavaScript</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/python.svg" alt="Python logo"><span class="text-xs text-amber-300">Python</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/django.svg" alt="Django logo"><span class="text-xs text-amber-300">Django</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/expo.svg" alt="Expo logo"><span class="text-xs text-amber-300">Expo</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/docker.svg" alt="Docker logo"><span class="text-xs text-amber-300">Docker</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/tailwindcss.svg" alt="Tailwind CSS logo"><span class="text-xs text-amber-300">Tailwind</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/postgresql.svg" alt="PostgreSQL logo"><span class="text-xs text-amber-300">PostgreSQL</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/sqlite.svg" alt="SQLite logo"><span class="text-xs text-amber-300">SQLite</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/redis.svg" alt="Redis logo"><span class="text-xs text-amber-300">Redis</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/supabase.svg" alt="Supabase logo"><span class="text-xs text-amber-300">Supabase</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/stripe_wordmark.svg" alt="Stripe logo"><span class="text-xs text-amber-300">Stripe</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/vercel_dark.svg" alt="Vercel logo"><span class="text-xs text-amber-300">Vercel</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/aws_light.svg" alt="AWS logo"><span class="text-xs text-amber-300">AWS</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/cloudflare.svg" alt="Cloudflare logo"><span class="text-xs text-amber-300">Cloudflare</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/git.svg" alt="Git logo"><span class="text-xs text-amber-300">Git</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/github_dark.svg" alt="GitHub logo"><span class="text-xs text-amber-300">GitHub</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/google-cloud.svg" alt="Google Cloud logo"><span class="text-xs text-amber-300">Google Cloud</span></div>
-                    <div class="tech-logo-card rounded p-3 flex flex-col items-center justify-center gap-2"><img class="tech-logo" src="./assets/logos/bash_dark.svg" alt="Bash logo"><span class="text-xs text-amber-300">Bash</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="solutions" class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="text-3xl font-bold text-amber-400" data-i18n="solutions.title">> BUILT SOLUTIONS_</h2>
-                <div class="h-px flex-grow bg-gradient-to-r from-amber-500/50 to-transparent"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center">
-                        <img src="./assets/apps/playro-icon.png" alt="Playro app icon" class="h-24 w-24 rounded-2xl object-contain border border-amber-500/40" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeLiveApp">LIVE ON GOOGLE PLAY</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-gamepad text-amber-500"></i> Playro</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.playroDesc">Social matchmaking app for gamers: find compatible teammates by game, platform, language, and playstyle. Designed, built, and shipped end-to-end: React Native + Expo, Supabase backend, push notifications, and Play Store release pipeline.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">React Native</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Expo</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">TypeScript</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Supabase</span>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.playro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span data-i18n="projects.googlePlay">[ Google Play ]</span> <i class="fab fa-google-play ml-2 text-xs"></i>
-                            </a>
-                            <a href="https://playro.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ playro.app ]</span> <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center">
-                        <img src="./assets/apps/stusher-icon.png" alt="Stusher app icon" class="h-24 w-24 rounded-2xl object-contain border border-amber-500/40" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeLiveApp">LIVE ON GOOGLE PLAY</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-clapperboard text-amber-500"></i> Stusher</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.stusherDesc">Streaming recommendation app that kills decision fatigue: 3 personalized movie and series picks in 30 seconds, based on the services you already pay for. Solo-built and live on Google Play: React Native + Expo, TypeScript, serverless API integrations.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">React Native</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Expo</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">TypeScript</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Edge Functions</span>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.stusher" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span data-i18n="projects.googlePlay">[ Google Play ]</span> <i class="fab fa-google-play ml-2 text-xs"></i>
-                            </a>
-                            <a href="https://stusher.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ stusher.app ]</span> <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center p-4">
-                        <div class="grid grid-cols-3 gap-2">
-                            <img src="./assets/apps/decibra-icon.png" alt="Decibra app icon" class="h-12 w-12 rounded-xl object-contain border border-amber-500/40" loading="lazy">
-                            <img src="./assets/apps/magniyo-icon.png" alt="Magniyo app icon" class="h-12 w-12 rounded-xl object-contain border border-amber-500/40" loading="lazy">
-                            <img src="./assets/apps/osito-icon.png" alt="Osito app icon" class="h-12 w-12 rounded-xl object-contain border border-amber-500/40" loading="lazy">
-                            <img src="./assets/apps/arrullo-icon.png" alt="Arrullo app icon" class="h-12 w-12 rounded-xl object-contain border border-amber-500/40" loading="lazy">
-                            <img src="./assets/apps/avicalma-icon.png" alt="AviCalma app icon" class="h-12 w-12 rounded-xl object-contain border border-amber-500/40" loading="lazy">
-                            <img src="./assets/apps/tiltza-icon.png" alt="Tiltza app icon" class="h-12 w-12 rounded-xl object-contain border border-amber-500/40" loading="lazy">
-                        </div>
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeSixApps">6 APPS LIVE</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-layer-group text-amber-500"></i> Utility App Series</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.microAppsDesc">Six focused offline-first utilities shipped in 2026: Decibra (sound meter), Magniyo (magnifier), Osito (baby log), Arrullo (sleep sound mixer), AviCalma (fear of flying), and Tiltza (bubble level). Each one designed, built, and released to Google Play solo, on React Native and Expo with local-first storage and no backend.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">React Native</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Expo</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">TypeScript</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">MMKV</span>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.decibra" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ Decibra ]</span>
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.magniyo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ Magniyo ]</span>
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.osito" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ Osito ]</span>
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.arrullo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ Arrullo ]</span>
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.avicalma" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ AviCalma ]</span>
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.teddycode.tiltza" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ Tiltza ]</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center">
-                        <img src="https://hallazgo.app/apple-icon.png" alt="Hallazgo icon" class="h-24 w-24 rounded-2xl object-contain border border-amber-500/40" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeLiveWeb">LIVE ON THE WEB</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-newspaper text-amber-500"></i> Hallazgo</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.hallazgoDesc">Daily Spanish-language magazine of verified global opportunities across migration, housing, funding, and tech programs. Next.js with Supabase and incremental static regeneration, fed by an automated pipeline that researches in headless mode and publishes straight to the database on a schedule.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Next.js</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Supabase</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">PostgreSQL</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">ISR</span>
-                        </div>
-                        <a href="https://hallazgo.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                            <span>[ hallazgo.app ]</span> <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center">
-                        <img src="https://qualipath.co/icon.png" alt="QualiPath icon" class="h-24 w-24 rounded-2xl object-contain border border-amber-500/40" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeLiveWeb">LIVE ON THE WEB</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-route text-amber-500"></i> QualiPath</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.qualipathDesc">Decision engine for getting a professional qualification recognized abroad. Pick a profession, an origin country, and a destination, and it returns the competent authority, the documents, the fees, and the work permit route. 83 verified routes across 18 destinations, each requirement linked to an official source with its verification date.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Next.js</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">TypeScript</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Structured Data</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">SEO</span>
-                        </div>
-                        <a href="https://qualipath.co/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                            <span>[ qualipath.co ]</span> <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center">
-                        <img src="https://quecalifico.com/icon.png" alt="QueCalifico icon" class="h-24 w-24 rounded-2xl object-contain border border-amber-500/40" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeLiveWeb">LIVE ON THE WEB</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-credit-card text-amber-500"></i> QueCalifico</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.quecalificoDesc">Financial eligibility engine in Spanish for people in the United States without a Social Security Number. Compares cards, loans, and accounts across 48 institutions with verified requirements and a guided questionnaire. Fully static Next.js with no backend, so it serves entirely from the CDN.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Next.js</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">TypeScript</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Static Export</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Tailwind</span>
-                        </div>
-                        <a href="https://quecalifico.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                            <span>[ quecalifico.com ]</span> <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center">
-                        <img src="https://fadechats.app/icon.png" alt="FadeChats icon" class="h-24 w-24 rounded-2xl object-contain border border-amber-500/40" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeLiveWeb">LIVE ON THE WEB</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-comments text-amber-500"></i> FadeChats</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.fadechatsDesc">Disposable two-person chat with no signup: one-time invite links, peer-to-peer WebRTC so message content never reaches a server, and rooms that delete themselves after inactivity. Built on Next.js, with the signaling layer later rewritten to cut serverless compute after it hit a real hosting quota.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Next.js</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">WebRTC</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">TypeScript</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Vercel</span>
-                        </div>
-                        <a href="https://fadechats.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                            <span>[ fadechats.app ]</span> <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center px-4">
-                        <img src="https://playro.app/assets/images/playro_logo.png" alt="Playro Web" class="h-20 w-auto object-contain opacity-85" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.badgeLiveWeb">LIVE ON THE WEB</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-desktop text-amber-500"></i> Playro Web</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.playroWebDesc">Web counterpart of the Playro mobile app, running against the same isolated production Supabase project. Next.js with server components, authenticated sessions, and row level security shared with the mobile client.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Next.js</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Supabase</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">RLS</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">TypeScript</span>
-                        </div>
-                        <a href="https://web.playro.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                            <span>[ web.playro.app ]</span> <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project-card bg-black/60 rounded-lg overflow-hidden backdrop-blur-sm">
-                    <div class="h-40 overflow-hidden border-b border-amber-500/30 relative bg-gradient-to-br from-black to-amber-900/20 flex items-center justify-center px-4">
-                        <img src="https://teddy-code.com/assets/logo/tc_horizontal_logo_transparent.png" alt="Teddy Code studio" class="h-16 w-auto object-contain opacity-90" loading="lazy">
-                        <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs border border-amber-500" data-i18n="projects.studioLanding">STUDIO LANDING</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2"><i class="fas fa-globe text-amber-500"></i> Studio and Product Sites</h3>
-                        <p class="text-gray-400 text-sm mt-2 mb-3" data-i18n="projects.landingsDesc">The studio site plus the product landings for Playro and Stusher. Bilingual routing, structured SEO, and a versioned asset cache policy adopted after a stale-cache incident broke styling for returning visitors.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">HTML</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">CSS</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">i18n</span>
-                            <span class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded">Vercel</span>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-                            <a href="https://teddy-code.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ teddy-code.com ]</span>
-                            </a>
-                            <a href="https://playro.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ playro.app ]</span>
-                            </a>
-                            <a href="https://stusher.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-amber-400 hover:text-amber-200 text-sm font-medium">
-                                <span>[ stusher.app ]</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-            <div class="mt-8 terminal-window bg-black/40 p-6 rounded-lg border border-amber-500/30">
-                <div class="flex items-center gap-3 text-amber-400">
-                    <i class="fas fa-terminal text-xl"></i>
-                    <span class="font-bold" data-i18n="solutions.highlightTitle">TEDDY CODE STUDIO: 8 Apps on Google Play, 5 Web Products Live</span>
-                </div>
-                <p class="text-gray-300 text-sm mt-2 pl-8" data-i18n="solutions.highlightDesc">Founder of Teddy Code, shipping consumer products end-to-end: product, design, development, backend, and store releases. Everything listed above is live and open to anyone right now, built solo alongside a full-time engineering job.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="finance-bg" class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="terminal-window bg-gradient-to-br from-black/60 to-amber-950/20 p-6 md:p-8 rounded-lg border-amber-500/40">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-2/5">
-                        <div class="inline-block p-2 bg-amber-600/20 rounded-full mb-4">
-                            <i class="fas fa-calculator text-3xl text-amber-400"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-amber-300 mb-2" data-i18n="finance.title">FROM FINANCE TO PRODUCT ENGINEERING</h3>
-                        <div class="text-4xl md:text-5xl font-black text-amber-500/20 mb-2" data-i18n="finance.years">12+ YEARS</div>
-                        <p class="text-gray-300 text-sm mb-4" data-i18n="finance.description">Before writing my first production app, I spent over a decade leading accounting operations, audits, and fiscal strategy in enterprise environments such as GL Events.</p>
-                        <div class="flex items-center gap-2 text-amber-500 text-sm">
-                            <i class="fas fa-check-circle"></i> <span data-i18n="finance.certification">Certified Public Accountant</span>
-                        </div>
-                    </div>
-
-                    <div class="md:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="border border-amber-500/20 p-4 rounded bg-black/30">
-                            <i class="fas fa-chart-pie text-amber-400 mb-2"></i>
-                            <h4 class="font-bold text-amber-300" data-i18n="finance.card1Title">Financial Analysis</h4>
-                            <p class="text-xs text-gray-400" data-i18n="finance.card1Desc">Data interpretation, forecasting, and modeling skills applied directly to analytics products and dashboards.</p>
-                        </div>
-                        <div class="border border-amber-500/20 p-4 rounded bg-black/30">
-                            <i class="fas fa-shield-alt text-amber-400 mb-2"></i>
-                            <h4 class="font-bold text-amber-300" data-i18n="finance.card2Title">Internal Controls</h4>
-                            <p class="text-xs text-gray-400" data-i18n="finance.card2Desc">Failure-resistant process design mindset, ideal for secure and traceable software systems.</p>
-                        </div>
-                        <div class="border border-amber-500/20 p-4 rounded bg-black/30">
-                            <i class="fas fa-users-cog text-amber-400 mb-2"></i>
-                            <h4 class="font-bold text-amber-300" data-i18n="finance.card3Title">Team Leadership</h4>
-                            <p class="text-xs text-gray-400" data-i18n="finance.card3Desc">Experience coordinating accounting teams and aligning cross-functional stakeholders.</p>
-                        </div>
-                        <div class="border border-amber-500/20 p-4 rounded bg-black/30">
-                            <i class="fas fa-file-invoice-dollar text-amber-400 mb-2"></i>
-                            <h4 class="font-bold text-amber-300" data-i18n="finance.card4Title">Regulatory Knowledge (IFRS)</h4>
-                            <p class="text-xs text-gray-400" data-i18n="finance.card4Desc">Strong advantage for fintech, regtech, ERP, and compliance-heavy projects.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 px-4">
-        <div class="container mx-auto max-w-4xl">
-            <div class="terminal-window bg-black/60 p-6 md:p-10 rounded-lg">
-                <div class="text-center mb-8 px-1">
-                    <h2 class="contact-title text-xl sm:text-3xl font-bold text-amber-400 inline-block max-w-full leading-tight border-b-2 border-amber-600 pb-2" data-i18n="contact.title">> ESTABLISH_CONNECTION_</h2>
-                    <p class="text-gray-400 mt-4 text-sm max-w-xl mx-auto" data-i18n="contact.subtitle">Available for freelance projects, product consulting, and long-term developer roles.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center shrink-0">
-                                <i class="fas fa-envelope text-amber-500"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <div class="text-xs text-amber-600" data-i18n="contact.emailLabel">EMAIL</div>
-                                <a href="mailto:gguerra.code@gmail.com" class="block text-base sm:text-lg leading-snug hover:text-amber-300 break-all">gguerra.code@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center shrink-0">
-                                <i class="fab fa-github text-amber-500"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <div class="text-xs text-amber-600" data-i18n="contact.githubLabel">GITHUB</div>
-                                <a href="https://github.com/gaborgr" target="_blank" rel="noopener noreferrer" class="block text-base sm:text-lg leading-snug hover:text-amber-300 break-words">/gaborgr</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded border border-amber-500 flex items-center justify-center shrink-0">
-                                <i class="fab fa-linkedin-in text-amber-500"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <div class="text-xs text-amber-600" data-i18n="contact.linkedinLabel">LINKEDIN</div>
-                                <a href="https://www.linkedin.com/in/gguerra-code/" target="_blank" rel="noopener noreferrer" class="block text-base sm:text-lg leading-snug hover:text-amber-300 break-words">/in/gguerra-code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border-t md:border-l md:border-t-0 border-amber-500/30 md:pl-8 pt-6 md:pt-0">
-                        <form action="https://formspree.io/f/xblkyrbq" method="POST" class="space-y-4">
-                            <div>
-                                <input type="text" name="name" data-i18n-placeholder="contact.namePlaceholder" placeholder="> Name" class="w-full bg-black border border-amber-500/50 p-3 rounded focus:outline-none focus:border-amber-400 text-amber-200 placeholder-gray-500">
-                            </div>
-                            <div>
-                                <input type="email" name="email" data-i18n-placeholder="contact.emailPlaceholder" placeholder="> Email" class="w-full bg-black border border-amber-500/50 p-3 rounded focus:outline-none focus:border-amber-400 text-amber-200 placeholder-gray-500">
-                            </div>
-                            <div>
-                                <textarea name="message" rows="3" data-i18n-placeholder="contact.messagePlaceholder" placeholder="> Message / Requirement" class="w-full bg-black border border-amber-500/50 p-3 rounded focus:outline-none focus:border-amber-400 text-amber-200 placeholder-gray-500"></textarea>
-                            </div>
-                            <button class="w-full bg-amber-700 hover:bg-amber-500 text-black font-bold py-3 rounded transition flex items-center justify-center gap-2">
-                                <i class="fas fa-paper-plane"></i>
-                                <span data-i18n="contact.sendButton">SEND SIGNAL</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <button id="back-to-top" type="button" class="back-to-top sm:hidden flex items-center justify-center" aria-label="Back to top" data-i18n-aria-label="a11y.backToTop">
-        <i class="fas fa-arrow-up text-sm"></i>
+    <button class="to-top" id="to-top" aria-label="Back to top" data-i18n-aria-label="a11y.top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
     </button>
 
-    <footer class="py-8 text-center text-amber-700/50 text-xs border-t border-amber-500/20 px-4">
-        <p data-i18n="footer.copy">> SYSTEM READY. GABRIEL GUERRA - (C) 2026 - DEVELOPER WITH FINANCE DNA</p>
+    <footer>
+        <div class="wrap foot">
+            <span>© 2026 Gabriel Guerra</span>
+            <span data-i18n="footer.built">Plain HTML and CSS. No framework, no build step.</span>
+        </div>
     </footer>
 
     <script>
         const i18n = {
             en: {
-                "meta.title": "Gabriel Guerra | Developer - Full Stack & Fintech",
-                "a11y.openMenu": "Open menu",
-                "a11y.backToTop": "Back to top",
-                "nav.stack": "[stack]",
-                "nav.solutions": "[solutions]",
-                "nav.fintech": "[fintech]",
-                "nav.contact": "[connect]",
-                "hero.system": "SYSTEM ACTIVE: FULL STACK & FINTECH",
-                "hero.role": "Developer of Scalable Solutions",
-                "hero.description": "Product-focused developer building web and mobile solutions with pragmatic execution.<br class=\"hidden md:block\"><span class=\"text-amber-400\">>></span> SHIPPED: 8 apps live on Google Play and 5 web products in production, built end-to-end as founder of Teddy Code studio.<br class=\"hidden md:block\"><span class=\"text-amber-400\">>></span> FINANCE BACKGROUND: I do not just ship software, I understand the business layer behind every technical decision.",
-                "hero.ctaSolutions": "VIEW SOLUTIONS",
-                "hero.ctaFintech": "FINTECH PROFILE",
-                "expertise.engineeringTitle": "SOFTWARE ENGINEERING",
-                "expertise.engineeringIntro": "I focus on shipping reliable products and improving depth through real client and personal builds.",
-                "expertise.scope1Title": "Full Stack Product Delivery",
-                "expertise.scope1Desc": "Build and iterate web products with clear architecture, practical UX, and maintainable backend flows.",
-                "expertise.scope2Title": "Mobile App Execution",
-                "expertise.scope2Desc": "Develop React Native + Expo experiences with production-minded navigation, state, and platform polish.",
-                "expertise.scope3Title": "Data & Integrations",
-                "expertise.scope3Desc": "Design relational data models, connect third-party APIs, and keep data flows predictable.",
-                "expertise.scope4Title": "Cloud & Deployment Growth",
-                "expertise.scope4Desc": "Ship with Docker and modern hosting while continuously strengthening CI/CD and cloud operations.",
-                "expertise.strategyTitle": "STRATEGIC STACK",
-                "expertise.differentiator": "<span class=\"text-amber-500\">></span> Core differentiation: <strong>Business Logic + Clean Code</strong>.",
-                "expertise.bullet1": "<strong class=\"text-amber-300\">Real scalability:</strong> I design systems for tomorrow's traffic, not just today's MVP.",
-                "expertise.bullet2": "<strong class=\"text-amber-300\">Team delivery:</strong> Agile workflows, code reviews, and smooth collaboration across product and engineering.",
-                "expertise.bullet3": "<strong class=\"text-amber-300\">Embedded finance mindset:</strong> I understand KPIs, ROI, and operational efficiency. I can speak both CFO and CTO language.",
-                "expertise.tag1": "Data Analysis",
-                "expertise.tag2": "Financial Modeling",
-                "expertise.tag3": "ERP / CRM",
-                "expertise.tag4": "SAP (Power User)",
-                "expertise.tag5": "Automation (RPA)",
-                "expertise.tag6": "Forecasting",
-                "tech.title": "> TECHNOLOGY TOOLING_",
-                "tech.subtitle": "Stack observed across current product work: web apps, mobile apps, data layers, cloud infrastructure, and deployment tooling.",
-                "tech.mobileHint": "[ drag or swipe to scan stack ]",
-                "solutions.title": "> BUILT SOLUTIONS_",
-                "projects.repo": "[ Repository ]",
-                "projects.live": "[ Live Site ]",
-                "projects.googlePlay": "[ Google Play ]",
-                "projects.badgeBackend": "BACKEND",
-                "projects.badgeEcommerce": "E-COMMERCE",
-                "projects.badgeLiveApp": "LIVE ON GOOGLE PLAY",
-                "projects.liveLanding": "LIVE LANDING",
-                "projects.studioLanding": "STUDIO LANDING",
-                "projects.playroDesc": "Social matchmaking app for gamers: find compatible teammates by game, platform, language, and playstyle. Designed, built, and shipped end-to-end: React Native + Expo, Supabase backend, push notifications, and Play Store release pipeline.",
-                "projects.stusherDesc": "Streaming recommendation app that kills decision fatigue: 3 personalized movie and series picks in 30 seconds, based on the services you already pay for. Solo-built and live on Google Play: React Native + Expo, TypeScript, serverless API integrations.",
-                "projects.badgeLiveWeb": "LIVE ON THE WEB",
-                "projects.badgeSixApps": "6 APPS LIVE",
-                "projects.microAppsDesc": "Six focused offline-first utilities shipped in 2026: Decibra (sound meter), Magniyo (magnifier), Osito (baby log), Arrullo (sleep sound mixer), AviCalma (fear of flying), and Tiltza (bubble level). Each one designed, built, and released to Google Play solo, on React Native and Expo with local-first storage and no backend.",
-                "projects.hallazgoDesc": "Daily Spanish-language magazine of verified global opportunities across migration, housing, funding, and tech programs. Next.js with Supabase and incremental static regeneration, fed by an automated pipeline that researches in headless mode and publishes straight to the database on a schedule.",
-                "projects.qualipathDesc": "Decision engine for getting a professional qualification recognized abroad. Pick a profession, an origin country, and a destination, and it returns the competent authority, the documents, the fees, and the work permit route. 83 verified routes across 18 destinations, each requirement linked to an official source with its verification date.",
-                "projects.quecalificoDesc": "Financial eligibility engine in Spanish for people in the United States without a Social Security Number. Compares cards, loans, and accounts across 48 institutions with verified requirements and a guided questionnaire. Fully static Next.js with no backend, so it serves entirely from the CDN.",
-                "projects.fadechatsDesc": "Disposable two-person chat with no signup: one-time invite links, peer-to-peer WebRTC so message content never reaches a server, and rooms that delete themselves after inactivity. Built on Next.js, with the signaling layer later rewritten to cut serverless compute after it hit a real hosting quota.",
-                "projects.playroWebDesc": "Web counterpart of the Playro mobile app, running against the same isolated production Supabase project. Next.js with server components, authenticated sessions, and row level security shared with the mobile client.",
-                "projects.landingsDesc": "The studio site plus the product landings for Playro and Stusher. Bilingual routing, structured SEO, and a versioned asset cache policy adopted after a stale-cache incident broke styling for returning visitors.",
-                "solutions.highlightTitle": "TEDDY CODE STUDIO: 8 Apps on Google Play, 5 Web Products Live",
-                "solutions.highlightDesc": "Founder of Teddy Code, shipping consumer products end-to-end: product, design, development, backend, and store releases. Everything listed above is live and open to anyone right now, built solo alongside a full-time engineering job.",
-                "finance.title": "FROM FINANCE TO PRODUCT ENGINEERING",
-                "finance.years": "12+ YEARS",
-                "finance.description": "Before writing my first production app, I spent over a decade leading accounting operations, audits, and fiscal strategy in enterprise environments such as GL Events.",
-                "finance.certification": "Certified Public Accountant",
-                "finance.card1Title": "Financial Analysis",
-                "finance.card1Desc": "Data interpretation, forecasting, and modeling skills applied directly to analytics products and dashboards.",
-                "finance.card2Title": "Internal Controls",
-                "finance.card2Desc": "Failure-resistant process design mindset, ideal for secure and traceable software systems.",
-                "finance.card3Title": "Team Leadership",
-                "finance.card3Desc": "Experience coordinating accounting teams and aligning cross-functional stakeholders.",
-                "finance.card4Title": "Regulatory Knowledge (IFRS)",
-                "finance.card4Desc": "Strong advantage for fintech, regtech, ERP, and compliance-heavy projects.",
-                "contact.title": "> ESTABLISH_CONNECTION_",
-                "contact.subtitle": "Available for freelance projects, product consulting, and long-term developer roles.",
-                "contact.emailLabel": "EMAIL",
-                "contact.githubLabel": "GITHUB",
-                "contact.linkedinLabel": "LINKEDIN",
-                "contact.namePlaceholder": "> Name",
-                "contact.emailPlaceholder": "> Email",
-                "contact.messagePlaceholder": "> Message / Requirement",
-                "contact.sendButton": "SEND SIGNAL",
-                "footer.copy": "> SYSTEM READY. GABRIEL GUERRA - (C) 2026 - DEVELOPER WITH FINANCE DNA"
+                "meta.title": "Gabriel Guerra · Software Developer · Django, React Native, Next.js",
+                "a11y.skip": "Skip to the work",
+                "a11y.menu": "Open menu",
+                "a11y.top": "Back to top",
+                "nav.work": "Work",
+                "nav.experience": "Experience",
+                "nav.how": "How I build",
+                "nav.contact": "Contact",
+                "nav.cv": "CV",
+                "hero.status": "Open to remote roles · Santiago, Chile (UTC-3) · EN / ES",
+                "hero.title": "Fifteen products live.<br><span class=\"hl\">Built and shipped by me.</span>",
+                "hero.lead": "I am a software developer working on a production <strong>Django</strong> platform at Syzlab, and the founder of <strong>Teddy Code</strong>, where I have released 9 Android apps and 6 web products in the last 12 months. Before software I spent nearly 18 years in audit and finance, up to Controller, which is why I ask what a feature does to the business before asking how to build it.",
+                "hero.ctaWork": "See the work",
+                "hero.ctaCv": "Download CV",
+                "stats.apps": "Android apps live on Google Play",
+                "stats.web": "Web products in production",
+                "stats.months": "Months to ship all of it",
+                "stats.job": "Full-time engineering job in parallel",
+                "stack.title": "Daily stack",
+                "work.eyebrow": "Selected work",
+                "work.title": "Products you can open right now",
+                "work.subtitle": "Every product below is live, public and was designed, built and released by me under Teddy Code. No mockups, no case studies of work that never shipped.",
+                "badge.play": "LIVE ON GOOGLE PLAY",
+                "badge.play7": "7 APPS LIVE ON GOOGLE PLAY",
+                "badge.web": "LIVE ON THE WEB",
+                "work.playroKicker": "Social product · Mobile + web",
+                "work.playroDesc": "Social matchmaking for gamers: find teammates by game, platform, language and playstyle, then chat before jumping into a lobby.",
+                "work.playroTech": "Full product cycle on my own: definition, UI design, React Native app, Supabase backend with row level security, push notifications, store assets and the release pipeline. The web counterpart runs against the same production backend.",
+                "work.qualipathKicker": "Decision engine · Verified data",
+                "work.qualipathDesc": "Tell it your profession, where you qualified and where you want to work, and it returns the competent authority, the documents, the fees and the work permit route.",
+                "work.qualipathTech": "83 verified routes across 18 destinations. Every requirement is linked to its official source with the date it was checked, so the answer can be audited instead of trusted. Structured data and SEO built in from the first commit.",
+                "work.hallazgoKicker": "Editorial · Automated pipeline",
+                "work.hallazgoDesc": "A daily Spanish-language magazine of verified global opportunities: migration, housing, funding and tech programs.",
+                "work.hallazgoTech": "The interesting part is not the site, it is the pipeline behind it. An AI agent runs headless on a schedule, researches, and publishes straight to the database. Incremental static regeneration picks it up, so there is no deploy per article and no human in the loop for a normal day.",
+                "work.moreEyebrow": "The rest of the catalogue",
+                "work.moreTitle": "Eleven more products in production",
+                "cards.stusher": "Three personalized movie and series picks in 30 seconds, based on the streaming services you already pay for. Serverless Edge Functions keep the API keys out of the client bundle.",
+                "cards.channelberry": "An editorial guide to YouTube: 93 channels reviewed by hand and published in 5 languages, on a git-versioned catalogue plus the YouTube Data API with ISR caching to stay inside the free quota.",
+                "cards.quecalifico": "A financial eligibility engine for people living in the United States without a Social Security Number. Compares cards, loans and accounts across 48 institutions, each requirement traced to its source. Fully static, no backend to pay for.",
+                "cards.fadechats": "A disposable chat for two people with no signup. Peer to peer over WebRTC, so message content never touches a server and the room disappears when it ends.",
+                "cards.playroweb": "The web counterpart of the Playro app, sharing the same production Supabase backend and the same row level security policies as the mobile client.",
+                "cards.utilitiesTitle": "Seven utility apps",
+                "cards.utilities": "Decibra (sound meter), Magniyo (magnifier), Osito (baby log), Arrullo (sleep sounds, procedurally generated audio), AviCalma (fear of flying, bilingual), Tiltza (bubble level) and Wheelza (decision wheel). All offline-first, all on one shared release pipeline.",
+                "cards.allApps": "All apps on Google Play",
+                "exp.eyebrow": "Experience",
+                "exp.title": "Production code, and a business background under it",
+                "exp.syzlabWhen": "Dec 2025 · present",
+                "exp.syzlabRole": "Backend Developer",
+                "exp.syzlabMeta": "Consumer dating platform in production · Django, JavaScript, HTMX, WebSockets, PostgreSQL, AWS S3, Docker",
+                "exp.syzlab1": "Built an A/B testing system end to end: live user split by variant, tracking of conversion, behaviour, cancellations and revenue per group, and reports the team can actually read.",
+                "exp.syzlab2": "Shipped a reported-image control using SHA-256 and perceptual hashing to catch repeat uploads and flag suspicious profiles.",
+                "exp.syzlab3": "Built Ghost Mode, an internal survey manager and the support helpdesk workflow inside an existing codebase.",
+                "exp.syzlab4": "Work across backend, frontend, data models, testing, deployment and production troubleshooting. English at work, every day.",
+                "exp.calloutTitle": "What that A/B system taught me",
+                "exp.callout": "I tested giving the location filter away for free, expecting an easy win. Engagement went up and revenue went down. The test did not just pick a winner, it proved the filter was something people would pay for instead of a nice to have. Happy users and a healthy business are two different metrics.",
+                "exp.teddyWhen": "Sep 2025 · present",
+                "exp.teddyRole": "Founder and Software Developer",
+                "exp.teddyMeta": "React Native, Expo, Next.js, TypeScript, Supabase, EAS cloud builds, Vercel, Cloudflare",
+                "exp.teddy1": "Nine Android apps and six web products released, each one from idea to store listing or production domain, after hours and next to a full-time job.",
+                "exp.teddy2": "One shared release pipeline across the mobile catalogue: EAS cloud builds, versioned store assets, in-app legal pages mirrored on the web.",
+                "exp.teddy3": "Product decisions included: what to build, what to cut, what to monetize and when a product is not worth finishing.",
+                "exp.financeTitle": "Audit, accounting and finance",
+                "exp.financeBody": "Controller and Head of Accounting at GL Events Chile, and before that roles at Bupa, Edelcta, CMPC, Unilever, PDVSA Industrial, UHY International and KPMG, where I started as an auditor. I built a finance team from scratch, wrote its procedures, ran ERP migrations and reported to people who only cared about the number at the end. That is the part that does not show up in a git history and shows up in every technical decision.",
+                "exp.tag1": "Business impact",
+                "exp.tag2": "Internal controls",
+                "exp.tag3": "IFRS and compliance",
+                "exp.tag4": "Team leadership",
+                "exp.tag5": "Stakeholder reporting",
+                "how.eyebrow": "How I build",
+                "how.title": "Coding agents, used the way a lead uses a team",
+                "how.subtitle": "Fifteen products in twelve months next to a full-time job only works with agents in the loop. It works because of how I use them, not because they write code while I look away.",
+                "how.t1": "Plan first",
+                "how.d1": "Architecture, scope and data model are decided before a single line is generated. The agent implements a plan, it does not invent one.",
+                "how.t2": "Small diffs",
+                "how.d2": "One change at a time, reviewed line by line. A diff I cannot explain does not get merged, no matter how well it runs.",
+                "how.t3": "I own the result",
+                "how.d3": "If it breaks in production it is mine. I read what ships, I debug it myself and I can defend every decision in a review.",
+                "how.t4": "In production, not just in my editor",
+                "how.d4": "The Claude API runs inside Hallazgo's publishing pipeline, MCP servers and headless automation handle the repetitive parts, and CI on EAS and Vercel ships the rest.",
+                "contact.eyebrow": "Contact",
+                "contact.title": "Looking for a remote engineering role",
+                "contact.subtitle": "Product engineering, backend or full-stack, in a team that ships. I work from Santiago, Chile (UTC-3), with comfortable overlap for the Americas and most of Europe, and I can be hired as a contractor, through an EOR or B2B. I work in Spanish and English.",
+                "contact.email": "Email",
+                "contact.cvLabel": "Resume",
+                "contact.cvValue": "Download the CV in PDF",
+                "contact.nameLabel": "Your name",
+                "contact.namePh": "Jane Doe",
+                "contact.emailLabel": "Email",
+                "contact.emailPh": "jane@company.com",
+                "contact.msgLabel": "Message",
+                "contact.msgPh": "Role, team and what you are building",
+                "contact.send": "Send message",
+                "footer.built": "Plain HTML and CSS. No framework, no build step."
             },
             es: {
-                "meta.title": "Gabriel Guerra | Desarrollador - Full Stack & Fintech",
-                "a11y.openMenu": "Abrir menu",
-                "a11y.backToTop": "Volver arriba",
-                "nav.stack": "[stack]",
-                "nav.solutions": "[soluciones]",
-                "nav.fintech": "[fintech]",
-                "nav.contact": "[conexion]",
-                "hero.system": "SISTEMA ACTIVO: FULL STACK & FINTECH",
-                "hero.role": "Desarrollador de Soluciones Escalables",
-                "hero.description": "Desarrollador orientado a producto, construyendo soluciones web y mobile con ejecucion pragmatica.<br class=\"hidden md:block\"><span class=\"text-amber-400\">>></span> PUBLICADO: 8 apps en Google Play y 5 productos web en produccion, construidos end-to-end como founder del estudio Teddy Code.<br class=\"hidden md:block\"><span class=\"text-amber-400\">>></span> BACKGROUND EN FINANZAS: no solo entrego software, entiendo la capa de negocio detras de cada decision tecnica.",
-                "hero.ctaSolutions": "VER SOLUCIONES",
-                "hero.ctaFintech": "PERFIL FINTECH",
-                "expertise.engineeringTitle": "INGENIERIA DE SOFTWARE",
-                "expertise.engineeringIntro": "Me enfoco en entregar productos confiables y seguir profundizando con proyectos reales de clientes y builds personales.",
-                "expertise.scope1Title": "Entrega de Producto Full Stack",
-                "expertise.scope1Desc": "Construyo e itero productos web con arquitectura clara, UX practica y backend mantenible.",
-                "expertise.scope2Title": "Ejecucion de Apps Mobile",
-                "expertise.scope2Desc": "Desarrollo experiencias en React Native + Expo con enfoque de produccion en navegacion, estado y calidad multiplataforma.",
-                "expertise.scope3Title": "Datos e Integraciones",
-                "expertise.scope3Desc": "Diseno modelos relacionales, conecto APIs de terceros y mantengo flujos de datos predecibles.",
-                "expertise.scope4Title": "Crecimiento en Cloud y Deploy",
-                "expertise.scope4Desc": "Entrego con Docker y hosting moderno mientras sigo fortaleciendo CI/CD y operaciones cloud.",
-                "expertise.strategyTitle": "STACK ESTRATEGICO",
-                "expertise.differentiator": "<span class=\"text-amber-500\">></span> Diferenciador clave: <strong>Logica de Negocio + Codigo Limpio</strong>.",
-                "expertise.bullet1": "<strong class=\"text-amber-300\">Escalabilidad real:</strong> diseno sistemas para el trafico de manana, no solo para el MVP de hoy.",
-                "expertise.bullet2": "<strong class=\"text-amber-300\">Entrega en equipo:</strong> flujos agiles, code reviews y colaboracion solida entre producto e ingenieria.",
-                "expertise.bullet3": "<strong class=\"text-amber-300\">Mentalidad financiera embebida:</strong> entiendo KPIs, ROI y eficiencia operativa. Puedo hablar el idioma del CFO y del CTO.",
-                "expertise.tag1": "Analisis de Datos",
-                "expertise.tag2": "Modelado Financiero",
-                "expertise.tag3": "ERP / CRM",
-                "expertise.tag4": "SAP (Power User)",
-                "expertise.tag5": "Automatizacion (RPA)",
-                "expertise.tag6": "Forecasting",
-                "tech.title": "> HERRAMIENTAS TECNOLOGICAS_",
-                "tech.subtitle": "Stack observado en trabajo de producto actual: apps web, apps mobile, capas de datos, infraestructura cloud y tooling de despliegue.",
-                "tech.mobileHint": "[ arrastra o desliza para explorar stack ]",
-                "solutions.title": "> SOLUCIONES IMPLEMENTADAS_",
-                "projects.repo": "[ Repositorio ]",
-                "projects.live": "[ Sitio Web ]",
-                "projects.googlePlay": "[ Google Play ]",
-                "projects.badgeBackend": "BACKEND",
-                "projects.badgeEcommerce": "E-COMMERCE",
-                "projects.badgeLiveApp": "EN GOOGLE PLAY",
-                "projects.liveLanding": "LANDING EN VIVO",
-                "projects.studioLanding": "LANDING STUDIO",
-                "projects.playroDesc": "App social de matchmaking para gamers: encuentra jugadores compatibles por titulo, plataforma, idioma y estilo de juego. Disenada, construida y publicada end-to-end: React Native + Expo, backend Supabase, notificaciones push y pipeline de release en Play Store.",
-                "projects.stusherDesc": "App de recomendacion de streaming que elimina la fatiga de decision: 3 sugerencias personalizadas de peliculas y series en 30 segundos, segun los servicios que ya pagas. Construida en solitario y publicada en Google Play: React Native + Expo, TypeScript e integraciones serverless.",
-                "projects.badgeLiveWeb": "EN PRODUCCION",
-                "projects.badgeSixApps": "6 APPS PUBLICADAS",
-                "projects.microAppsDesc": "Seis utilidades enfocadas y offline-first publicadas en 2026: Decibra (sonometro), Magniyo (lupa), Osito (registro de bebe), Arrullo (mezclador de sonidos para dormir), AviCalma (miedo a volar) y Tiltza (nivel de burbuja). Cada una disenada, construida y publicada en Google Play en solitario, sobre React Native y Expo con almacenamiento local y sin backend.",
-                "projects.hallazgoDesc": "Revista diaria en espanol de oportunidades globales verificadas en migracion, vivienda, financiamiento y programas tech. Next.js con Supabase e ISR, alimentada por un pipeline automatizado que investiga en modo headless y publica directo a la base de datos de forma programada.",
-                "projects.qualipathDesc": "Motor de decision para el reconocimiento de titulos profesionales en el exterior. Eliges profesion, pais de origen y destino, y devuelve la autoridad competente, los documentos, las tasas y la ruta de permiso de trabajo. 83 rutas verificadas en 18 destinos, cada requisito enlazado a su fuente oficial con fecha de verificacion.",
-                "projects.quecalificoDesc": "Motor de elegibilidad financiera en espanol para personas en Estados Unidos sin Social Security Number. Compara tarjetas, prestamos y cuentas de 48 instituciones con requisitos verificados y un cuestionario guiado. Next.js totalmente estatico y sin backend, servido por completo desde el CDN.",
-                "projects.fadechatsDesc": "Chat desechable de dos personas sin registro: enlaces de invitacion de un solo uso, WebRTC peer-to-peer para que el contenido nunca pase por un servidor, y salas que se borran solas tras la inactividad. Construido en Next.js, con la capa de senalizacion reescrita despues para bajar el consumo serverless tras chocar con una cuota real de hosting.",
-                "projects.playroWebDesc": "Version web de la app movil Playro, corriendo contra el mismo proyecto Supabase de produccion aislado. Next.js con server components, sesiones autenticadas y row level security compartida con el cliente movil.",
-                "projects.landingsDesc": "El sitio del estudio mas las landings de producto de Playro y Stusher. Ruteo bilingue, SEO estructurado y una politica de cache de assets versionados adoptada tras un incidente de cache vieja que rompio los estilos a visitantes recurrentes.",
-                "solutions.highlightTitle": "TEDDY CODE STUDIO: 8 Apps en Google Play y 5 Productos Web en Vivo",
-                "solutions.highlightDesc": "Founder de Teddy Code, entregando productos de consumo end-to-end: producto, diseno, desarrollo, backend y releases en tiendas. Todo lo listado arriba esta publicado y abierto a cualquiera ahora mismo, construido en solitario en paralelo a un empleo full-time de ingenieria.",
-                "finance.title": "DE FINANZAS A INGENIERIA DE PRODUCTO",
-                "finance.years": "12+ ANOS",
-                "finance.description": "Antes de escribir mi primera app productiva, pase mas de una decada liderando operaciones contables, auditorias y estrategia fiscal en entornos enterprise como GL Events.",
-                "finance.certification": "Contador Publico Certificado",
-                "finance.card1Title": "Analisis Financiero",
-                "finance.card1Desc": "Interpretacion de datos, forecasting y modelado aplicados directamente a dashboards y productos analiticos.",
-                "finance.card2Title": "Control Interno",
-                "finance.card2Desc": "Mentalidad de diseno de procesos resistentes a fallos, ideal para sistemas seguros y trazables.",
-                "finance.card3Title": "Liderazgo de Equipos",
-                "finance.card3Desc": "Experiencia coordinando equipos contables y alineando stakeholders de distintas areas.",
-                "finance.card4Title": "Conocimiento Normativo (IFRS)",
-                "finance.card4Desc": "Ventaja fuerte para proyectos fintech, regtech, ERP y contextos con alta exigencia de compliance.",
-                "contact.title": "> ESTABLECER_CONEXION_",
-                "contact.subtitle": "Disponible para proyectos freelance, consultoria de producto y roles de desarrollador a largo plazo.",
-                "contact.emailLabel": "EMAIL",
-                "contact.githubLabel": "GITHUB",
-                "contact.linkedinLabel": "LINKEDIN",
-                "contact.namePlaceholder": "> Nombre",
-                "contact.emailPlaceholder": "> Email",
-                "contact.messagePlaceholder": "> Mensaje / Requerimiento",
-                "contact.sendButton": "ENVIAR SENAL",
-                "footer.copy": "> SISTEMA LISTO. GABRIEL GUERRA - (C) 2026 - DESARROLLADOR CON ADN FINANCIERO"
+                "meta.title": "Gabriel Guerra · Desarrollador de software · Django, React Native, Next.js",
+                "a11y.skip": "Ir a los productos",
+                "a11y.menu": "Abrir menú",
+                "a11y.top": "Volver arriba",
+                "nav.work": "Productos",
+                "nav.experience": "Experiencia",
+                "nav.how": "Cómo trabajo",
+                "nav.contact": "Contacto",
+                "nav.cv": "CV",
+                "hero.status": "Abierto a roles remotos · Santiago, Chile (UTC-3) · ES / EN",
+                "hero.title": "Quince productos en producción.<br><span class=\"hl\">Construidos y publicados por mí.</span>",
+                "hero.lead": "Soy desarrollador de software y trabajo sobre una plataforma <strong>Django</strong> en producción en Syzlab. También soy fundador de <strong>Teddy Code</strong>, donde publiqué 9 apps Android y 6 productos web en los últimos 12 meses. Antes del software pasé casi 18 años en auditoría y finanzas, hasta Controller, y por eso pregunto qué le hace una feature al negocio antes de preguntar cómo se construye.",
+                "hero.ctaWork": "Ver los productos",
+                "hero.ctaCv": "Descargar CV",
+                "stats.apps": "Apps Android publicadas en Google Play",
+                "stats.web": "Productos web en producción",
+                "stats.months": "Meses para publicarlo todo",
+                "stats.job": "Trabajo full-time en paralelo",
+                "stack.title": "Stack del día a día",
+                "work.eyebrow": "Trabajo seleccionado",
+                "work.title": "Productos que puedes abrir ahora mismo",
+                "work.subtitle": "Todo lo que sigue está publicado, es público y fue diseñado, construido y lanzado por mí bajo Teddy Code. Sin mockups ni casos de estudio de cosas que nunca salieron.",
+                "badge.play": "EN GOOGLE PLAY",
+                "badge.play7": "7 APPS EN GOOGLE PLAY",
+                "badge.web": "EN PRODUCCIÓN",
+                "work.playroKicker": "Producto social · Mobile y web",
+                "work.playroDesc": "Matchmaking social para gamers: encuentra compañeros por juego, plataforma, idioma y estilo de juego, y conversa antes de entrar a la partida.",
+                "work.playroTech": "Ciclo completo de producto, solo: definición, diseño de UI, app en React Native, backend en Supabase con row level security, notificaciones push, assets de tienda y pipeline de release. La versión web corre contra el mismo backend de producción.",
+                "work.qualipathKicker": "Motor de decisión · Datos verificados",
+                "work.qualipathDesc": "Le dices tu profesión, dónde te titulaste y dónde quieres trabajar, y te devuelve la autoridad competente, los documentos, los costos y la ruta de permiso de trabajo.",
+                "work.qualipathTech": "83 rutas verificadas en 18 destinos. Cada requisito está enlazado a su fuente oficial con la fecha en que se comprobó, así la respuesta se puede auditar en vez de creer. Datos estructurados y SEO desde el primer commit.",
+                "work.hallazgoKicker": "Editorial · Pipeline automatizado",
+                "work.hallazgoDesc": "Revista diaria en español de oportunidades globales verificadas: migración, vivienda, financiamiento y programas tech.",
+                "work.hallazgoTech": "Lo interesante no es el sitio, es el pipeline detrás. Un agente de IA corre headless según un cron, investiga y publica directo a la base de datos. La regeneración estática incremental lo levanta, así que no hay deploy por artículo ni humano en el medio en un día normal.",
+                "work.moreEyebrow": "El resto del catálogo",
+                "work.moreTitle": "Once productos más en producción",
+                "cards.stusher": "Tres recomendaciones personalizadas de películas y series en 30 segundos, según los servicios de streaming que ya pagas. Las Edge Functions mantienen las API keys fuera del bundle del cliente.",
+                "cards.channelberry": "Guía editorial de YouTube: 93 canales revisados a mano y publicados en 5 idiomas, sobre un catálogo versionado en git más la YouTube Data API con caché ISR para no salirse de la cuota gratuita.",
+                "cards.quecalifico": "Motor de elegibilidad financiera para quienes viven en Estados Unidos sin Social Security Number. Compara tarjetas, préstamos y cuentas de 48 instituciones, con cada requisito trazado a su fuente. Totalmente estático, sin backend que pagar.",
+                "cards.fadechats": "Chat desechable de dos personas sin registro. Peer to peer sobre WebRTC, así el contenido de los mensajes nunca toca un servidor y la sala desaparece al terminar.",
+                "cards.playroweb": "La versión web de la app Playro, compartiendo el mismo backend Supabase de producción y las mismas políticas de row level security que el cliente móvil.",
+                "cards.utilitiesTitle": "Siete apps de utilidad",
+                "cards.utilities": "Decibra (sonómetro), Magniyo (lupa), Osito (registro de bebé), Arrullo (sonidos para dormir con audio generado proceduralmente), AviCalma (miedo a volar, bilingüe), Tiltza (nivel de burbuja) y Wheelza (ruleta de decisiones). Todas offline-first y sobre un mismo pipeline de release.",
+                "cards.allApps": "Todas las apps en Google Play",
+                "exp.eyebrow": "Experiencia",
+                "exp.title": "Código en producción, con criterio de negocio debajo",
+                "exp.syzlabWhen": "dic 2025 · actualidad",
+                "exp.syzlabRole": "Backend Developer",
+                "exp.syzlabMeta": "Plataforma de citas de consumo en producción · Django, JavaScript, HTMX, WebSockets, PostgreSQL, AWS S3, Docker",
+                "exp.syzlab1": "Construí un sistema de A/B testing end to end: split de usuarios en vivo por variante, seguimiento de conversión, comportamiento, cancelaciones e ingresos por grupo, y reportes que el equipo puede leer de verdad.",
+                "exp.syzlab2": "Publiqué un control de imágenes reportadas con SHA-256 y hashing perceptual para detectar resubidas y marcar perfiles sospechosos.",
+                "exp.syzlab3": "Construí Ghost Mode, un gestor interno de encuestas y el flujo de helpdesk de soporte dentro de una base de código existente.",
+                "exp.syzlab4": "Trabajo en backend, frontend, modelos de datos, testing, despliegue y resolución de problemas en producción. Inglés en el trabajo, todos los días.",
+                "exp.calloutTitle": "Lo que me enseñó ese sistema de A/B",
+                "exp.callout": "Probé regalar el filtro de ubicación esperando una victoria fácil. El engagement subió y los ingresos bajaron. El test no solo eligió un ganador: demostró que el filtro era algo por lo que la gente paga, no un nice to have. Usuarios contentos y negocio sano son dos métricas distintas.",
+                "exp.teddyWhen": "sep 2025 · actualidad",
+                "exp.teddyRole": "Fundador y desarrollador de software",
+                "exp.teddyMeta": "React Native, Expo, Next.js, TypeScript, Supabase, builds en la nube con EAS, Vercel, Cloudflare",
+                "exp.teddy1": "Nueve apps Android y seis productos web publicados, cada uno desde la idea hasta la ficha de tienda o el dominio en producción, fuera de horario y en paralelo a un trabajo full-time.",
+                "exp.teddy2": "Un mismo pipeline de release para todo el catálogo móvil: builds en la nube con EAS, assets de tienda versionados y legales in-app espejados en la web.",
+                "exp.teddy3": "Decisiones de producto incluidas: qué construir, qué recortar, qué monetizar y cuándo un producto no vale la pena terminarlo.",
+                "exp.financeTitle": "Auditoría, contabilidad y finanzas",
+                "exp.financeBody": "Controller y Jefe de Contabilidad en GL Events Chile, y antes roles en Bupa, Edelcta, CMPC, Unilever, PDVSA Industrial, UHY International y KPMG, donde empecé como auditor. Armé un equipo de finanzas desde cero, escribí sus procedimientos, participé en migraciones de ERP y reporté a gente a la que solo le importaba el número final. Esa es la parte que no aparece en un historial de git y aparece en cada decisión técnica.",
+                "exp.tag1": "Impacto de negocio",
+                "exp.tag2": "Control interno",
+                "exp.tag3": "IFRS y compliance",
+                "exp.tag4": "Liderazgo de equipo",
+                "exp.tag5": "Reporte a stakeholders",
+                "how.eyebrow": "Cómo trabajo",
+                "how.title": "Agentes de código, usados como un lead usa a su equipo",
+                "how.subtitle": "Quince productos en doce meses junto a un trabajo full-time solo funciona con agentes en el proceso. Y funciona por cómo los uso, no porque escriban código mientras miro para otro lado.",
+                "how.t1": "Primero el plan",
+                "how.d1": "Arquitectura, alcance y modelo de datos se deciden antes de que se genere una sola línea. El agente implementa un plan, no lo inventa.",
+                "how.t2": "Diffs pequeños",
+                "how.d2": "Un cambio a la vez, revisado línea por línea. Un diff que no puedo explicar no entra, por bien que funcione.",
+                "how.t3": "El resultado es mío",
+                "how.d3": "Si se rompe en producción, es mío. Leo lo que sale, lo debuggeo yo y puedo defender cada decisión en una revisión.",
+                "how.t4": "En producción, no solo en mi editor",
+                "how.d4": "La Claude API corre dentro del pipeline de publicación de Hallazgo, los MCP y la automatización headless se encargan de lo repetitivo, y el CI en EAS y Vercel publica el resto.",
+                "contact.eyebrow": "Contacto",
+                "contact.title": "Busco un rol de ingeniería remoto",
+                "contact.subtitle": "Product engineering, backend o full-stack, en un equipo que publica. Trabajo desde Santiago de Chile (UTC-3), con solapamiento cómodo con América y casi toda Europa, y puedo contratarme como contractor, vía EOR o B2B. Trabajo en español y en inglés.",
+                "contact.email": "Correo",
+                "contact.cvLabel": "Currículum",
+                "contact.cvValue": "Descargar el CV en PDF",
+                "contact.nameLabel": "Tu nombre",
+                "contact.namePh": "Juana Pérez",
+                "contact.emailLabel": "Correo",
+                "contact.emailPh": "juana@empresa.com",
+                "contact.msgLabel": "Mensaje",
+                "contact.msgPh": "Rol, equipo y qué están construyendo",
+                "contact.send": "Enviar mensaje",
+                "footer.built": "HTML y CSS a mano. Sin framework y sin build."
             }
         };
 
-        const languageButtons = document.querySelectorAll("[data-lang-button]");
-        const mobileMenuButton = document.querySelector(".mobile-menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const mobileLinks = document.querySelectorAll("[data-mobile-link]");
-        const techTickerWrap = document.getElementById("tech-ticker-wrap");
-        const techTickerTrack = document.getElementById("tech-ticker-track");
-        const backToTopButton = document.getElementById("back-to-top");
-        let techTickerInitialized = false;
-        let backToTopTicking = false;
-
-        function updateLanguageButtons(lang) {
-            languageButtons.forEach((button) => {
-                const isActive = button.dataset.langButton === lang;
-                button.classList.toggle("active", isActive);
-                button.setAttribute("aria-pressed", isActive ? "true" : "false");
-            });
-        }
+        const STORE_KEY = "gg-lang";
 
         function applyLanguage(lang) {
-            const selectedLanguage = i18n[lang] ? lang : "en";
-            const dictionary = i18n[selectedLanguage];
+            const code = i18n[lang] ? lang : "en";
+            const dict = i18n[code];
 
-            document.documentElement.lang = selectedLanguage;
-            document.title = dictionary["meta.title"] || i18n.en["meta.title"];
+            document.documentElement.lang = code;
+            document.title = dict["meta.title"];
 
-            document.querySelectorAll("[data-i18n]").forEach((element) => {
-                const key = element.dataset.i18n;
-                if (dictionary[key]) {
-                    element.textContent = dictionary[key];
-                }
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const v = dict[el.dataset.i18n];
+                if (v) el.textContent = v;
+            });
+            document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+                const v = dict[el.dataset.i18nHtml];
+                if (v) el.innerHTML = v;
+            });
+            document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+                const v = dict[el.dataset.i18nPlaceholder];
+                if (v) el.setAttribute("placeholder", v);
+            });
+            document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+                const v = dict[el.dataset.i18nAriaLabel];
+                if (v) el.setAttribute("aria-label", v);
             });
 
-            document.querySelectorAll("[data-i18n-html]").forEach((element) => {
-                const key = element.dataset.i18nHtml;
-                if (dictionary[key]) {
-                    element.innerHTML = dictionary[key];
-                }
+            document.querySelectorAll("[data-lang]").forEach((b) => {
+                b.classList.toggle("active", b.dataset.lang === code);
             });
 
-            document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-                const key = element.dataset.i18nPlaceholder;
-                if (dictionary[key]) {
-                    element.setAttribute("placeholder", dictionary[key]);
-                }
-            });
-
-            document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
-                const key = element.dataset.i18nAriaLabel;
-                if (dictionary[key]) {
-                    element.setAttribute("aria-label", dictionary[key]);
-                }
-            });
-
-            updateLanguageButtons(selectedLanguage);
+            try { localStorage.setItem(STORE_KEY, code); } catch (e) { /* private mode */ }
         }
 
-        function initMobileTechTicker() {
-            if (techTickerInitialized || !techTickerWrap || !techTickerTrack) {
-                return;
-            }
-
-            if (window.innerWidth >= 640) {
-                return;
-            }
-
-            const baseItems = Array.from(techTickerTrack.children);
-            if (!baseItems.length) {
-                return;
-            }
-
-            baseItems.forEach((item) => {
-                techTickerTrack.appendChild(item.cloneNode(true));
-            });
-
-            techTickerInitialized = true;
-
-            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-            let paused = reduceMotion;
-            let lastTimestamp = 0;
-            let resumeTimeout;
-            const speed = 0.035;
-
-            const normalizeTickerOffset = () => {
-                const midpoint = techTickerWrap.scrollWidth / 2;
-                if (!midpoint) {
-                    return;
-                }
-
-                if (techTickerWrap.scrollLeft >= midpoint) {
-                    techTickerWrap.scrollLeft -= midpoint;
-                }
-            };
-
-            const animateTicker = (timestamp) => {
-                if (!lastTimestamp) {
-                    lastTimestamp = timestamp;
-                }
-
-                const delta = timestamp - lastTimestamp;
-                lastTimestamp = timestamp;
-
-                if (!paused) {
-                    techTickerWrap.scrollLeft += delta * speed;
-                    normalizeTickerOffset();
-                }
-
-                window.requestAnimationFrame(animateTicker);
-            };
-
-            const pauseTicker = () => {
-                paused = true;
-                window.clearTimeout(resumeTimeout);
-            };
-
-            const resumeTicker = (delay = 800) => {
-                window.clearTimeout(resumeTimeout);
-                resumeTimeout = window.setTimeout(() => {
-                    if (!reduceMotion) {
-                        paused = false;
-                    }
-                }, delay);
-            };
-
-            techTickerWrap.addEventListener("pointerdown", pauseTicker);
-            techTickerWrap.addEventListener("pointerup", () => resumeTicker(500));
-            techTickerWrap.addEventListener("pointercancel", () => resumeTicker(500));
-            techTickerWrap.addEventListener("touchstart", pauseTicker, { passive: true });
-            techTickerWrap.addEventListener("touchend", () => resumeTicker(500), { passive: true });
-            techTickerWrap.addEventListener("touchcancel", () => resumeTicker(500), { passive: true });
-            techTickerWrap.addEventListener("scroll", normalizeTickerOffset, { passive: true });
-
-            window.requestAnimationFrame(animateTicker);
+        function initialLanguage() {
+            let stored = null;
+            try { stored = localStorage.getItem(STORE_KEY); } catch (e) { /* private mode */ }
+            if (stored) return stored;
+            return (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
         }
 
-        function updateBackToTopVisibility() {
-            if (!backToTopButton) {
-                return;
-            }
-
-            const shouldShow = window.innerWidth < 640 && window.scrollY > 280;
-            backToTopButton.classList.toggle("visible", shouldShow);
-        }
-
-        function handleBackToTopScroll() {
-            if (backToTopTicking) {
-                return;
-            }
-
-            backToTopTicking = true;
-            window.requestAnimationFrame(() => {
-                updateBackToTopVisibility();
-                backToTopTicking = false;
-            });
-        }
-
-        languageButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-                applyLanguage(button.dataset.langButton);
-            });
+        document.querySelectorAll("[data-lang]").forEach((b) => {
+            b.addEventListener("click", () => applyLanguage(b.dataset.lang));
         });
 
-        mobileMenuButton?.addEventListener("click", () => {
-            const isOpen = mobileMenu.classList.toggle("open");
-            mobileMenuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        const nav = document.getElementById("nav");
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const toTop = document.getElementById("to-top");
+
+        menuBtn.addEventListener("click", () => {
+            const open = mobileMenu.classList.toggle("open");
+            menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
         });
 
-        mobileLinks.forEach((link) => {
-            link.addEventListener("click", () => {
+        document.querySelectorAll("[data-mobile]").forEach((a) => {
+            a.addEventListener("click", () => {
                 mobileMenu.classList.remove("open");
-                mobileMenuButton?.setAttribute("aria-expanded", "false");
+                menuBtn.setAttribute("aria-expanded", "false");
             });
         });
 
-        backToTopButton?.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
+        toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-        window.addEventListener("scroll", handleBackToTopScroll, { passive: true });
-        window.addEventListener("resize", () => {
-            initMobileTechTicker();
-            updateBackToTopVisibility();
+        let ticking = false;
+        window.addEventListener("scroll", () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                nav.classList.toggle("scrolled", window.scrollY > 8);
+                toTop.classList.toggle("visible", window.scrollY > 600);
+                ticking = false;
+            });
         }, { passive: true });
 
-        applyLanguage("en");
-        initMobileTechTicker();
-        updateBackToTopVisibility();
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if ("IntersectionObserver" in window && !reduced) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in");
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+            document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+        } else {
+            document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+        }
+
+        applyLanguage(initialLanguage());
     </script>
 </body>
+
 </html>
