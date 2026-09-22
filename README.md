@@ -22,6 +22,7 @@ me as founder of [Teddy Code](https://teddy-code.com/), alongside a full-time en
 | [Arrullo](https://play.google.com/store/apps/details?id=com.teddycode.arrullo) | Sleep sound mixer with procedurally generated audio | React Native, Expo, local-first |
 | [AviCalma](https://play.google.com/store/apps/details?id=com.teddycode.avicalma) | Bilingual companion for fear of flying | React Native, Expo, local-first |
 | [Tiltza](https://play.google.com/store/apps/details?id=com.teddycode.tiltza) | Bubble level | React Native, Expo, local-first |
+| [Woggli](https://play.google.com/store/apps/details?id=com.teddycode.woggli) | Peer to peer marketplace and social network for the world Scout movement: trade badges, neckerchiefs and woggles | React Native, Expo, Supabase realtime, Postgres RPCs, i18n in 5 languages |
 | [Wheelza](https://play.google.com/store/apps/details?id=com.teddycode.wheelza) | Decision wheel | React Native, Expo, local-first |
 
 ## Web products
