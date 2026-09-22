@@ -27,7 +27,8 @@
         content="Sixteen products live: 10 Android apps and 6 web products, built and shipped end to end.">
     <meta name="twitter:image" content="https://gaborgr.github.io/assets/og.png">
 
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="./assets/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="./assets/favicon-128.png" sizes="128x128">
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,8 +73,8 @@
     <nav class="nav" id="nav">
         <div class="wrap nav-inner">
             <a class="brand" href="#top">
-                <span class="brand-mark">GG</span>
-                <span>Gabriel Guerra</span>
+                <span class="brand-name">Gabriel Guerra</span>
+                <span class="brand-dot" aria-hidden="true"></span>
             </a>
 
             <div class="nav-links">
@@ -207,21 +208,40 @@
             </div>
 
             <article class="feature reveal">
-                <div class="feature-shot phone">
-                    <img src="./assets/shots/playro-app.webp" alt="Playro app screen" loading="lazy" width="460"
-                        height="954">
+                <div class="phone" data-carousel>
+                    <div class="phone-frame">
+                        <div class="track" tabindex="0" role="group" aria-label="Playro screens">
+                            <img src="./assets/shots/playro/01.webp" alt="Playro screen 1" width="420" height="860">
+                            <img src="./assets/shots/playro/02.webp" alt="Playro screen 2" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/playro/03.webp" alt="Playro screen 3" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/playro/04.webp" alt="Playro screen 4" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/playro/05.webp" alt="Playro screen 5" width="420" height="860" loading="lazy">
+                        </div>
+                    </div>
+                    <button class="cbtn cprev" type="button" data-i18n-aria-label="carousel.prev"
+                        aria-label="Previous screen">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="cbtn cnext" type="button" data-i18n-aria-label="carousel.next"
+                        aria-label="Next screen">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                    <div class="dots"></div>
                 </div>
                 <div class="feature-body">
                     <div class="kicker">
-                        <span class="badge-live" data-i18n="badge.play">LIVE ON GOOGLE PLAY</span>
-                        <span data-i18n="work.playroKicker">Social product · Mobile + web</span>
+                        <span class="badge" data-i18n="badge.play">LIVE · GOOGLE PLAY</span>
+                        <span data-i18n="work.playroKicker">Kicker</span>
                     </div>
                     <h3>Playro</h3>
-                    <p data-i18n="work.playroDesc">Social matchmaking for gamers: find teammates by game, platform,
-                        language and playstyle, then chat before jumping into a lobby.</p>
-                    <p data-i18n="work.playroTech">Full product cycle on my own: definition, UI design, React Native
-                        app, Supabase backend with row level security, push notifications, store assets and the release
-                        pipeline. The web counterpart runs against the same production backend.</p>
+                    <p data-i18n="work.playroDesc">Description</p>
+                    <p data-i18n="work.playroTech">Tech</p>
                     <div class="tags">
                         <span class="tag">React Native</span>
                         <span class="tag">Expo</span>
@@ -231,35 +251,48 @@
                         <span class="tag">Push</span>
                     </div>
                     <div class="links">
-                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.playro"
-                            target="_blank" rel="noopener">Google Play</a>
+                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.playro" target="_blank" rel="noopener">Google Play</a>
                         <a class="link" href="https://playro.app/" target="_blank" rel="noopener">playro.app</a>
-                        <a class="link" href="https://web.playro.app/" target="_blank"
-                            rel="noopener">web.playro.app</a>
+                        <a class="link" href="https://web.playro.app/" target="_blank" rel="noopener">web.playro.app</a>
                     </div>
                 </div>
             </article>
 
-
             <article class="feature flip reveal">
-                <div class="feature-shot phone">
-                    <img src="./assets/shots/woggli-app.webp" alt="Woggli app screen" loading="lazy" width="460"
-                        height="939">
+                <div class="phone" data-carousel>
+                    <div class="phone-frame">
+                        <div class="track" tabindex="0" role="group" aria-label="Woggli screens">
+                            <img src="./assets/shots/woggli/01.webp" alt="Woggli screen 1" width="420" height="860">
+                            <img src="./assets/shots/woggli/02.webp" alt="Woggli screen 2" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/woggli/03.webp" alt="Woggli screen 3" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/woggli/04.webp" alt="Woggli screen 4" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/woggli/05.webp" alt="Woggli screen 5" width="420" height="860" loading="lazy">
+                        </div>
+                    </div>
+                    <button class="cbtn cprev" type="button" data-i18n-aria-label="carousel.prev"
+                        aria-label="Previous screen">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="cbtn cnext" type="button" data-i18n-aria-label="carousel.next"
+                        aria-label="Next screen">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                    <div class="dots"></div>
                 </div>
                 <div class="feature-body">
                     <div class="kicker">
-                        <span class="badge-live" data-i18n="badge.play">LIVE ON GOOGLE PLAY</span>
-                        <span data-i18n="work.woggliKicker">Latest release · Marketplace and social network</span>
+                        <span class="badge" data-i18n="badge.play">LIVE · GOOGLE PLAY</span>
+                        <span data-i18n="work.woggliKicker">Kicker</span>
                     </div>
                     <h3>Woggli</h3>
-                    <p data-i18n="work.woggliDesc">A peer to peer marketplace and social network for the world Scout
-                        movement: collectors trade badges, neckerchiefs and woggles, the ring that gives the app its
-                        name.</p>
-                    <p data-i18n="work.woggliTech">The most demanding product I have built so far. A follow graph with
-                        friendship derived automatically, realtime chat and shipment events, reporting and moderation,
-                        with every critical transition going through a Postgres RPC instead of a direct table write.
-                        Supabase for auth, storage and realtime, a home-made i18n layer in 5 languages, and Maestro for
-                        end to end tests.</p>
+                    <p data-i18n="work.woggliDesc">Description</p>
+                    <p data-i18n="work.woggliTech">Tech</p>
                     <div class="tags">
                         <span class="tag">React Native</span>
                         <span class="tag">Expo</span>
@@ -270,29 +303,71 @@
                         <span class="tag">i18n</span>
                     </div>
                     <div class="links">
-                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.woggli"
-                            target="_blank" rel="noopener">Google Play</a>
+                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.woggli" target="_blank" rel="noopener">Google Play</a>
                     </div>
                 </div>
             </article>
 
             <article class="feature reveal">
-                <div class="feature-shot browser">
-                    <img src="./assets/shots/qualipath.webp" alt="QualiPath home page" loading="lazy" width="1200"
-                        height="750">
+                <div class="phone" data-carousel>
+                    <div class="phone-frame">
+                        <div class="track" tabindex="0" role="group" aria-label="Stusher screens">
+                            <img src="./assets/shots/stusher/01.webp" alt="Stusher screen 1" width="420" height="860">
+                            <img src="./assets/shots/stusher/02.webp" alt="Stusher screen 2" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/stusher/03.webp" alt="Stusher screen 3" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/stusher/04.webp" alt="Stusher screen 4" width="420" height="860" loading="lazy">
+                            <img src="./assets/shots/stusher/05.webp" alt="Stusher screen 5" width="420" height="860" loading="lazy">
+                        </div>
+                    </div>
+                    <button class="cbtn cprev" type="button" data-i18n-aria-label="carousel.prev"
+                        aria-label="Previous screen">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="cbtn cnext" type="button" data-i18n-aria-label="carousel.next"
+                        aria-label="Next screen">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                    <div class="dots"></div>
                 </div>
                 <div class="feature-body">
                     <div class="kicker">
-                        <span class="badge-live" data-i18n="badge.web">LIVE ON THE WEB</span>
-                        <span data-i18n="work.qualipathKicker">Decision engine · Verified data</span>
+                        <span class="badge" data-i18n="badge.play">LIVE · GOOGLE PLAY</span>
+                        <span data-i18n="work.stusherKicker">Kicker</span>
+                    </div>
+                    <h3>Stusher</h3>
+                    <p data-i18n="work.stusherDesc">Description</p>
+                    <p data-i18n="work.stusherTech">Tech</p>
+                    <div class="tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Expo</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Edge Functions</span>
+                    </div>
+                    <div class="links">
+                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.stusher" target="_blank" rel="noopener">Google Play</a>
+                        <a class="link" href="https://stusher.app/" target="_blank" rel="noopener">stusher.app</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature flip reveal">
+                <div class="feature-shot browser">
+                    <img src="./assets/shots/qualipath.webp" alt="QualiPath home page" loading="lazy" width="1200" height="750">
+                </div>
+                <div class="feature-body">
+                    <div class="kicker">
+                        <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
+                        <span data-i18n="work.qualipathKicker">Kicker</span>
                     </div>
                     <h3>QualiPath</h3>
-                    <p data-i18n="work.qualipathDesc">Tell it your profession, where you qualified and where you want to
-                        work, and it returns the competent authority, the documents, the fees and the work permit route.
-                    </p>
-                    <p data-i18n="work.qualipathTech">83 verified routes across 18 destinations. Every requirement is
-                        linked to its official source with the date it was checked, so the answer can be audited instead
-                        of trusted. Structured data and SEO built in from the first commit.</p>
+                    <p data-i18n="work.qualipathDesc">Description</p>
+                    <p data-i18n="work.qualipathTech">Tech</p>
                     <div class="tags">
                         <span class="tag">Next.js</span>
                         <span class="tag">TypeScript</span>
@@ -305,23 +380,18 @@
                 </div>
             </article>
 
-            <article class="feature flip reveal">
+            <article class="feature reveal">
                 <div class="feature-shot browser">
-                    <img src="./assets/shots/hallazgo.webp" alt="Hallazgo home page" loading="lazy" width="1200"
-                        height="750">
+                    <img src="./assets/shots/hallazgo.webp" alt="Hallazgo home page" loading="lazy" width="1200" height="750">
                 </div>
                 <div class="feature-body">
                     <div class="kicker">
-                        <span class="badge-live" data-i18n="badge.web">LIVE ON THE WEB</span>
-                        <span data-i18n="work.hallazgoKicker">Editorial · Automated pipeline</span>
+                        <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
+                        <span data-i18n="work.hallazgoKicker">Kicker</span>
                     </div>
                     <h3>Hallazgo</h3>
-                    <p data-i18n="work.hallazgoDesc">A daily Spanish-language magazine of verified global opportunities:
-                        migration, housing, funding and tech programs.</p>
-                    <p data-i18n="work.hallazgoTech">The interesting part is not the site, it is the pipeline behind it.
-                        An AI agent runs headless on a schedule, researches, and publishes straight to the database.
-                        Incremental static regeneration picks it up, so there is no deploy per article and no human in
-                        the loop for a normal day.</p>
+                    <p data-i18n="work.hallazgoDesc">Description</p>
+                    <p data-i18n="work.hallazgoTech">Tech</p>
                     <div class="tags">
                         <span class="tag">Next.js</span>
                         <span class="tag">Supabase</span>
@@ -337,45 +407,20 @@
 
             <div class="section-head reveal" style="margin-top:48px">
                 <div class="eyebrow" data-i18n="work.moreEyebrow">The rest of the catalogue</div>
-                <h2 data-i18n="work.moreTitle">Twelve more products in production</h2>
+                <h2 data-i18n="work.moreTitle">Eleven more products in production</h2>
             </div>
 
             <div class="grid-cards">
                 <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/stusher-app.webp" alt="Stusher screenshot" loading="lazy"></div>
-                    <div class="card-head">
-                        <img src="./assets/apps/stusher-icon.png" alt="Stusher icon" loading="lazy">
-                        <div>
-                            <h3>Stusher</h3>
-                            <div class="contact-k" data-i18n="badge.play">LIVE ON GOOGLE PLAY</div>
-                        </div>
-                    </div>
-                    <p data-i18n="cards.stusher">Three personalized movie and series picks in 30 seconds, based on the
-                        streaming services you already pay for. Serverless Edge Functions keep the API keys out of the
-                        client bundle.</p>
-                    <div class="tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Expo</span>
-                        <span class="tag">Edge Functions</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.stusher"
-                            target="_blank" rel="noopener">Google Play</a>
-                        <a class="link" href="https://stusher.app/" target="_blank" rel="noopener">stusher.app</a>
-                    </div>
-                </article>
-
-                <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/channelberry.webp" alt="ChannelBerry screenshot" loading="lazy"></div>
+                    <div class="card-shot"><img src="./assets/shots/channelberry.webp" alt="ChannelBerry screenshot"
+                            loading="lazy"></div>
                     <div class="card-head">
                         <div>
                             <h3>ChannelBerry</h3>
-                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
                         </div>
                     </div>
-                    <p data-i18n="cards.channelberry">An editorial guide to YouTube: 93 channels reviewed by hand and
-                        published in 5 languages, on a git-versioned catalogue plus the YouTube Data API with ISR
-                        caching to stay inside the free quota.</p>
+                    <p data-i18n="cards.channelberry">An editorial guide to YouTube.</p>
                     <div class="tags">
                         <span class="tag">Next.js</span>
                         <span class="tag">YouTube API</span>
@@ -389,16 +434,15 @@
                 </article>
 
                 <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/quecalifico.webp" alt="QueCalifico screenshot" loading="lazy"></div>
+                    <div class="card-shot"><img src="./assets/shots/quecalifico.webp" alt="QueCalifico screenshot"
+                            loading="lazy"></div>
                     <div class="card-head">
                         <div>
                             <h3>QueCalifico</h3>
-                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
                         </div>
                     </div>
-                    <p data-i18n="cards.quecalifico">A financial eligibility engine for people living in the United
-                        States without a Social Security Number. Compares cards, loans and accounts across 48
-                        institutions, each requirement traced to its source. Fully static, no backend to pay for.</p>
+                    <p data-i18n="cards.quecalifico">A financial eligibility engine.</p>
                     <div class="tags">
                         <span class="tag">Next.js</span>
                         <span class="tag">Static export</span>
@@ -411,15 +455,15 @@
                 </article>
 
                 <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/fadechats.webp" alt="FadeChats screenshot" loading="lazy"></div>
+                    <div class="card-shot"><img src="./assets/shots/fadechats.webp" alt="FadeChats screenshot"
+                            loading="lazy"></div>
                     <div class="card-head">
                         <div>
                             <h3>FadeChats</h3>
-                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
                         </div>
                     </div>
-                    <p data-i18n="cards.fadechats">A disposable chat for two people with no signup. Peer to peer over
-                        WebRTC, so message content never touches a server and the room disappears when it ends.</p>
+                    <p data-i18n="cards.fadechats">A disposable chat for two people.</p>
                     <div class="tags">
                         <span class="tag">Next.js</span>
                         <span class="tag">WebRTC</span>
@@ -431,16 +475,16 @@
                 </article>
 
                 <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/playroweb.webp" alt="Playro Web screenshot" loading="lazy"></div>
+                    <div class="card-shot"><img src="./assets/shots/playroweb.webp" alt="Playro Web screenshot"
+                            loading="lazy"></div>
                     <div class="card-head">
                         <img src="./assets/apps/playro-icon.png" alt="Playro icon" loading="lazy">
                         <div>
                             <h3>Playro Web</h3>
-                            <div class="contact-k" data-i18n="badge.web">LIVE ON THE WEB</div>
+                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
                         </div>
                     </div>
-                    <p data-i18n="cards.playroweb">The web counterpart of the Playro app, sharing the same production
-                        Supabase backend and the same row level security policies as the mobile client.</p>
+                    <p data-i18n="cards.playroweb">The web counterpart of the Playro app.</p>
                     <div class="tags">
                         <span class="tag">Next.js</span>
                         <span class="tag">Supabase</span>
@@ -456,7 +500,7 @@
                     <div class="card-head">
                         <div>
                             <h3 data-i18n="cards.utilitiesTitle">Seven utility apps</h3>
-                            <div class="contact-k" data-i18n="badge.play7">7 APPS LIVE ON GOOGLE PLAY</div>
+                            <span class="badge" data-i18n="badge.play7">LIVE · 7 APPS</span>
                         </div>
                     </div>
                     <div class="icon-row">
@@ -468,10 +512,7 @@
                         <img src="./assets/apps/tiltza-icon.png" alt="Tiltza icon" loading="lazy">
                         <img src="./assets/apps/wheelza-icon.png" alt="Wheelza icon" loading="lazy">
                     </div>
-                    <p data-i18n="cards.utilities">Decibra (sound meter), Magniyo (magnifier), Osito (baby log), Arrullo
-                        (sleep sounds, procedurally generated audio), AviCalma (fear of flying, bilingual), Tiltza
-                        (bubble level) and Wheelza (decision wheel). All offline-first, all on one shared release
-                        pipeline.</p>
+                    <p data-i18n="cards.utilities">Seven focused offline-first utilities.</p>
                     <div class="tags">
                         <span class="tag">React Native</span>
                         <span class="tag">Expo</span>
@@ -726,15 +767,21 @@
                 "work.eyebrow": "Selected work",
                 "work.title": "Products you can open right now",
                 "work.subtitle": "Every product below is live, public and was designed, built and released by me under Teddy Code. No mockups, no case studies of work that never shipped.",
-                "badge.play": "LIVE ON GOOGLE PLAY",
-                "badge.play7": "7 APPS LIVE ON GOOGLE PLAY",
-                "badge.web": "LIVE ON THE WEB",
+                "badge.play": "Live · Google Play",
+                "badge.play7": "Live · 7 apps",
+                "badge.web": "Live · Web",
                 "work.playroKicker": "Social product · Mobile + web",
                 "work.playroDesc": "Social matchmaking for gamers: find teammates by game, platform, language and playstyle, then chat before jumping into a lobby.",
                 "work.playroTech": "Full product cycle on my own: definition, UI design, React Native app, Supabase backend with row level security, push notifications, store assets and the release pipeline. The web counterpart runs against the same production backend.",
-                "work.woggliKicker": "Latest release · Marketplace and social network",
+                "work.woggliKicker": "Latest release · Social marketplace",
                 "work.woggliDesc": "A peer to peer marketplace and social network for the world Scout movement: collectors trade badges, neckerchiefs and woggles, the ring that gives the app its name.",
                 "work.woggliTech": "The most demanding product I have built so far. A follow graph with friendship derived automatically, realtime chat and shipment events, reporting and moderation, with every critical transition going through a Postgres RPC instead of a direct table write. Supabase for auth, storage and realtime, a home-made i18n layer in 5 languages, and Maestro for end to end tests.",
+                "work.stusherKicker": "Recommendation engine · Mobile",
+                "work.stusherDesc": "Three personalized movie and series picks in 30 seconds, based on the streaming services you already pay for, so the night does not start with twenty minutes of scrolling.",
+                "work.stusherTech": "Every third-party API call runs inside a serverless Edge Function, so the keys never reach the client bundle. The app explains why it picked each title, which turned out to matter more than the catalogue size.",
+                "carousel.prev": "Previous screen",
+                "carousel.next": "Next screen",
+                "carousel.screen": "Screen",
                 "work.qualipathKicker": "Decision engine · Verified data",
                 "work.qualipathDesc": "Tell it your profession, where you qualified and where you want to work, and it returns the competent authority, the documents, the fees and the work permit route.",
                 "work.qualipathTech": "83 verified routes across 18 destinations. Every requirement is linked to its official source with the date it was checked, so the answer can be audited instead of trusted. Structured data and SEO built in from the first commit.",
@@ -742,8 +789,7 @@
                 "work.hallazgoDesc": "A daily Spanish-language magazine of verified global opportunities: migration, housing, funding and tech programs.",
                 "work.hallazgoTech": "The interesting part is not the site, it is the pipeline behind it. An AI agent runs headless on a schedule, researches, and publishes straight to the database. Incremental static regeneration picks it up, so there is no deploy per article and no human in the loop for a normal day.",
                 "work.moreEyebrow": "The rest of the catalogue",
-                "work.moreTitle": "Twelve more products in production",
-                "cards.stusher": "Three personalized movie and series picks in 30 seconds, based on the streaming services you already pay for. Serverless Edge Functions keep the API keys out of the client bundle.",
+                "work.moreTitle": "Eleven more products in production",
                 "cards.channelberry": "An editorial guide to YouTube: 93 channels reviewed by hand and published in 5 languages, on a git-versioned catalogue plus the YouTube Data API with ISR caching to stay inside the free quota.",
                 "cards.quecalifico": "A financial eligibility engine for people living in the United States without a Social Security Number. Compares cards, loans and accounts across 48 institutions, each requirement traced to its source. Fully static, no backend to pay for.",
                 "cards.fadechats": "A disposable chat for two people with no signup. Peer to peer over WebRTC, so message content never touches a server and the room disappears when it ends.",
@@ -824,15 +870,21 @@
                 "work.eyebrow": "Trabajo seleccionado",
                 "work.title": "Productos que puedes abrir ahora mismo",
                 "work.subtitle": "Todo lo que sigue está publicado, es público y fue diseñado, construido y lanzado por mí bajo Teddy Code. Sin mockups ni casos de estudio de cosas que nunca salieron.",
-                "badge.play": "EN GOOGLE PLAY",
-                "badge.play7": "7 APPS EN GOOGLE PLAY",
-                "badge.web": "EN PRODUCCIÓN",
+                "badge.play": "Live · Google Play",
+                "badge.play7": "Live · 7 apps",
+                "badge.web": "Live · Web",
                 "work.playroKicker": "Producto social · Mobile y web",
                 "work.playroDesc": "Matchmaking social para gamers: encuentra compañeros por juego, plataforma, idioma y estilo de juego, y conversa antes de entrar a la partida.",
                 "work.playroTech": "Ciclo completo de producto, solo: definición, diseño de UI, app en React Native, backend en Supabase con row level security, notificaciones push, assets de tienda y pipeline de release. La versión web corre contra el mismo backend de producción.",
-                "work.woggliKicker": "Lo más reciente · Marketplace y red social",
+                "work.woggliKicker": "Lo más reciente · Marketplace social",
                 "work.woggliDesc": "Marketplace peer to peer y red social para el movimiento Scout mundial: los coleccionistas intercambian insignias, pañoletas y woggles, el anillo que le da el nombre a la app.",
                 "work.woggliTech": "El producto más exigente que he construido hasta ahora. Grafo de seguidores con amistad derivada automáticamente, chat y eventos de envío en tiempo real, reportes y moderación, y cada transición crítica pasando por un RPC de Postgres en vez de una escritura directa a tabla. Supabase para auth, storage y realtime, capa de i18n propia en 5 idiomas y Maestro para pruebas end to end.",
+                "work.stusherKicker": "Motor de recomendación · Mobile",
+                "work.stusherDesc": "Tres recomendaciones personalizadas de películas y series en 30 segundos, según los servicios de streaming que ya pagas, para que la noche no empiece con veinte minutos de scroll.",
+                "work.stusherTech": "Cada llamada a APIs de terceros corre dentro de una Edge Function serverless, así las keys nunca llegan al bundle del cliente. La app explica por qué eligió cada título, y eso terminó importando más que el tamaño del catálogo.",
+                "carousel.prev": "Pantalla anterior",
+                "carousel.next": "Pantalla siguiente",
+                "carousel.screen": "Pantalla",
                 "work.qualipathKicker": "Motor de decisión · Datos verificados",
                 "work.qualipathDesc": "Le dices tu profesión, dónde te titulaste y dónde quieres trabajar, y te devuelve la autoridad competente, los documentos, los costos y la ruta de permiso de trabajo.",
                 "work.qualipathTech": "83 rutas verificadas en 18 destinos. Cada requisito está enlazado a su fuente oficial con la fecha en que se comprobó, así la respuesta se puede auditar en vez de creer. Datos estructurados y SEO desde el primer commit.",
@@ -840,8 +892,7 @@
                 "work.hallazgoDesc": "Revista diaria en español de oportunidades globales verificadas: migración, vivienda, financiamiento y programas tech.",
                 "work.hallazgoTech": "Lo interesante no es el sitio, es el pipeline detrás. Un agente de IA corre headless según un cron, investiga y publica directo a la base de datos. La regeneración estática incremental lo levanta, así que no hay deploy por artículo ni humano en el medio en un día normal.",
                 "work.moreEyebrow": "El resto del catálogo",
-                "work.moreTitle": "Doce productos más en producción",
-                "cards.stusher": "Tres recomendaciones personalizadas de películas y series en 30 segundos, según los servicios de streaming que ya pagas. Las Edge Functions mantienen las API keys fuera del bundle del cliente.",
+                "work.moreTitle": "Once productos más en producción",
                 "cards.channelberry": "Guía editorial de YouTube: 93 canales revisados a mano y publicados en 5 idiomas, sobre un catálogo versionado en git más la YouTube Data API con caché ISR para no salirse de la cuota gratuita.",
                 "cards.quecalifico": "Motor de elegibilidad financiera para quienes viven en Estados Unidos sin Social Security Number. Compara tarjetas, préstamos y cuentas de 48 instituciones, con cada requisito trazado a su fuente. Totalmente estático, sin backend que pagar.",
                 "cards.fadechats": "Chat desechable de dos personas sin registro. Peer to peer sobre WebRTC, así el contenido de los mensajes nunca toca un servidor y la sala desaparece al terminar.",
@@ -931,19 +982,73 @@
                 b.classList.toggle("active", b.dataset.lang === code);
             });
 
+            carousels.forEach((c) => c.relabel && c.relabel());
+
             try { localStorage.setItem(STORE_KEY, code); } catch (e) { /* private mode */ }
         }
 
         function initialLanguage() {
             let stored = null;
             try { stored = localStorage.getItem(STORE_KEY); } catch (e) { /* private mode */ }
-            if (stored) return stored;
-            return (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
+            // Por defecto ingles siempre: el visitante objetivo es un recruiter internacional.
+            // El espanol queda a un clic y se recuerda una vez elegido.
+            return stored === "es" || stored === "en" ? stored : "en";
         }
 
         document.querySelectorAll("[data-lang]").forEach((b) => {
             b.addEventListener("click", () => applyLanguage(b.dataset.lang));
         });
+
+
+        const carousels = [];
+
+        function initCarousels() {
+            document.querySelectorAll("[data-carousel]").forEach((root) => {
+                const track = root.querySelector(".track");
+                const dotsWrap = root.querySelector(".dots");
+                const slides = Array.from(track.children);
+                if (slides.length < 2) return;
+
+                slides.forEach((_, i) => {
+                    const b = document.createElement("button");
+                    b.type = "button";
+                    b.className = "dot" + (i === 0 ? " active" : "");
+                    b.dataset.index = String(i);
+                    dotsWrap.appendChild(b);
+                });
+                const dots = Array.from(dotsWrap.children);
+                const current = () => Math.round(track.scrollLeft / track.clientWidth);
+                const go = (i) => {
+                    const n = (i + slides.length) % slides.length;
+                    track.scrollTo({ left: track.clientWidth * n, behavior: "smooth" });
+                };
+
+                dots.forEach((d) => d.addEventListener("click", () => go(Number(d.dataset.index))));
+                root.querySelector(".cprev").addEventListener("click", () => go(current() - 1));
+                root.querySelector(".cnext").addEventListener("click", () => go(current() + 1));
+
+                track.addEventListener("keydown", (e) => {
+                    if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+                    if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+                });
+
+                let t;
+                track.addEventListener("scroll", () => {
+                    clearTimeout(t);
+                    t = setTimeout(() => {
+                        const c = current();
+                        dots.forEach((d, i) => d.classList.toggle("active", i === c));
+                    }, 60);
+                }, { passive: true });
+
+                root.relabel = () => {
+                    const dict = i18n[document.documentElement.lang] || i18n.en;
+                    dots.forEach((d, i) => d.setAttribute("aria-label", dict["carousel.screen"] + " " + (i + 1)));
+                };
+                root.relabel();
+                carousels.push(root);
+            });
+        }
 
         const nav = document.getElementById("nav");
         const menuBtn = document.getElementById("menu-btn");
@@ -990,6 +1095,7 @@
             document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
         }
 
+        initCarousels();
         applyLanguage(initialLanguage());
     </script>
 </body>
