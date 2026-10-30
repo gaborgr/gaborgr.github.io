@@ -2,10 +2,10 @@
 (function () {
   'use strict';
   if (window.tcBusinessTrack) return;
-  const projects = { 'teddy-code.com': 'teddycode', 'playro.app': 'playro', 'web.playro.app': 'playro-web', 'stusher.app': 'stusher', 'channelberry.com': 'channelberry', 'fadechats.app': 'fadechats', 'hallazgo.app': 'hallazgo', 'qualipath.co': 'qualipath', 'quecalifico.com': 'quecalifico', 'gaborgr.github.io': 'portfolio' };
+  const projects = { 'teddy-code.com': 'teddycode', 'playro.app': 'playro', 'stusher.app': 'stusher', 'channelberry.com': 'channelberry', 'fadechats.app': 'fadechats', 'hallazgo.app': 'hallazgo', 'qualipath.co': 'qualipath', 'quecalifico.com': 'quecalifico', 'gaborgr.github.io': 'portfolio' };
   const host = location.hostname.replace(/^www\./, '');
   const site = projects[host];
-  const allowed = {"teddycode":["store_click","contact_click","studio_click","form_start","form_complete"],"playro":["store_click","studio_click"],"playro-web":["store_click","studio_click","form_start","account_complete"],"stusher":["store_click","studio_click","tool_start","tool_complete"],"channelberry":["youtube_click","studio_click"],"fadechats":["invite_created","invite_redeemed","chat_connected","studio_click"],"hallazgo":["official_click","studio_click","form_start","form_complete"],"qualipath":["tool_start","tool_complete","official_click","studio_click"],"quecalifico":["tool_start","tool_complete","official_click","studio_click"],"portfolio":["contact_click","cv_download","project_click","studio_click"]};
+  const allowed = {"teddycode":["store_click","contact_click","studio_click","form_start","form_complete"],"playro":["store_click","studio_click","form_start","account_complete"],"stusher":["store_click","studio_click","tool_start","tool_complete"],"channelberry":["youtube_click","studio_click"],"fadechats":["invite_created","invite_redeemed","chat_connected","studio_click"],"hallazgo":["official_click","studio_click","form_start","form_complete"],"qualipath":["tool_start","tool_complete","official_click","studio_click"],"quecalifico":["tool_start","tool_complete","official_click","studio_click"],"portfolio":["contact_click","cv_download","project_click","studio_click"]};
   const events = new Set(allowed[site] || []);
   const optedOut = navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true;
   const excluded = () => /\/(dash|admin|legal|privacy|privacidad|cookies|terms|terminos)(\/|\.|$)/.test(location.pathname);
@@ -46,6 +46,5 @@
     if (!(e.target instanceof Element) || !e.isTrusted || !e.target.closest('form') || !e.target.matches('input,textarea,select')) return;
     if (site === 'teddycode' && e.target.closest('#contact-form')) track('form_start', 'tool');
     if (site === 'hallazgo' && e.target.closest('[data-business-form]')) track('form_start', 'tool');
-    if (site === 'playro-web' && /\/onboarding\/?$/.test(location.pathname)) track('form_start', 'tool');
   }, { passive: true });
 })();

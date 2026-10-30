@@ -34,7 +34,7 @@ me as founder of [Teddy Code](https://teddy-code.com/), alongside a full-time en
 | [quecalifico.com](https://quecalifico.com/) | Financial eligibility engine for people in the US without an SSN, comparing products across 48 institutions | Next.js, static export, Tailwind |
 | [channelberry.com](https://channelberry.com/) | Editorial guide to YouTube: 93 hand-reviewed channels published in 5 languages | Next.js, YouTube Data API, i18n, ISR |
 | [fadechats.app](https://fadechats.app/) | Disposable two-person chat with no signup. Peer to peer over WebRTC, so message content never reaches a server | Next.js, WebRTC, TypeScript |
-| [web.playro.app](https://web.playro.app/) | Web counterpart of the Playro app, sharing its production backend and row level security | Next.js, Supabase, RLS |
+| [playro.app](https://playro.app/) | Web version of the Playro app, sharing its production backend and row level security | Next.js, Supabase, RLS |
 
 Plus the studio and product sites: [teddy-code.com](https://teddy-code.com/),
 [playro.app](https://playro.app/), [stusher.app](https://stusher.app/).
