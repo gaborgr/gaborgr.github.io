@@ -1,1105 +1,1114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gabriel Guerra · Software Developer · Django, React Native, Next.js</title>
-    <meta name="description"
-        content="Software developer and product engineer based in Santiago, Chile. Backend developer on a production Django platform and founder of Teddy Code, with 10 Android apps and 6 web products live.">
-    <meta name="author" content="Gabriel Guerra">
-    <link rel="canonical" href="https://gaborgr.github.io/">
-    <meta name="theme-color" content="#0a0b0d">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabriel Guerra · Software Developer · From finance to software</title>
+<meta name="description" content="Software developer in Santiago, Chile, with a background in audit and finance. I build web and mobile products with Django, React Native and Next.js, thinking about the business and the people who use them.">
+<meta name="author" content="Gabriel Guerra">
+<link rel="canonical" href="https://gaborgr.github.io/">
+<meta name="theme-color" content="#0a1330">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gaborgr.github.io/">
+<meta property="og:title" content="Gabriel Guerra · Software Developer">
+<meta property="og:description" content="From finance to software: web and mobile products built with the business and the user in mind. Django, React Native, Next.js.">
+<meta property="og:image" content="https://gaborgr.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gabriel Guerra · Software Developer">
+<meta name="twitter:description" content="From finance to software: web and mobile products built with the business and the user in mind.">
+<meta name="twitter:image" content="https://gaborgr.github.io/assets/og.png">
+<link rel="icon" href="./assets/favicon-32.png?v=2" sizes="32x32">
+<link rel="icon" href="./assets/favicon-128.png?v=2" sizes="128x128">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png?v=2">
+<link rel="preload" href="./assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/photo_gabriel.webp?v=3" as="image" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gabriel Guerra",
+  "url": "https://gaborgr.github.io/",
+  "image": "https://gaborgr.github.io/assets/photo_gabriel.webp",
+  "jobTitle": "Software Developer",
+  "email": "mailto:gguerra.code@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL" },
+  "knowsLanguage": ["Spanish", "English"],
+  "knowsAbout": ["Python", "Django", "PostgreSQL", "TypeScript", "React Native", "Next.js", "Supabase", "Docker"],
+  "sameAs": ["https://www.linkedin.com/in/gguerra-code/", "https://github.com/gaborgr"]
+}
+</script>
+<style>
+@font-face {
+  font-family: "Jakarta";
+  src: url("./assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 800; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Jakarta";
+  src: url("./assets/fonts/plus-jakarta-sans-latin-ext-wght-normal.woff2") format("woff2");
+  font-weight: 200 800; font-style: normal; font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+:root {
+  --navy-950: #070e24;
+  --navy-900: #0a1330;
+  --navy-800: #0f1d45;
+  --navy-700: #16295e;
+  --blue: #3b6ff5;
+  --blue-2: #5b8cff;
+  --blue-3: #8fb2ff;
+  --sky: #eaf1ff;
+  --bg: #f5f7fc;
+  --bg-2: #eef2f9;
+  --card: #ffffff;
+  --line: #e3e8f2;
+  --line-2: #d4dbe8;
+  --ink: #0d1530;
+  --ink-2: #3c4662;
+  --ink-3: #6b7590;
+  --grad: linear-gradient(95deg, #5b8cff 0%, #3b6ff5 55%, #6c8dff 100%);
+  --shadow-sm: 0 1px 2px rgb(13 21 48 / .05), 0 2px 8px rgb(13 21 48 / .04);
+  --shadow: 0 1px 2px rgb(13 21 48 / .05), 0 10px 30px -12px rgb(13 21 48 / .16);
+  --shadow-lg: 0 2px 4px rgb(13 21 48 / .05), 0 24px 50px -18px rgb(13 21 48 / .28);
+  --max: 1720px;
+  --nav-h: 4.75rem;
+  --pad: clamp(1.1rem, 4.5vw, 5rem);
+  --r: 16px;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --sans: "Jakarta", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: clamp(16px, .32vw + 11px, 19px); scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  margin: 0; font-family: var(--sans); color: var(--ink); background: var(--bg);
+  font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+.icon { width: 1.25em; height: 1.25em; flex: none; fill: currentColor; }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 1rem; top: -4rem; z-index: 100; background: #fff; color: var(--ink); padding: .6rem 1rem; border-radius: 10px; font-weight: 600; }
+.skip:focus { top: 1rem; }
+:focus-visible { outline: 2px solid var(--blue-2); outline-offset: 3px; border-radius: 8px; }
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gaborgr.github.io/">
-    <meta property="og:title" content="Gabriel Guerra · Software Developer">
-    <meta property="og:description"
-        content="Sixteen products live: 10 Android apps and 6 web products, built and shipped end to end. Django, React Native, Next.js.">
-    <meta property="og:image" content="https://gaborgr.github.io/assets/og.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="es_ES">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gabriel Guerra · Software Developer">
-    <meta name="twitter:description"
-        content="Sixteen products live: 10 Android apps and 6 web products, built and shipped end to end.">
-    <meta name="twitter:image" content="https://gaborgr.github.io/assets/og.png">
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50; color: #fff;
+  background: transparent; transition: background .35s ease, box-shadow .35s ease;
+}
+.nav.scrolled, .nav.menu-open { background: var(--navy-900); box-shadow: 0 10px 28px -14px rgb(0 0 0 / .6); }
+.hero { margin-top: calc(-1 * var(--nav-h)); padding-top: var(--nav-h); }
+.nav-inner { display: flex; align-items: center; gap: 1rem; height: var(--nav-h); }
+.brand { display: flex; align-items: center; gap: .75rem; flex: none; }
+.brand img { height: 1.5rem; width: auto; transition: transform .4s var(--ease); }
+.brand:hover img { transform: translateX(3px); }
+.type { display: inline-grid; font-size: 1.4rem; font-weight: 800; letter-spacing: -.02em; line-height: 1; color: #fff; }
+.type-sizer { grid-area: 1 / 1; visibility: hidden; padding-right: 10px; white-space: pre; }
+.type-out { grid-area: 1 / 1; display: flex; align-items: center; white-space: pre; }
+.caret { display: inline-block; width: 3px; height: 1.1em; margin-left: 4px; border-radius: 2px; background: #4f80ff; animation: blink 1.06s steps(1, end) infinite; }
+.typing .caret { animation: none; }
+@keyframes blink { 50% { opacity: 0; } }
+.nav-links { display: flex; gap: .25rem; margin: 0 auto; }
+.nav-links a {
+  position: relative; white-space: nowrap; font-size: .92rem; font-weight: 500; color: rgb(255 255 255 / .82);
+  padding: .5rem .75rem; transition: color .2s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; font-weight: 700; }
+.nav-links a::after {
+  content: ""; position: absolute; left: .75rem; right: .75rem; bottom: -10px; height: 3px; border-radius: 3px;
+  background: var(--blue-2); transform: scaleX(0); transition: transform .35s var(--ease);
+}
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-tools { display: flex; align-items: center; gap: .4rem; }
+.icon-btn {
+  display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: .625rem; color: #fff;
+  transition: background .2s, color .2s;
+}
+.icon-btn:hover { background: rgb(255 255 255 / .08); }
+.icon-btn .icon { width: 1.375rem; height: 1.375rem; }
+.icon-btn.li .icon { width: 1.5625rem; height: 1.5625rem; }
+.lang {
+  position: relative; display: grid; grid-template-columns: 1fr 1fr; width: 5.25rem; height: 2.25rem; padding: 3px; margin: 0 .35rem;
+  border-radius: 999px; background: rgb(255 255 255 / .08);
+}
+.lang::before {
+  content: ""; position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); border-radius: 999px;
+  background: var(--blue); transition: transform .4s cubic-bezier(.34, 1.3, .64, 1);
+}
+.lang[data-active="es"]::before { transform: translateX(100%); }
+.lang button { position: relative; z-index: 1; font-size: .74rem; font-weight: 800; letter-spacing: .06em; border-radius: 999px; color: rgb(255 255 255 / .55); transition: color .3s; }
+.lang button.active { color: #fff; }
+.btn-cv {
+  white-space: nowrap; flex: none;
+  display: inline-flex; align-items: center; gap: .55rem; height: 2.625rem; padding: 0 1rem; font-size: .88rem; font-weight: 600;
+  border-radius: 10px; border: 1.5px solid rgb(255 255 255 / .75); color: #fff; margin-left: .5rem;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.btn-cv:hover { background: #fff; color: var(--navy-900); border-color: #fff; }
+.btn-cv .icon { width: 1.2rem; height: 1.2rem; }
+.menu-btn { display: none; }
+.drawer { display: none; }
 
-    <link rel="icon" href="./assets/favicon-32.png" sizes="32x32">
-    <link rel="icon" href="./assets/favicon-128.png" sizes="128x128">
-    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; overflow: hidden; color: #fff; isolation: isolate;
+  background:
+    radial-gradient(560px 520px at 70% 34%, rgb(122 152 214 / .26), transparent 68%),
+    radial-gradient(420px 360px at 96% 92%, rgb(59 111 245 / .42), transparent 70%),
+    radial-gradient(700px 460px at 0% 0%, rgb(4 9 22 / .75), transparent 70%),
+    radial-gradient(600px 420px at 18% 105%, rgb(40 70 140 / .22), transparent 70%),
+    linear-gradient(115deg, #0a1324 0%, #0e1c34 40%, #132849 68%, #0f1f3c 100%);
+}
+/* Grano fino + haces de luz diagonales: textura de foto de estudio */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .07; mix-blend-mode: overlay;
+}
+.hero::after {
+  content: ""; position: absolute; inset: -10% -5%; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(118deg, transparent 46%, rgb(150 180 255 / .07) 52%, transparent 60%),
+    linear-gradient(118deg, transparent 58%, rgb(150 180 255 / .05) 63%, transparent 70%);
+  filter: blur(6px);
+}
+.hero-inner { max-width: calc(clamp(1080px, 62vw, 1480px) + 2 * var(--pad)); position: relative; display: grid; grid-template-columns: 1.12fr .88fr; align-items: end; min-height: clamp(480px, 34vw, 700px); }
+.hero-copy { padding: 2rem 0 2.5rem; position: relative; z-index: 4; }
+.eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: rgb(255 255 255 / .82); }
+.status {
+  display: inline-flex; align-items: center; gap: .55rem; margin-top: 1rem; font-size: .8rem; font-weight: 500; color: rgb(255 255 255 / .75);
+  padding: .3rem .75rem .3rem .55rem; border-radius: 99px; background: rgb(255 255 255 / .06); border: 1px solid rgb(255 255 255 / .1);
+}
+.status i { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 4px rgb(52 211 153 / .18); }
+.hero h1 {
+  white-space: nowrap;
+  margin-top: 1.1rem; font-size: clamp(2.2rem, 3.9vw, 5rem); line-height: 1.08; font-weight: 800; letter-spacing: -.025em;
+}
+.hero h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lead { margin-top: 1.25rem; max-width: 35rem; font-size: clamp(1.08rem, .9vw, 1.35rem); line-height: 1.6; color: rgb(255 255 255 / .82); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
+.btn {
+  white-space: nowrap;
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem; height: 50px; padding: 0 1.5rem;
+  border-radius: 12px; font-weight: 700; font-size: 1.06rem; transition: transform .25s var(--ease), box-shadow .25s, background .2s, border-color .2s;
+}
+.btn .icon { width: 22px; height: 22px; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: #4a7bff; transform: translateY(-2px); }
+.btn-ghost { border: 1.5px solid rgb(255 255 255 / .7); color: #fff; }
+.btn-ghost:hover { background: rgb(255 255 255 / .08); border-color: #fff; transform: translateY(-2px); }
+.hero-points { display: flex; flex-wrap: nowrap; gap: .6rem 1.6rem; margin-top: 1.9rem; }
+.hero-points li { white-space: nowrap; display: flex; align-items: center; gap: .55rem; font-size: 1rem; font-weight: 600; color: rgb(255 255 255 / .9); }
+.hero-points .icon { width: 1.4rem; height: 1.4rem; color: #8fb2ff; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="./assets/styles.css">
+.hero-art { position: relative; align-self: stretch; min-height: 420px; }
+.portrait {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-47%); z-index: 2;
+  height: min(clamp(470px, 35vw, 720px), 94%); aspect-ratio: 900 / 833;
+}
+.hero-art .disc {
+  position: absolute; right: -40%; bottom: -38%; width: 108%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 30% 22%, #6e98ff 0%, #3b6ff5 30%, #2350d6 58%, #142f86 100%);
+  box-shadow: 0 -18px 90px -10px rgb(91 140 255 / .55), inset 0 3px 2px -1px rgb(200 218 255 / .55), inset 18px 26px 60px -20px rgb(255 255 255 / .22), inset -30px -40px 80px rgb(6 16 50 / .45);
+}
+.hero-art .photo {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2;
+  filter: drop-shadow(0 0 28px rgb(120 160 255 / .22)) drop-shadow(0 30px 40px rgb(0 0 0 / .4));
+  
+}
+.float-card {
+  position: absolute; z-index: 3; right: -13%; top: 0; width: clamp(150px, 11vw, 200px); padding: 16px 18px 18px;
+  border-radius: 18px; background: linear-gradient(160deg, rgb(70 110 230 / .38), rgb(30 55 140 / .32));
+  border: 1px solid rgb(143 178 255 / .45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 20px 50px -12px rgb(0 0 0 / .5), inset 0 1px 0 rgb(255 255 255 / .15);
+}
+.float-card .icon { width: 26px; height: 26px; color: var(--blue-3); }
+.float-card .lines { margin-top: 12px; display: grid; gap: 7px; }
+.float-card .lines span { height: 5px; border-radius: 4px; background: rgb(143 178 255 / .55); }
+.float-card .lines span:nth-child(1) { width: 100%; }
+.float-card .lines span:nth-child(2) { width: 72%; }
+.float-card .lines span:nth-child(3) { width: 84%; }
+.float-card .bars { display: flex; align-items: flex-end; justify-content: flex-end; gap: 6px; height: 56px; margin-top: 10px; }
+.float-card .bars span { width: 10px; border-radius: 3px 3px 1px 1px; background: linear-gradient(180deg, #8fb2ff, #3b6ff5); }
+.float-card .bars span:nth-child(1) { height: 22%; }
+.float-card .bars span:nth-child(2) { height: 40%; }
+.float-card .bars span:nth-child(3) { height: 58%; }
+.float-card .bars span:nth-child(4) { height: 78%; }
+.float-card .bars span:nth-child(5) { height: 100%; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Gabriel Guerra",
-        "url": "https://gaborgr.github.io/",
-        "image": "https://gaborgr.github.io/assets/pic.jpg",
-        "jobTitle": "Software Developer",
-        "email": "mailto:gguerra.code@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Santiago",
-            "addressCountry": "CL"
-        },
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Teddy Code LLC",
-            "url": "https://teddy-code.com/"
-        },
-        "knowsLanguage": ["Spanish", "English"],
-        "knowsAbout": ["Python", "Django", "PostgreSQL", "TypeScript", "React Native", "Next.js", "Supabase", "Docker"],
-        "sameAs": [
-            "https://www.linkedin.com/in/gguerra-code/",
-            "https://github.com/gaborgr",
-            "https://teddy-code.com/"
-        ]
-    }
-    </script>
+/* ---------- Sections ---------- */
+section { position: relative; }
+.band { padding: 4.25rem 0; }
+.band-white { background: #fff; }
+.band-soft { background: var(--bg); }
+.sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.sec-title { display: flex; align-items: center; gap: .8rem; font-size: clamp(1.45rem, 2.4vw, 1.8rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+.sec-title .ico { display: grid; place-items: center; color: var(--navy-700); }
+.sec-title .ico .icon { width: 2.35rem; height: 2.35rem; }
+.sec-meta { font-size: .88rem; color: var(--ink-3); font-weight: 500; }
+.sec-meta a { color: var(--blue); font-weight: 600; display: inline-flex; align-items: center; gap: .3rem; }
+.sec-meta a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.sec-meta .icon { width: 15px; height: 15px; }
+
+/* About + skills */
+.about-grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 3rem; }
+.about-grid > div + div { border-left: 1px solid var(--line); padding-left: 3rem; }
+.about p { margin-top: 1rem; font-size: 1.06rem; color: var(--ink-2); line-height: 1.7; }
+.about p strong { color: var(--ink); font-weight: 700; }
+.skills { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.25rem; }
+.skill {
+  display: inline-flex; align-items: center; gap: .6rem; padding: .55rem .9rem .55rem .6rem; border-radius: 12px;
+  background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); font-size: 1rem; font-weight: 600; color: var(--ink);
+  transition: transform .25s var(--ease), box-shadow .25s, border-color .25s;
+}
+.skill:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--line-2); }
+.skill img { width: 1.5rem; height: 1.5rem; object-fit: contain; }
+.skill .ph { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; color: var(--ink-2); }
+.skill .ph .icon { width: 1.45rem; height: 1.45rem; }
+
+/* Web projects */
+.web-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.wcard {
+  display: flex; flex-direction: column; border-radius: 18px; overflow: hidden;
+  background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  transition: transform .4s var(--ease), box-shadow .4s, border-color .4s;
+}
+.wcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--line-2); }
+/* Captura dentro de una ventana de navegador */
+.browser { margin: .9rem .9rem 0; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid var(--line); box-shadow: 0 10px 24px -16px rgb(13 21 48 / .45); }
+.browser .bar { display: flex; align-items: center; gap: .6rem; height: 2rem; padding: 0 .75rem; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+.browser .dots { display: flex; gap: 5px; }
+.browser .dots i { width: 8px; height: 8px; border-radius: 50%; background: #d3d9e6; }
+.browser .dots i:first-child { background: #ff6b5f; } .browser .dots i:nth-child(2) { background: #ffbe2e; } .browser .dots i:nth-child(3) { background: #2bc840; }
+.browser .addr { flex: 1; display: flex; align-items: center; justify-content: center; gap: .35rem; height: 1.3rem; border-radius: 6px; background: #fff; font-size: .7rem; font-weight: 600; color: var(--ink-3); }
+.browser .addr .icon { width: .8rem; height: .8rem; color: #2bc840; }
+.browser .shot { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-2); }
+.browser .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .8s var(--ease); }
+.wcard:hover .browser .shot img { transform: scale(1.04); }
+.wcard .body { display: flex; flex-direction: column; flex: 1; padding: 1.2rem 1.3rem 1.3rem; }
+.wcard .head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.wmark { height: 2rem; display: flex; align-items: center; min-width: 0; }
+.wmark img { height: 100%; width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
+.wmark.dark { height: 2.2rem; padding: 5px 10px; border-radius: 9px; background: #0b0d12; }
+.wmark.tall { height: 2.3rem; }
+.wcard .go {
+  display: grid; place-items: center; flex: none; width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: var(--sky); color: var(--blue); transition: background .25s, color .25s, transform .35s var(--ease);
+}
+.wcard .go .icon { width: 1rem; height: 1rem; }
+.wcard:hover .go { background: var(--blue); color: #fff; transform: rotate(45deg); }
+.wcard p { margin-top: .8rem; font-size: .95rem; line-height: 1.55; color: var(--ink-2); }
+.live { display: inline-flex; align-items: center; gap: .5rem; font-size: .88rem; font-weight: 600; color: var(--ink-2); }
+.live i { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgb(34 197 94 / .16); }
+.tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; padding-top: .7rem; }
+.tags span { font-size: .7rem; font-weight: 600; padding: .2rem .5rem; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); color: var(--ink-2); white-space: nowrap; }
+
+/* Mobile apps */
+.app-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+.acard {
+  display: flex; flex-direction: column; padding: 1rem .95rem 1rem; border-radius: var(--r);
+  background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  transition: transform .35s var(--ease), box-shadow .35s, border-color .35s;
+}
+.acard:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--line-2); }
+.phone {
+  position: relative; width: 100%; max-width: 132px; margin: 0 auto; aspect-ratio: 9 / 18.6; border-radius: 22px; padding: 5px;
+  background: linear-gradient(160deg, #2a3350, #0b1022); box-shadow: 0 16px 30px -14px rgb(13 21 48 / .55), inset 0 0 0 1px rgb(255 255 255 / .08);
+  transition: transform .5s var(--ease);
+}
+.acard:hover .phone { transform: translateY(-3px) rotate(-1.5deg); }
+.phone .screen { position: relative; width: 100%; height: 100%; border-radius: 17px; overflow: hidden; background: #000; }
+.phone .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: opacity .8s ease; }
+.phone .screen img + img { opacity: 0; }
+.phone .screen img.on { opacity: 1; }
+.phone::after { content: ""; position: absolute; top: 9px; left: 50%; width: 30%; height: 7px; transform: translateX(-50%); border-radius: 6px; background: #05070d; }
+.acard .name { display: flex; align-items: center; gap: .55rem; margin-top: 1rem; }
+.acard .name img { width: 28px; height: 28px; border-radius: 8px; box-shadow: 0 0 0 1px rgb(13 21 48 / .08); }
+.acard h3 { font-size: 1rem; font-weight: 700; line-height: 1.2; }
+.acard p { margin-top: .45rem; font-size: .8rem; line-height: 1.45; color: var(--ink-2); }
+.acard .play { display: inline-flex; align-items: center; gap: .3rem; margin-top: .55rem; font-size: .72rem; font-weight: 700; color: var(--blue); }
+.acard .play .icon { width: 14px; height: 14px; }
+.acard .tags { padding-top: .6rem; }
+
+/* Timeline */
+.journey-head { margin-bottom: 2.75rem; }
+.journey-sub { margin-top: .6rem; color: var(--ink-2); font-size: 1.05rem; max-width: 46rem; }
+/* Columnas proporcionales: finanzas pesa mas porque fue la mayor parte de la carrera */
+.timeline { display: grid; grid-template-columns: 1.7fr 1fr 1.25fr 1.45fr; gap: 2rem; align-items: start; position: relative; }
+.timeline::before {
+  content: ""; position: absolute; left: 1.6rem; right: 10%; top: 1.6rem; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, #c9d4ea 0%, #8fb2ff 45%, var(--blue) 75%, var(--navy-700) 100%);
+}
+.step { position: relative; }
+.step .dot {
+  position: relative; display: grid; place-items: center; width: 3.2rem; height: 3.2rem; border-radius: 50%;
+  background: #fff; color: var(--navy-700); border: 2px solid var(--navy-700); box-shadow: 0 0 0 7px var(--bg);
+}
+.step .dot .icon { width: 1.55rem; height: 1.55rem; }
+.step .span { display: block; margin-top: 1.25rem; font-size: clamp(1.9rem, 2.6vw, 2.6rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; color: var(--navy-700); }
+.step h3 { margin-top: .55rem; font-size: 1.12rem; font-weight: 800; }
+.step .when { display: block; margin-top: .1rem; font-size: .9rem; font-weight: 600; color: var(--ink-3); }
+.step p { margin-top: .6rem; font-size: .95rem; line-height: 1.6; color: var(--ink-2); max-width: 24rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+.chips span { font-size: .76rem; font-weight: 700; padding: .3rem .6rem; border-radius: 8px; background: #fff; border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow-sm); }
+.dest {
+  position: relative; overflow: hidden; padding: 1.6rem 1.6rem 1.7rem; border-radius: 20px; color: #fff;
+  background:
+    radial-gradient(300px 200px at 100% 0%, rgb(59 111 245 / .45), transparent 70%),
+    linear-gradient(150deg, #13284a 0%, var(--navy-900) 100%);
+  box-shadow: 0 24px 50px -24px rgb(10 19 48 / .7);
+}
+.dest .live { color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.dest h3 { margin-top: .8rem; font-size: 1.35rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; }
+.dest p { margin-top: .7rem; font-size: .95rem; line-height: 1.6; color: rgb(255 255 255 / .8); }
+.dest ul { display: grid; gap: .45rem; margin-top: 1rem; }
+.dest li { display: flex; align-items: center; gap: .55rem; font-size: .88rem; color: rgb(255 255 255 / .85); }
+.dest li .icon { width: 1.15rem; height: 1.15rem; color: #8fb2ff; }
+
+/* Contact */
+.contact {
+  color: #fff; padding: 4rem 0 0; overflow: hidden;
+  background:
+    radial-gradient(700px 360px at 85% 20%, rgb(59 111 245 / .25), transparent 60%),
+    linear-gradient(180deg, var(--navy-900), var(--navy-950));
+}
+.contact-grid { display: grid; grid-template-columns: 1.25fr 1fr auto; gap: 2.5rem; align-items: center; padding-bottom: 3.5rem; }
+.contact h2 { font-size: clamp(1.9rem, 3.4vw, 2.5rem); font-weight: 800; letter-spacing: -.025em; }
+.contact .cp { margin-top: .8rem; color: rgb(255 255 255 / .8); font-size: 1rem; line-height: 1.65; max-width: 30rem; }
+.contact-links { display: grid; gap: .9rem; padding-left: 2.5rem; border-left: 1px solid rgb(255 255 255 / .14); }
+.contact-links a { display: flex; align-items: center; gap: .85rem; font-size: .95rem; color: rgb(255 255 255 / .88); transition: color .2s; }
+.contact-links a:hover { color: #fff; }
+.contact-links .icon { width: 22px; height: 22px; color: #fff; }
+.contact-cta { display: grid; gap: .75rem; justify-items: stretch; }
+.contact-cta .btn { height: 54px; padding: 0 1.75rem; }
+.foot { border-top: 1px solid rgb(255 255 255 / .08); padding: 1.25rem 0; font-size: .8rem; color: rgb(255 255 255 / .5); }
+.foot .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+/* Reveal */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i, 0) * 70ms); }
+.rv.in { opacity: 1; transform: none; }
+.no-js .rv { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .app-grid { grid-template-columns: repeat(3, 1fr); }
+  .acard { display: grid; grid-template-columns: 112px 1fr; gap: 0 1rem; align-items: start; }
+  .acard .phone { grid-row: 1 / span 4; max-width: 112px; }
+  .acard .name { margin-top: .2rem; }
+  .web-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1240px) {
+  .nav-links, .nav-tools .icon-btn.gh, .nav-tools .icon-btn.li, .btn-cv { display: none; }
+  .menu-btn { display: grid; }
+  .nav-tools { margin-left: auto; }
+  .drawer {
+    display: block; position: fixed; inset: var(--nav-h) 0 auto 0; z-index: 49; background: var(--navy-900);
+    border-bottom: 1px solid rgb(255 255 255 / .08); padding: .75rem var(--pad) 1.5rem; color: #fff;
+    transform: translateY(-8px); opacity: 0; pointer-events: none; transition: .3s var(--ease);
+  }
+  .drawer.open { transform: none; opacity: 1; pointer-events: auto; }
+  .drawer a.lnk { display: block; padding: .85rem .25rem; font-size: 1.05rem; font-weight: 600; border-bottom: 1px solid rgb(255 255 255 / .07); }
+  .drawer .row { display: flex; gap: .6rem; align-items: center; margin-top: 1.1rem; }
+  .drawer .btn-cv { display: inline-flex; margin: 0 0 0 auto; }
+}
+@media (max-width: 1040px) {
+  .hero-inner { grid-template-columns: 1.2fr .8fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-grid > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 2.5rem; }
+  .timeline { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
+  .timeline::before { display: none; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+  .contact-cta { grid-column: 1 / -1; grid-auto-flow: column; justify-content: start; }
+}
+@media (max-width: 860px) {
+  .web-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .hero-points { flex-wrap: wrap; }
+  .hero-inner { grid-template-columns: 1fr 42%; min-height: 0; }
+  .hero-copy { padding: 2.5rem 0 2.25rem; }
+  .hero h1 { font-size: clamp(1.7rem, 6.4vw, 2.4rem); }
+  .hero .lead { font-size: .95rem; }
+  .hero-art { min-height: 0; }
+  .portrait { height: 92%; max-height: 420px; transform: translateX(-50%); }
+  .float-card { width: 96px; padding: 10px 11px 11px; top: 0; right: -4%; border-radius: 14px; }
+  .float-card .icon { width: 18px; height: 18px; }
+  .float-card .lines { margin-top: 7px; gap: 4px; }
+  .float-card .lines span { height: 3px; }
+  .float-card .bars { height: 32px; gap: 4px; margin-top: 6px; }
+  .float-card .bars span { width: 7px; }
+    .hero-ctas { grid-column: 1 / -1; }
+  .band { padding: 3rem 0; }
+}
+@media (max-width: 600px) {
+  .web-grid { grid-template-columns: 1fr; }
+  .hero h1 { white-space: normal; }
+  .type { font-size: 1.2rem; }
+  .brand img { height: 21px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-copy { padding-bottom: 0; }
+  .hero-art { height: 340px; margin-top: 1rem; }
+  .portrait { height: 100%; max-height: none; }
+  .hero-art .disc { width: 110%; right: -36%; bottom: -50%; }
+  .float-card { width: 104px; top: 4%; right: 0; }
+    .btn { flex: 1; padding: 0 .9rem; font-size: .95rem; gap: .5rem; }
+  .hero-points { gap: .5rem 1.1rem; }
+  .hero-points li { font-size: .78rem; }
+  .app-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .acard { grid-template-columns: 92px 1fr; }
+  .acard .phone { max-width: 92px; border-radius: 18px; padding: 4px; }
+  .acard .phone .screen { border-radius: 14px; }
+  .timeline { grid-template-columns: 1fr; gap: 0; }
+  .step { display: grid; grid-template-columns: 3.2rem 1fr; gap: 0 1.1rem; padding-bottom: 2rem; }
+  .step > :not(.dot) { grid-column: 2; }
+  .step::before { content: ""; position: absolute; left: calc(1.6rem - 1px); top: 3.6rem; bottom: .4rem; width: 2px; background: #c9d4ea; }
+  .step .dot { grid-row: 1 / span 6; }
+  .step .span { margin-top: .35rem; }
+  .dest { margin-top: .5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .contact-links { padding-left: 0; border-left: 0; border-top: 1px solid rgb(255 255 255 / .14); padding-top: 1.5rem; }
+  .contact-cta { grid-auto-flow: row; justify-content: stretch; }
+  .sec-meta { width: 100%; }
+}
+
+/* ---------- Mobile (<= 600px) ---------- */
+@media (max-width: 600px) {
+  .eyebrow { font-size: .68rem; letter-spacing: .16em; }
+  .hero h1 { font-size: clamp(1.9rem, 8.6vw, 2.3rem); margin-top: .8rem; }
+  .hero .lead { font-size: .98rem; margin-top: 1rem; }
+  .hero-ctas { margin-top: 1.5rem; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .hero-copy { min-width: 0; }
+  .hero-points { flex-wrap: wrap; gap: .55rem 1rem; margin-top: 1.4rem; }
+  .hero-points li { font-size: .8rem; gap: .35rem; }
+  .hero-points .icon { width: 1.05rem; height: 1.05rem; }
+  .hero-art { height: 360px; margin-top: .5rem; }
+  .hero-art .disc { width: 95%; right: -22%; bottom: -30%; }
+  .band { padding: 2.75rem 0; }
+  .sec-head { margin-bottom: 1.25rem; }
+  .sec-title { font-size: 1.45rem; }
+  .sec-title .ico .icon { width: 1.9rem; height: 1.9rem; }
+  /* Skills mas compactas */
+  .skills { gap: .45rem; }
+  .skill { font-size: .86rem; padding: .42rem .7rem .42rem .5rem; gap: .45rem; border-radius: 10px; }
+  .skill img, .skill .ph { width: 1.15rem; height: 1.15rem; }
+  .skill .ph .icon { width: 1.1rem; height: 1.1rem; }
+  /* Linea del timeline: termina en el ultimo paso */
+  .timeline .step:nth-child(3)::before { display: none; }
+  .journey-head { margin-bottom: 2rem; }
+  .step .span { font-size: 1.9rem; }
+  /* Footer */
+  .contact { padding-top: 3rem; }
+  .contact-grid { padding-bottom: 2.5rem; }
+  .foot .wrap { justify-content: center; text-align: center; }
+  .foot .wrap span + span { display: none; }
+}
+/* Volver arriba */
+.to-top {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 40; display: grid; place-items: center; width: 2.9rem; height: 2.9rem; border-radius: 50%;
+  background: var(--navy-900); color: #fff; box-shadow: 0 10px 24px -8px rgb(10 19 48 / .6);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .3s, transform .3s var(--ease);
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top .icon { width: 1.3rem; height: 1.3rem; }
+@media (min-width: 1041px) { .to-top { display: none; } }
+
+/* Hero movil a dos columnas: texto a la izquierda, foto a la derecha apoyada en el borde inferior */
+@media (max-width: 600px) {
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) 42%; column-gap: .5rem; align-items: start; padding-top: 1.6rem; padding-bottom: 1.6rem; }
+  .hero-copy { display: contents; }
+  .hero-copy .eyebrow { grid-column: 1 / -1; grid-row: 1; }
+  .hero h1 { grid-column: 1 / -1; grid-row: 2; font-size: clamp(1.6rem, 7.4vw, 2.1rem); position: relative; z-index: 4; }
+  .hero .lead { grid-column: 1; grid-row: 3; font-size: .86rem; line-height: 1.55; position: relative; z-index: 4; }
+  .hero-ctas { grid-column: 1; grid-row: 4; flex-direction: column; gap: .55rem; margin-top: 1.1rem; position: relative; z-index: 4; }
+  .hero-ctas .btn { flex: none; height: 44px; font-size: .9rem; }
+  .hero-points { grid-column: 1; grid-row: 5; flex-direction: column; gap: .45rem; margin-top: 1rem; position: relative; z-index: 4; }
+  .hero-art { grid-column: 2; grid-row: 3 / 6; align-self: stretch; height: auto; min-height: 0; margin: .5rem calc(-1 * var(--pad)) -1.6rem 0; }
+  .portrait { width: 150%; height: auto; max-width: none; left: auto; right: -12%; bottom: 0; transform: none; }
+  .hero-art .disc { width: 150%; right: -60%; bottom: -25%; }
+  .float-card { display: none; }
+}
+/* Listas compactas en movil: proyectos como filas, apps en grilla de 2 */
+@media (max-width: 600px) {
+  .web-grid { grid-template-columns: 1fr; gap: .65rem; }
+  .wcard { flex-direction: row; align-items: center; border-radius: 14px; }
+  .wcard:hover { transform: none; }
+  .browser { flex: none; width: 7.4rem; margin: .6rem 0 .6rem .6rem; border-radius: 9px; box-shadow: none; }
+  .browser .bar { display: none; }
+  .browser .shot { aspect-ratio: 4 / 3; }
+  .browser .shot img { object-position: top left; }
+  .wcard .body { padding: .7rem .8rem .7rem .85rem; min-width: 0; }
+  .wcard .go { display: none; }
+  .wmark { height: 1.35rem; }
+  .wmark.tall { height: 1.55rem; }
+  .wmark.dark { height: 1.55rem; padding: 3px 7px; border-radius: 6px; }
+  .wcard p { margin-top: .4rem; font-size: .8rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .wcard .tags { padding-top: .45rem; gap: .25rem; }
+  .wcard .tags span { font-size: .64rem; padding: .12rem .4rem; }
+  .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  .acard { display: flex; flex-direction: column; padding: .8rem .75rem .85rem; border-radius: 14px; }
+  .acard:hover { transform: none; }
+  .acard .phone { max-width: 5.6rem; border-radius: 15px; padding: 3px; }
+  .acard .phone .screen { border-radius: 12px; }
+  .phone::after { top: 6px; height: 5px; }
+  .acard .name { margin-top: .75rem; gap: .45rem; }
+  .acard .name img { width: 22px; height: 22px; border-radius: 6px; }
+  .acard h3 { font-size: .92rem; }
+  .acard p { font-size: .76rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .acard .tags { padding-top: .5rem; }
+  .acard .tags span { font-size: .64rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; }
+}
+</style>
 </head>
+<body class="no-js">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="so-alt-arrow-up-bold" viewBox="0 0 24 24"><path fill="currentColor" d="M12.3704 8.16485L18.8001 14.7953C19.2013 15.2091 18.9581 16 18.4297 16H5.5703C5.04189 16 4.79869 15.2091 5.1999 14.7953L11.6296 8.16485C11.8427 7.94505 12.1573 7.94505 12.3704 8.16485Z"/></symbol><symbol id="so-arrow-right-up-bold" viewBox="0 0 24 24"><path fill="currentColor" d="M5.46967 17.4697C5.17678 17.7626 5.17678 18.2374 5.46967 18.5303C5.76256 18.8232 6.23744 18.8232 6.53033 18.5303L13.5 11.5607L17.4697 15.5303C17.6842 15.7448 18.0068 15.809 18.287 15.6929C18.5673 15.5768 18.75 15.3033 18.75 15V6C18.75 5.58579 18.4142 5.25 18 5.25L9 5.25C8.69665 5.25 8.42318 5.43273 8.30709 5.71299C8.19101 5.99324 8.25517 6.31583 8.46967 6.53033L12.4393 10.5L5.46967 17.4697Z"/></symbol><symbol id="so-chat-round-dots-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C10.4003 22 8.88867 21.6239 7.54785 20.9561C7.19153 20.7786 6.78396 20.7204 6.39941 20.8232L4.17383 21.4189C3.20749 21.6775 2.3225 20.7925 2.58105 19.8262L3.17676 17.6006C3.27965 17.216 3.22142 16.8085 3.04395 16.4521C2.37612 15.1113 2 13.5997 2 12C2 6.47715 6.47715 2 12 2ZM7.99121 11C7.43893 11 6.99121 11.4477 6.99121 12C6.99121 12.5523 7.43893 13 7.99121 13C8.54327 12.9997 8.99121 12.5521 8.99121 12C8.99121 11.4479 8.54327 11.0003 7.99121 11ZM12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11ZM16.0088 11C15.4565 11 15.0088 11.4477 15.0088 12C15.0088 12.5523 15.4565 13 16.0088 13C16.5611 13 17.0088 12.5523 17.0088 12C17.0088 11.4477 16.5611 11 16.0088 11Z" clip-rule="evenodd"/></symbol><symbol id="so-close-circle-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM8.96963 8.96965C9.26252 8.67676 9.73739 8.67676 10.0303 8.96965L12 10.9393L13.9696 8.96967C14.2625 8.67678 14.7374 8.67678 15.0303 8.96967C15.3232 9.26256 15.3232 9.73744 15.0303 10.0303L13.0606 12L15.0303 13.9696C15.3232 14.2625 15.3232 14.7374 15.0303 15.0303C14.7374 15.3232 14.2625 15.3232 13.9696 15.0303L12 13.0607L10.0303 15.0303C9.73742 15.3232 9.26254 15.3232 8.96965 15.0303C8.67676 14.7374 8.67676 14.2625 8.96965 13.9697L10.9393 12L8.96963 10.0303C8.67673 9.73742 8.67673 9.26254 8.96963 8.96965Z" clip-rule="evenodd"/></symbol><symbol id="so-code-bold" viewBox="0 0 24 24"><path fill="currentColor" d="M14.1814 4.27556C14.5815 4.38277 14.819 4.79402 14.7117 5.19412L10.7381 20.0238C10.6309 20.4239 10.2197 20.6614 9.81958 20.5542C9.41948 20.447 9.18204 20.0357 9.28925 19.6356L13.2629 4.80589C13.3701 4.40579 13.7813 4.16835 14.1814 4.27556Z"/><path fill="currentColor" d="M16.443 7.32787C16.7201 7.01999 17.1943 6.99503 17.5022 7.27212L19.2397 8.83586C19.976 9.49853 20.5868 10.0482 21.0063 10.5468C21.4473 11.071 21.7608 11.6343 21.7608 12.3296C21.7608 13.0249 21.4473 13.5881 21.0063 14.1124C20.5868 14.611 19.976 15.1607 19.2397 15.8233L17.5022 17.3871C17.1943 17.6642 16.7201 17.6392 16.443 17.3313C16.1659 17.0234 16.1909 16.5492 16.4988 16.2721L18.1952 14.7453C18.9831 14.0362 19.5143 13.5558 19.8584 13.1468C20.1887 12.7542 20.2608 12.525 20.2608 12.3296C20.2608 12.1342 20.1887 11.905 19.8584 11.5124C19.5143 11.1034 18.9831 10.623 18.1952 9.91389L16.4988 8.38706C16.1909 8.10997 16.1659 7.63575 16.443 7.32787Z"/><path fill="currentColor" d="M7.50226 8.38706C7.81015 8.10997 7.8351 7.63575 7.55801 7.32787C7.28092 7.01999 6.8067 6.99503 6.49882 7.27212L4.76133 8.83586C4.02499 9.49853 3.41418 10.0482 2.99477 10.5468C2.55374 11.071 2.24023 11.6343 2.24023 12.3296C2.24023 13.0249 2.55374 13.5881 2.99477 14.1124C3.41418 14.611 4.02497 15.1606 4.76131 15.8233L6.49882 17.3871C6.8067 17.6642 7.28092 17.6392 7.55801 17.3313C7.8351 17.0234 7.81015 16.5492 7.50226 16.2721L5.80579 14.7453C5.01792 14.0362 4.48672 13.5558 4.14262 13.1468C3.81237 12.7542 3.74023 12.525 3.74023 12.3296C3.74023 12.1342 3.81237 11.905 4.14262 11.5124C4.48672 11.1034 5.01792 10.623 5.80579 9.91389L7.50226 8.38706Z"/></symbol><symbol id="so-code-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M17 7.82959L18.6965 9.35641C20.239 10.7447 21.0103 11.4389 21.0103 12.3296C21.0103 13.2203 20.239 13.9145 18.6965 15.3028L17 16.8296"/><path d="M13.9863 5L11.9995 12.4149L10.0127 19.8297"/><path d="M6.99956 7.82959L5.30309 9.35641C3.76054 10.7447 2.98926 11.4389 2.98926 12.3296C2.98926 13.2203 3.76054 13.9145 5.30309 15.3028L6.99956 16.8296"/></g></symbol><symbol id="so-code-square-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.46447 3.46447C2 4.92893 2 7.28595 2 12C2 16.714 2 19.0711 3.46447 20.5355C4.92893 22 7.28595 22 12 22C16.714 22 19.0711 22 20.5355 20.5355C22 19.0711 22 16.714 22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447ZM13.4881 6.44591C13.8882 6.55311 14.1256 6.96437 14.0184 7.36447L11.4302 17.0237C11.323 17.4238 10.9117 17.6613 10.5116 17.5541C10.1115 17.4468 9.8741 17.0356 9.98131 16.6355L12.5695 6.97624C12.6767 6.57614 13.088 6.3387 13.4881 6.44591ZM14.9697 8.46967C15.2626 8.17678 15.7374 8.17678 16.0303 8.46967L16.2387 8.67801C16.874 9.3133 17.4038 9.84308 17.7678 10.3202C18.1521 10.8238 18.4216 11.3559 18.4216 12C18.4216 12.6441 18.1521 13.1762 17.7678 13.6798C17.4038 14.1569 16.874 14.6867 16.2387 15.322L16.0303 15.5303C15.7374 15.8232 15.2626 15.8232 14.9697 15.5303C14.6768 15.2374 14.6768 14.7626 14.9697 14.4697L15.1412 14.2981C15.8229 13.6164 16.2797 13.1574 16.5753 12.7699C16.8577 12.3998 16.9216 12.1843 16.9216 12C16.9216 11.8157 16.8577 11.6002 16.5753 11.2301C16.2797 10.8426 15.8229 10.3836 15.1412 9.70191L14.9697 9.53033C14.6768 9.23744 14.6768 8.76257 14.9697 8.46967ZM7.96986 8.46967C8.26275 8.17678 8.73762 8.17678 9.03052 8.46967C9.32341 8.76257 9.32341 9.23744 9.03052 9.53033L8.85894 9.70191C8.17729 10.3836 7.72052 10.8426 7.42488 11.2301C7.14245 11.6002 7.07861 11.8157 7.07861 12C7.07861 12.1843 7.14245 12.3998 7.42488 12.7699C7.72052 13.1574 8.17729 13.6164 8.85894 14.2981L9.03052 14.4697C9.32341 14.7626 9.32341 15.2374 9.03052 15.5303C8.73762 15.8232 8.26275 15.8232 7.96986 15.5303L7.76151 15.322C7.12617 14.6867 6.59638 14.1569 6.23235 13.6798C5.84811 13.1762 5.57861 12.6441 5.57861 12C5.57861 11.3559 5.84811 10.8238 6.23235 10.3202C6.59638 9.84308 7.12617 9.31331 7.76151 8.67801L7.96986 8.46967Z" clip-rule="evenodd"/></symbol><symbol id="so-download-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 1.25C11.5858 1.25 11.25 1.58579 11.25 2V12.9726L9.56944 11.0119C9.29988 10.6974 8.8264 10.661 8.51191 10.9306C8.19741 11.2001 8.16099 11.6736 8.43056 11.9881L11.4306 15.4881C11.573 15.6543 11.7811 15.75 12 15.75C12.2189 15.75 12.427 15.6543 12.5694 15.4881L15.5694 11.9881C15.839 11.6736 15.8026 11.2001 15.4881 10.9306C15.1736 10.661 14.7001 10.6974 14.4306 11.0119L12.75 12.9726L12.75 2C12.75 1.58579 12.4142 1.25 12 1.25Z" clip-rule="evenodd"/><path fill="currentColor" d="M14.25 9V9.37828C14.9836 9.11973 15.8312 9.2491 16.4642 9.79167C17.4077 10.6004 17.517 12.0208 16.7083 12.9643L13.7083 16.4643C13.2808 16.963 12.6568 17.25 12 17.25C11.3431 17.25 10.7191 16.963 10.2916 16.4643L7.29163 12.9643C6.48293 12.0208 6.5922 10.6004 7.53568 9.79167C8.16868 9.2491 9.01637 9.11973 9.74996 9.37828V9H8C5.17157 9 3.75736 9 2.87868 9.87868C2 10.7574 2 12.1716 2 15V16C2 18.8284 2 20.2426 2.87868 21.1213C3.75736 22 5.17157 22 7.99999 22H16C18.8284 22 20.2426 22 21.1213 21.1213C22 20.2426 22 18.8284 22 16V15C22 12.1716 22 10.7574 21.1213 9.87868C20.2426 9 18.8284 9 16 9H14.25Z"/></symbol><symbol id="so-global-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M22 12C22 13.3132 21.7413 14.6136 21.2388 15.8268C20.7362 17.0401 19.9997 18.1425 19.0711 19.0711C18.1425 19.9997 17.0401 20.7362 15.8268 21.2388C14.6136 21.7413 13.3132 22 12 22C10.6868 22 9.38642 21.7413 8.17317 21.2388C6.95991 20.7362 5.85752 19.9997 4.92893 19.0711C4.00035 18.1425 3.26375 17.0401 2.7612 15.8268C2.25866 14.6136 2 13.3132 2 12C2 10.6868 2.25866 9.38642 2.76121 8.17316C3.26375 6.95991 4.00035 5.85752 4.92893 4.92893C5.85752 4.00035 6.95991 3.26375 8.17317 2.7612C9.38642 2.25866 10.6868 2 12 2C13.3132 2 14.6136 2.25866 15.8268 2.76121C17.0401 3.26375 18.1425 4.00035 19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12L22 12Z"/><path d="M16 12C16 13.3132 15.8965 14.6136 15.6955 15.8268C15.4945 17.0401 15.1999 18.1425 14.8284 19.0711C14.457 19.9997 14.016 20.7362 13.5307 21.2388C13.0454 21.7413 12.5253 22 12 22C11.4747 22 10.9546 21.7413 10.4693 21.2388C9.98396 20.7362 9.54301 19.9997 9.17157 19.0711C8.80014 18.1425 8.5055 17.0401 8.30448 15.8268C8.10346 14.6136 8 13.3132 8 12C8 10.6868 8.10346 9.38642 8.30448 8.17316C8.5055 6.95991 8.80014 5.85752 9.17157 4.92893C9.54301 4.00035 9.98396 3.26375 10.4693 2.7612C10.9546 2.25866 11.4747 2 12 2C12.5253 2 13.0454 2.25866 13.5307 2.76121C14.016 3.26375 14.457 4.00035 14.8284 4.92893C15.1999 5.85752 15.4945 6.95991 15.6955 8.17317C15.8965 9.38642 16 10.6868 16 12L16 12Z"/><path d="M2 12H22"/></g></symbol><symbol id="so-graph-new-up-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M22 10.5V12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2H13.5"/><circle cx="19" cy="5" r="3"/><path stroke-linejoin="round" d="M7 14L9.29289 11.7071C9.68342 11.3166 10.3166 11.3166 10.7071 11.7071L12.2929 13.2929C12.6834 13.6834 13.3166 13.6834 13.7071 13.2929L17 10M14.5 10H17V12.5"/></g></symbol><symbol id="so-hamburger-menu-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.46447 20.5355C4.92893 22 7.28595 22 12 22C16.714 22 19.0711 22 20.5355 20.5355C22 19.0711 22 16.714 22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447C2 4.92893 2 7.28595 2 12C2 16.714 2 19.0711 3.46447 20.5355ZM18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16ZM18 12.75C18.4142 12.75 18.75 12.4142 18.75 12C18.75 11.5858 18.4142 11.25 18 11.25H6C5.58579 11.25 5.25 11.5858 5.25 12C5.25 12.4142 5.58579 12.75 6 12.75H18ZM18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z" clip-rule="evenodd"/></symbol><symbol id="so-laptop-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M19.6471 15.5357H4.35294M19.6471 15.5357V8C19.6471 6.11438 19.6471 5.17157 19.0613 4.58579C18.4755 4 17.5327 4 15.6471 4H8.35294C6.46732 4 5.52451 4 4.93873 4.58579C4.35294 5.17157 4.35294 6.11438 4.35294 8V15.5357M19.6471 15.5357L21.3911 17.3358C21.4356 17.3818 21.4579 17.4048 21.4787 17.4276C21.7998 17.7802 21.9843 18.2358 21.999 18.7124C22 18.7433 22 18.7753 22 18.8393C22 18.9885 22 19.0631 21.996 19.1261C21.9325 20.1314 21.1314 20.9325 20.1261 20.996C20.0631 21 19.9885 21 19.8393 21H4.16068C4.01148 21 3.93688 21 3.87388 20.996C2.86865 20.9325 2.06749 20.1314 2.00398 19.1261C2 19.0631 2 18.9885 2 18.8393C2 18.7753 2 18.7433 2.00096 18.7124C2.01569 18.2358 2.20022 17.7802 2.52127 17.4276C2.54208 17.4048 2.56438 17.3818 2.60888 17.3358L4.35294 15.5357"/><path d="M9.5 18.5H14.5"/><path stroke-linejoin="round" d="M12 6.75H12.0001"/></g></symbol><symbol id="so-layers-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M16.2127 10.8085L19.0212 9.68508C21.0071 8.89073 22 8.49355 22 8C22 7.50645 21.0071 7.10927 19.0212 6.31492L16.2127 5.19153C14.2268 4.39718 13.2339 4 12 4C10.7661 4 9.77318 4.39718 7.7873 5.19153L4.97883 6.31492C2.99294 7.10927 2 7.50645 2 8C2 8.49355 2.99294 8.89073 4.97883 9.68508L7.7873 10.8085C9.77318 11.6028 10.7661 12 12 12C13.2339 12 14.2268 11.6028 16.2127 10.8085Z"/><path d="M5.76613 10L4.97883 10.3149C2.99294 11.1093 2 11.5065 2 12C2 12.4935 2.99294 12.8907 4.97883 13.6851L7.7873 14.8085C9.77318 15.6028 10.7661 16 12 16C13.2339 16 14.2268 15.6028 16.2127 14.8085L19.0212 13.6851C21.0071 12.8907 22 12.4935 22 12C22 11.5065 21.0071 11.1093 19.0212 10.3149L18.2339 10"/><path d="M5.76613 14L4.97883 14.3149C2.99294 15.1093 2 15.5065 2 16C2 16.4935 2.99294 16.8907 4.97883 17.6851L7.7873 18.8085C9.77318 19.6028 10.7661 20 12 20C13.2339 20 14.2268 19.6028 16.2127 18.8085L19.0212 17.6851C21.0071 16.8907 22 16.4935 22 16C22 15.5065 21.0071 15.1093 19.0212 14.3149L18.2339 14"/></g></symbol><symbol id="so-letter-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C22 17.6569 22 15.7712 22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157ZM18.5762 7.51986C18.8413 7.83807 18.7983 8.31099 18.4801 8.57617L16.2837 10.4066C15.3973 11.1452 14.6789 11.7439 14.0448 12.1517C13.3843 12.5765 12.7411 12.8449 12 12.8449C11.2589 12.8449 10.6157 12.5765 9.95518 12.1517C9.32112 11.7439 8.60271 11.1452 7.71636 10.4066L5.51986 8.57617C5.20165 8.31099 5.15866 7.83807 5.42383 7.51986C5.68901 7.20165 6.16193 7.15866 6.48014 7.42383L8.63903 9.22291C9.57199 10.0004 10.2197 10.5384 10.7666 10.8901C11.2959 11.2306 11.6549 11.3449 12 11.3449C12.3451 11.3449 12.7041 11.2306 13.2334 10.8901C13.7803 10.5384 14.428 10.0004 15.361 9.22291L17.5199 7.42383C17.8381 7.15866 18.311 7.20165 18.5762 7.51986Z" clip-rule="evenodd"/></symbol><symbol id="so-lock-keyhole-minimalistic-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.25 10.0546V8C5.25 4.27208 8.27208 1.25 12 1.25C15.7279 1.25 18.75 4.27208 18.75 8V10.0546C19.8648 10.1379 20.5907 10.348 21.1213 10.8787C22 11.7574 22 13.1716 22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16C2 13.1716 2 11.7574 2.87868 10.8787C3.40931 10.348 4.13525 10.1379 5.25 10.0546ZM6.75 8C6.75 5.10051 9.10051 2.75 12 2.75C14.8995 2.75 17.25 5.10051 17.25 8V10.0036C16.867 10 16.4515 10 16 10H8C7.54849 10 7.13301 10 6.75 10.0036V8ZM12 13.25C12.4142 13.25 12.75 13.5858 12.75 14V18C12.75 18.4142 12.4142 18.75 12 18.75C11.5858 18.75 11.25 18.4142 11.25 18V14C11.25 13.5858 11.5858 13.25 12 13.25Z" clip-rule="evenodd"/></symbol><symbol id="so-map-point-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M13.4629 21.6744C12.5343 22.1085 11.4657 22.1085 10.5371 21.6744C6.55332 19.8124 4 14.6055 4 10.1433C4 5.64588 7.58172 2 12 2C16.4183 2 20 5.64588 20 10.1433C20 14.6055 17.4467 19.8124 13.4629 21.6744Z"/><circle cx="12" cy="10" r="3"/></g></symbol><symbol id="so-monitor-smartphone-bold" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H10C6.22876 2 4.34315 2 3.17157 3.17157C2 4.34315 2 6.22876 2 10V11C2 11.5516 2 12.0494 2.00652 12.5H12.6017C12.7054 11.8207 12.9376 11.1127 13.5251 10.5251C14.1432 9.90708 14.8946 9.68219 15.6056 9.5866C16.2512 9.4998 17.0449 9.49989 17.9105 9.49999H18.0895C18.9551 9.49989 19.7488 9.4998 20.3944 9.5866C20.9315 9.65881 21.4917 9.80481 22 10.1383V10C22 6.22876 22 4.34315 20.8284 3.17157C19.6569 2 17.7712 2 14 2Z"/><path fill="currentColor" d="M2.87868 16.1213C3.75736 17 5.17157 17 8 17H11.25V21H8C7.58579 21 7.25 21.3358 7.25 21.75C7.25 22.1642 7.58579 22.5 8 22.5H13.5505L13.5251 22.4749C12.9071 21.8568 12.6822 21.1054 12.5866 20.3944C12.4998 19.7488 12.4999 18.9551 12.5 18.0895V14.9105C12.4999 14.4116 12.4999 13.9365 12.5165 13.5H2.03835C2.10893 14.7579 2.30938 15.552 2.87868 16.1213Z"/><path fill="currentColor" fill-rule="evenodd" d="M22 15V18C22 19.8856 22 20.8284 21.4142 21.4142C20.8284 22 19.8856 22 18 22C16.1144 22 15.1716 22 14.5858 21.4142C14 20.8284 14 19.8856 14 18V15C14 13.1144 14 12.1716 14.5858 11.5858C15.1716 11 16.1144 11 18 11C19.8856 11 20.8284 11 21.4142 11.5858C22 12.1716 22 13.1144 22 15ZM16.25 20C16.25 19.5858 16.5858 19.25 17 19.25H19C19.4142 19.25 19.75 19.5858 19.75 20C19.75 20.4142 19.4142 20.75 19 20.75H17C16.5858 20.75 16.25 20.4142 16.25 20Z" clip-rule="evenodd"/></symbol><symbol id="so-plug-circle-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M12 15.1082V20.1498C12 21.2635 11.0955 22.1875 10.0128 21.9673C5.44193 21.0381 2 16.9659 2 12.0832C2 6.51441 6.47715 2 12 2C17.5228 2 22 6.51441 22 12.0832C22 16.0744 19.7003 19.5239 16.3641 21.1581"/><path stroke-linejoin="round" d="M9 11.8C9 11.3582 9.35817 11 9.8 11H14.2C14.6418 11 15 11.3582 15 11.8V12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12V11.8Z"/><path d="M13.5 11V9"/><path d="M10.5 11V9"/></g></symbol><symbol id="so-rocket-2-bold" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M2.77409 12.4814C3.07033 12.778 3.07004 13.2586 2.77343 13.5548L2.61779 13.7103C2.48483 13.8431 2.48483 14.058 2.61779 14.1908C2.75125 14.3241 2.96801 14.3241 3.10147 14.1908L4.8136 12.4807C5.1102 12.1845 5.59079 12.1848 5.88704 12.4814C6.18328 12.778 6.18298 13.2586 5.88638 13.5548L4.17426 15.2648C3.4481 15.9901 2.27116 15.9901 1.545 15.2648C0.818334 14.5391 0.818333 13.362 1.545 12.6362L1.70065 12.4807C1.99725 12.1845 2.47784 12.1848 2.77409 12.4814ZM7.68665 13.4896C7.98307 13.7861 7.98307 14.2667 7.68665 14.5631L5.54424 16.7055C5.24782 17.0019 4.76723 17.0019 4.4708 16.7055C4.17438 16.409 4.17438 15.9285 4.4708 15.632L6.61321 13.4896C6.90963 13.1932 7.39023 13.1932 7.68665 13.4896ZM10.4958 16.2953C10.7922 16.5918 10.7922 17.0724 10.4958 17.3688L8.36805 19.4965C8.07162 19.7929 7.59103 19.7929 7.29461 19.4965C6.99818 19.2001 6.99818 18.7195 7.29461 18.4231L9.42237 16.2953C9.71879 15.9989 10.1994 15.9989 10.4958 16.2953ZM7.29719 16.696C7.5903 16.9957 7.58495 17.4762 7.28525 17.7693L5.55508 19.4614C5.25538 19.7545 4.77481 19.7491 4.48171 19.4494C4.1886 19.1497 4.19395 18.6692 4.49365 18.3761L6.22382 16.684C6.52352 16.3909 7.00409 16.3963 7.29719 16.696ZM11.4811 18.118C11.7774 18.4146 11.7771 18.8952 11.4805 19.1915L9.76834 20.9015C9.63539 21.0343 9.63539 21.2492 9.76834 21.382C9.9018 21.5153 10.1186 21.5153 10.252 21.382L10.4077 21.2265C10.7043 20.9303 11.1849 20.9306 11.4811 21.2272C11.7774 21.5238 11.7771 22.0044 11.4805 22.3006L11.3248 22.4561C10.5987 23.1813 9.42171 23.1813 8.69556 22.4561C7.96889 21.7303 7.96889 20.5532 8.69556 19.8274L10.4077 18.1174C10.7043 17.8211 11.1849 17.8214 11.4811 18.118Z" clip-rule="evenodd"/><path fill="currentColor" d="M10.8463 5.40912L8.65863 7.59023C8.2565 7.99113 7.88763 8.35888 7.59632 8.69132C7.40925 8.90481 7.2223 9.13847 7.06394 9.39666L7.04262 9.37541C7.00216 9.33507 6.98191 9.31487 6.96159 9.29516C6.58134 8.92621 6.13406 8.63287 5.64368 8.43084C5.61748 8.42004 5.59088 8.4095 5.53769 8.38842L5.21196 8.25936C4.77069 8.08451 4.65309 7.51645 4.98886 7.1817C5.9525 6.22099 7.10949 5.06751 7.66786 4.83584C8.1603 4.63152 8.69225 4.56354 9.20531 4.63936C9.67539 4.70883 10.1201 4.9503 10.8463 5.40912Z"/><path fill="currentColor" d="M14.5818 16.8932C14.7581 17.0722 14.8752 17.1985 14.981 17.3336C15.1207 17.5118 15.2456 17.7011 15.3544 17.8995C15.4769 18.1229 15.5721 18.3615 15.7623 18.8388C15.9172 19.2273 16.4317 19.33 16.7306 19.032L16.8029 18.9599C17.7665 17.9992 18.9235 16.8457 19.1558 16.289C19.3608 15.7981 19.429 15.2677 19.3529 14.7562C19.2832 14.2876 19.0411 13.8443 18.581 13.1204L16.386 15.3088C15.9748 15.7188 15.5977 16.0948 15.2567 16.3893C15.0523 16.5658 14.8287 16.7422 14.5818 16.8932Z"/><path fill="currentColor" fill-rule="evenodd" d="M15.5023 14.3674L20.5319 9.35289C21.2563 8.63072 21.6185 8.26963 21.8092 7.81046C22 7.3513 22 6.84065 22 5.81937V5.33146C22 3.76099 22 2.97576 21.5106 2.48788C21.0213 2 20.2337 2 18.6585 2H18.1691C17.1447 2 16.6325 2 16.172 2.19019C15.7114 2.38039 15.3493 2.74147 14.6249 3.46364L9.59522 8.47817C8.74882 9.32202 8.224 9.84526 8.02078 10.3506C7.95657 10.5103 7.92446 10.6682 7.92446 10.8339C7.92446 11.5238 8.48138 12.0791 9.59522 13.1896L9.74492 13.3388L11.4985 11.5591C11.7486 11.3053 12.1571 11.3022 12.4109 11.5523C12.6647 11.8024 12.6678 12.2109 12.4177 12.4647L10.6587 14.2499L10.7766 14.3674C11.8905 15.4779 12.4474 16.0331 13.1394 16.0331C13.2924 16.0331 13.4387 16.006 13.5858 15.9518C14.1048 15.7607 14.6345 15.2325 15.5023 14.3674ZM17.8652 8.47854C17.2127 9.12904 16.1548 9.12904 15.5024 8.47854C14.8499 7.82803 14.8499 6.77335 15.5024 6.12284C16.1548 5.47233 17.2127 5.47233 17.8652 6.12284C18.5177 6.77335 18.5177 7.82803 17.8652 8.47854Z" clip-rule="evenodd"/></symbol><symbol id="so-server-bold" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M2 7C2 5.11438 2 4.17157 2.58579 3.58579C3.17157 3 4.11438 3 6 3H18C19.8856 3 20.8284 3 21.4142 3.58579C22 4.17157 22 5.11438 22 7C22 8.88562 22 9.82843 21.4142 10.4142C20.8284 11 19.8856 11 18 11H6C4.11438 11 3.17157 11 2.58579 10.4142C2 9.82843 2 8.88562 2 7ZM6 6.25C5.58579 6.25 5.25 6.58579 5.25 7C5.25 7.41421 5.58579 7.75 6 7.75H8C8.41421 7.75 8.75 7.41421 8.75 7C8.75 6.58579 8.41421 6.25 8 6.25H6ZM10.25 7C10.25 6.58579 10.5858 6.25 11 6.25H18C18.4142 6.25 18.75 6.58579 18.75 7C18.75 7.41421 18.4142 7.75 18 7.75H11C10.5858 7.75 10.25 7.41421 10.25 7Z"/><path d="M2 17C2 15.1144 2 14.1716 2.58579 13.5858C3.17157 13 4.11438 13 6 13H18C19.8856 13 20.8284 13 21.4142 13.5858C22 14.1716 22 15.1144 22 17C22 18.8856 22 19.8284 21.4142 20.4142C20.8284 21 19.8856 21 18 21H6C4.11438 21 3.17157 21 2.58579 20.4142C2 19.8284 2 18.8856 2 17ZM6 16.25C5.58579 16.25 5.25 16.5858 5.25 17C5.25 17.4142 5.58579 17.75 6 17.75H8C8.41421 17.75 8.75 17.4142 8.75 17C8.75 16.5858 8.41421 16.25 8 16.25H6ZM10.25 17C10.25 16.5858 10.5858 16.25 11 16.25H18C18.4142 16.25 18.75 16.5858 18.75 17C18.75 17.4142 18.4142 17.75 18 17.75H11C10.5858 17.75 10.25 17.4142 10.25 17Z"/></g></symbol><symbol id="so-smartphone-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M12 22C8.22876 22 6.34315 22 5.17157 20.8284C4 19.6569 4 17.7712 4 14V10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V14C20 17.7712 20 19.6569 18.8284 20.8284C17.6569 22 15.7712 22 12 22Z"/><path d="M15 19H9"/></g></symbol><symbol id="so-square-academic-cap-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M3.0916 10.3634L9.78281 13.5004C11.2038 14.1665 12.7963 14.1665 14.2173 13.5004L20.9084 10.3634C22.3639 9.68105 22.3639 7.31899 20.9084 6.63664L14.2172 3.49965C12.7962 2.83345 11.2037 2.83345 9.78272 3.49965L3.0916 6.63659C1.63614 7.31895 1.63613 9.68101 3.0916 10.3634Z"/><path d="M2 8.5V14"/><path d="M19 11.5V16.6254C19 17.6334 18.4965 18.5772 17.6147 19.0656C16.1463 19.8787 13.796 21 12 21C10.204 21 7.8537 19.8787 6.38533 19.0656C5.5035 18.5772 5 17.6334 5 16.6254V11.5"/></g></symbol><symbol id="so-transfer-horizontal-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 10L4 10L9.5 4"/><path d="M4 14L20 14L14.5 20"/></g></symbol><symbol id="so-user-rounded-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><circle cx="12" cy="6" r="4"/><ellipse cx="12" cy="17" rx="7" ry="4"/></g></symbol><symbol id="so-wallet-money-linear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-linejoin="round" d="M6 10H10"/><path d="M18.2308 11H20.8333C20.9167 11 20.9583 11 20.9935 11.0021C21.5328 11.035 21.9623 11.4338 21.9977 11.9346C22 11.9673 22 12.006 22 12.0833V15.9167C22 15.994 22 16.0327 21.9977 16.0654C21.9623 16.5662 21.5328 16.965 20.9935 16.9979C20.9583 17 20.9167 17 20.8333 17H18.2308C16.4465 17 15 15.6569 15 14C15 12.3431 16.4465 11 18.2308 11Z"/><path d="M20.965 11C20.8873 9.1277 20.6366 7.97975 19.8284 7.17157C18.6569 6 16.7712 6 13 6H10C6.22876 6 4.34315 6 3.17157 7.17157C2 8.34315 2 10.2288 2 14C2 17.7712 2 19.6569 3.17157 20.8284C4.34315 22 6.22876 22 10 22H13C16.7712 22 18.6569 22 19.8284 20.8284C20.6366 20.0203 20.8873 18.8723 20.965 17"/><path d="M5.81348 6.12127L5.99984 6L9.73532 3.52313C10.7873 2.82562 12.2124 2.82562 13.2644 3.52313L16.9998 6L17.1818 6.12077"/><path stroke-linejoin="round" d="M17.9912 14H18.0002"/></g></symbol><symbol id="f-linkedin-logo" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM96,176a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,96a12,12,0,1,1,12-12A12,12,0,0,1,88,96Zm96,80a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140Z"/></symbol><symbol id="s-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol></svg>
+<a class="skip" href="#projects" data-i18n="a11y.skip">Skip to the work</a>
 
-<body>
-    <a class="skip-link" href="#work" data-i18n="a11y.skip">Skip to the work</a>
-
-    <nav class="nav" id="nav">
-        <div class="wrap nav-inner">
-            <a class="brand" href="#top">
-                <span class="brand-name">Gabriel Guerra</span>
-                <span class="brand-dot" aria-hidden="true"></span>
-            </a>
-
-            <div class="nav-links">
-                <a href="#work" data-i18n="nav.work">Work</a>
-                <a href="#experience" data-i18n="nav.experience">Experience</a>
-                <a href="#how" data-i18n="nav.how">How I build</a>
-                <a href="#contact" data-i18n="nav.contact">Contact</a>
-            </div>
-
-            <div class="nav-right">
-                <div class="lang" role="group" aria-label="Language">
-                    <button type="button" data-lang="en">EN</button>
-                    <button type="button" data-lang="es">ES</button>
-                </div>
-                <a class="btn btn-ghost btn-sm" href="./cv/gabriel-guerra-cv.pdf" target="_blank" rel="noopener"
-                    data-i18n="nav.cv">CV</a>
-                <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu"
-                    aria-label="Open menu" data-i18n-aria-label="a11y.menu">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round">
-                        <path d="M3 6h18M3 12h18M3 18h18" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="mobile-menu" id="mobile-menu">
-            <div class="wrap">
-                <a href="#work" data-mobile data-i18n="nav.work">Work</a>
-                <a href="#experience" data-mobile data-i18n="nav.experience">Experience</a>
-                <a href="#how" data-mobile data-i18n="nav.how">How I build</a>
-                <a href="#contact" data-mobile data-i18n="nav.contact">Contact</a>
-            </div>
-        </div>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home" aria-label="Gabriel Guerra">
+      <img src="./assets/redesign/logo_portfolio/logo_versio2_blue.webp" alt="" width="160" height="97"><span class="type" aria-hidden="true"><span class="type-sizer">Gabriel Guerra</span><span class="type-out"><span class="typed">Gabriel Guerra</span><i class="caret"></i></span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#home" class="active" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#apps" data-i18n="nav.apps">Apps</a>
+      <a href="#journey" data-i18n="nav.journey">Transition</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
+    <div class="nav-tools">
+      <a class="icon-btn gh" href="https://github.com/gaborgr" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#s-github"/></svg></a>
+      <a class="icon-btn li" href="https://www.linkedin.com/in/gguerra-code/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#f-linkedin-logo"/></svg></a>
+      <div class="lang" role="group" aria-label="Language" data-active="en">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <a class="btn-cv" href="./cv/gabriel-guerra-cv.pdf" download data-cv><span data-i18n="nav.cv">Download CV</span><svg class="icon"><use href="#so-download-bold"/></svg></a>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="drawer" data-i18n-aria-label="a11y.menu" aria-label="Open menu"><svg class="icon"><use href="#so-hamburger-menu-bold"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a class="lnk" href="#home" data-i18n="nav.home">Home</a>
+  <a class="lnk" href="#about" data-i18n="nav.about">About</a>
+  <a class="lnk" href="#projects" data-i18n="nav.projects">Projects</a>
+  <a class="lnk" href="#apps" data-i18n="nav.apps">Apps</a>
+  <a class="lnk" href="#journey" data-i18n="nav.journey">Transition</a>
+  <a class="lnk" href="#contact" data-i18n="nav.contact">Contact</a>
+  <div class="row">
+    <a class="icon-btn gh" href="https://github.com/gaborgr" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#s-github"/></svg></a>
+    <a class="icon-btn li" href="https://www.linkedin.com/in/gguerra-code/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#f-linkedin-logo"/></svg></a>
+    <a class="btn-cv" href="./cv/gabriel-guerra-cv.pdf" download data-cv><span data-i18n="nav.cv">Download CV</span><svg class="icon"><use href="#so-download-bold"/></svg></a>
+  </div>
+</div>
 
-    <header class="hero" id="top">
-        <div class="wrap">
-            <div class="hero-grid">
-                <div>
-                    <div class="status">
-                        <span class="dot"></span>
-                        <span data-i18n="hero.status">Open to remote roles · Santiago, Chile (UTC-3) · EN / ES</span>
-                    </div>
+<main>
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Python · Django · TypeScript · React Native</p>
+      <h1><span data-i18n="hero.t1">Software Developer |</span><br><span class="grad" data-i18n-html="hero.t2">From Finance to<br>Software Engineering</span></h1>
+      <p class="lead" data-i18n="hero.lead">I build web and mobile products by connecting business logic with user experience. I focus on what a feature costs, the real value it brings, and what makes people want to come back.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#projects"><svg class="icon"><use href="#so-code-square-bold"/></svg><span data-i18n="hero.cta1">View Projects</span></a>
+        <a class="btn btn-ghost" href="#contact"><svg class="icon"><use href="#so-letter-bold"/></svg><span data-i18n="hero.cta2">Contact</span></a>
+      </div>
+      <ul class="hero-points">
+        <li><svg class="icon"><use href="#so-server-bold"/></svg><span data-i18n="hero.p1">Backend &amp; APIs</span></li>
+        <li><svg class="icon"><use href="#so-monitor-smartphone-bold"/></svg><span data-i18n="hero.p2">Web &amp; mobile</span></li>
+        <li><svg class="icon"><use href="#so-rocket-2-bold"/></svg><span data-i18n="hero.p3">From idea to launch</span></li>
+      </ul>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="portrait">
+      <div class="disc"></div>
+      <img class="photo" src="./assets/photo_gabriel.webp?v=3" alt="" width="900" height="833" fetchpriority="high">
+      <div class="float-card">
+        <svg class="icon"><use href="#so-code-bold"/></svg>
+        <div class="lines"><span></span><span></span><span></span></div>
+        <div class="bars"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <h1 data-i18n-html="hero.title">Sixteen products live.<br><span class="hl">Built and shipped by
-                            me.</span></h1>
+<!-- About + Skills -->
+<section class="band band-white" id="about">
+  <div class="wrap about-grid">
+    <div class="about rv">
+      <h2 class="sec-title"><span class="ico"><svg class="icon"><use href="#so-user-rounded-linear"/></svg></span><span data-i18n="about.title">About Me</span></h2>
+      <p data-i18n-html="about.p">My journey into programming started in the corporate world. I worked in audit and finance, eventually becoming a Controller, which taught me how to read businesses from the inside out. Today, I bring that same perspective to software: before writing any code, I need to understand the business model, who the user is, and the actual value we're delivering.</p>
+      <p data-i18n-html="about.p2">I'm currently working as a <strong>Backend Developer</strong> on a production Django platform, while also building and launching my own <strong>web and mobile apps</strong>. I value teamwork and transparency. When I come across something I don't know, I just ask or figure out how to learn it. I'm not afraid to make decisions, and I welcome constructive feedback, because at the end of the day, I care more about getting things right than being right.</p>
+    </div>
+    <div class="rv" style="--i:1">
+      <h2 class="sec-title"><span class="ico"><svg class="icon"><use href="#so-layers-linear"/></svg></span><span data-i18n="skills.title">Skills</span></h2>
+      <ul class="skills">
+        <li class="skill"><img src="./assets/logos/python.svg" alt="" width="22" height="22">Python</li>
+        <li class="skill"><img src="./assets/logos/django.svg" alt="" width="22" height="22">Django</li>
+        <li class="skill"><img src="./assets/logos/postgresql.svg" alt="" width="22" height="22">PostgreSQL</li>
+        <li class="skill"><span class="ph"><svg class="icon"><use href="#so-plug-circle-linear"/></svg></span>REST APIs</li>
+        <li class="skill"><img src="./assets/tech/htmx.svg" alt="" width="22" height="22">HTMX</li>
+        <li class="skill"><span class="ph"><svg class="icon"><use href="#so-transfer-horizontal-linear"/></svg></span>WebSockets</li>
+        <li class="skill"><img src="./assets/logos/docker.svg" alt="" width="22" height="22">Docker</li>
+        <li class="skill"><img src="./assets/tech/typescript.svg" alt="" width="22" height="22">TypeScript</li>
+        <li class="skill"><img src="./assets/logos/javascript.svg" alt="" width="22" height="22">JavaScript</li>
+        <li class="skill"><img src="./assets/tech/react.webp" alt="" width="22" height="22">React Native</li>
+        <li class="skill"><img src="./assets/tech/expo.svg" alt="" width="22" height="22">Expo</li>
+        <li class="skill"><img src="./assets/tech/nextdotjs.svg" alt="" width="22" height="22">Next.js</li>
+        <li class="skill"><img src="./assets/logos/supabase.svg" alt="" width="22" height="22">Supabase</li>
+        <li class="skill"><img src="./assets/tech/vercel.svg" alt="" width="22" height="22">Vercel</li>
+        <li class="skill"><img src="./assets/logos/git.svg" alt="" width="22" height="22">Git</li>
+        <li class="skill"><img src="./assets/tech/claude.webp" alt="" width="22" height="22">Claude Code</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-                    <p class="hero-lead" data-i18n-html="hero.lead">I am a software developer working on a production
-                        <strong>Django</strong> platform at Syzlab, and the founder of <strong>Teddy Code</strong>,
-                        where I have released 10 Android apps and 6 web products in the last 12 months. Before software I
-                        spent nearly 18 years in audit and finance, up to Controller, which is why I ask what a feature
-                        does to the business before asking how to build it.
-                    </p>
-
-                    <div class="hero-cta">
-                        <a class="btn btn-primary" href="#work">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg>
-                            <span data-i18n="hero.ctaWork">See the work</span>
-                        </a>
-                        <a class="btn btn-ghost" href="./cv/gabriel-guerra-cv.pdf" target="_blank" rel="noopener">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" />
-                            </svg>
-                            <span data-i18n="hero.ctaCv">Download CV</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="portrait">
-                    <img src="./assets/pic.jpg" alt="Gabriel Guerra" width="300" height="300">
-                </div>
-            </div>
-
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-n">10</div>
-                    <div class="stat-l" data-i18n="stats.apps">Android apps live on Google Play</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-n">6</div>
-                    <div class="stat-l" data-i18n="stats.web">Web products in production</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-n">12</div>
-                    <div class="stat-l" data-i18n="stats.months">Months to ship all of it</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-n">1</div>
-                    <div class="stat-l" data-i18n="stats.job">Full-time engineering job in parallel</div>
-                </div>
-            </div>
+<!-- Web projects -->
+<section class="band band-soft" id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 class="sec-title"><span class="ico"><svg class="icon"><use href="#so-laptop-linear"/></svg></span><span data-i18n="web.title">Featured Web Projects</span></h2>
+      <p class="sec-meta live"><i></i><span data-i18n="web.meta">Live in production</span></p>
+    </div>
+    <div class="web-grid">
+      <a class="wcard rv" href="https://playro.app/" target="_blank" rel="noopener">
+        <div class="browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr"><svg class="icon"><use href="#so-lock-keyhole-minimalistic-bold"/></svg>playro.app</span></div>
+          <div class="shot"><img src="./assets/redesign/web/playro/screenshot-1280.webp" alt="Playro" loading="lazy" width="1280" height="800"></div>
         </div>
-    </header>
-
-    <section class="stack">
-        <div class="wrap">
-            <div class="eyebrow" data-i18n="stack.title">Daily stack</div>
-            <div class="stack-row">
-                <span class="chip"><img src="./assets/logos/python.svg" alt="" loading="lazy">Python</span>
-                <span class="chip"><img src="./assets/logos/django.svg" alt="" loading="lazy">Django</span>
-                <span class="chip"><img src="./assets/logos/postgresql.svg" alt="" loading="lazy">PostgreSQL</span>
-                <span class="chip"><img src="./assets/logos/javascript.svg" alt="" loading="lazy">JavaScript</span>
-                <span class="chip">TypeScript</span>
-                <span class="chip">React Native</span>
-                <span class="chip"><img src="./assets/logos/expo.svg" alt="" loading="lazy">Expo</span>
-                <span class="chip">Next.js</span>
-                <span class="chip"><img src="./assets/logos/supabase.svg" alt="" loading="lazy">Supabase</span>
-                <span class="chip"><img src="./assets/logos/docker.svg" alt="" loading="lazy">Docker</span>
-                <span class="chip"><img src="./assets/logos/redis.svg" alt="" loading="lazy">Redis</span>
-                <span class="chip"><img src="./assets/logos/aws_light.svg" alt="" loading="lazy">AWS S3</span>
-                <span class="chip"><img src="./assets/logos/vercel.svg" alt="" loading="lazy">Vercel</span>
-                <span class="chip"><img src="./assets/logos/cloudflare.svg" alt="" loading="lazy">Cloudflare</span>
-                <span class="chip"><img src="./assets/logos/tailwindcss.svg" alt="" loading="lazy">Tailwind</span>
-                <span class="chip"><img src="./assets/logos/git.svg" alt="" loading="lazy">Git</span>
-            </div>
+        <div class="body">
+          <div class="head"><div class="wmark dark"><img src="./assets/redesign/web/playro/logo-wordmark.webp" alt="Playro" width="480" height="122"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
+          <p data-i18n="web.playro">Matchmaking for gamers on the web, sharing the mobile app's production backend.</p>
+          <div class="tags"><span>Next.js</span><span>Supabase</span><span>RLS</span></div>
         </div>
-    </section>
-
-    <section id="work">
-        <div class="wrap">
-            <div class="section-head reveal">
-                <div class="eyebrow" data-i18n="work.eyebrow">Selected work</div>
-                <h2 data-i18n="work.title">Products you can open right now</h2>
-                <p data-i18n="work.subtitle">Every product below is live, public and was designed, built and released by
-                    me under Teddy Code. No mockups, no case studies of work that never shipped.</p>
-            </div>
-
-            <article class="feature reveal">
-                <div class="phone" data-carousel>
-                    <div class="phone-frame">
-                        <div class="track" tabindex="0" role="group" aria-label="Playro screens">
-                            <img src="./assets/shots/playro/01.webp" alt="Playro screen 1" width="420" height="860">
-                            <img src="./assets/shots/playro/02.webp" alt="Playro screen 2" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/playro/03.webp" alt="Playro screen 3" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/playro/04.webp" alt="Playro screen 4" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/playro/05.webp" alt="Playro screen 5" width="420" height="860" loading="lazy">
-                        </div>
-                    </div>
-                    <button class="cbtn cprev" type="button" data-i18n-aria-label="carousel.prev"
-                        aria-label="Previous screen">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                    </button>
-                    <button class="cbtn cnext" type="button" data-i18n-aria-label="carousel.next"
-                        aria-label="Next screen">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </button>
-                    <div class="dots"></div>
-                </div>
-                <div class="feature-body">
-                    <div class="kicker">
-                        <span class="badge" data-i18n="badge.play">LIVE · GOOGLE PLAY</span>
-                        <span data-i18n="work.playroKicker">Kicker</span>
-                    </div>
-                    <h3>Playro</h3>
-                    <p data-i18n="work.playroDesc">Description</p>
-                    <p data-i18n="work.playroTech">Tech</p>
-                    <div class="tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Expo</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Supabase</span>
-                        <span class="tag">RLS</span>
-                        <span class="tag">Push</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.playro" target="_blank" rel="noopener">Google Play</a>
-                        <a class="link" href="https://playro.app/" target="_blank" rel="noopener">playro.app</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="feature flip reveal">
-                <div class="phone" data-carousel>
-                    <div class="phone-frame">
-                        <div class="track" tabindex="0" role="group" aria-label="Woggli screens">
-                            <img src="./assets/shots/woggli/01.webp" alt="Woggli screen 1" width="420" height="860">
-                            <img src="./assets/shots/woggli/02.webp" alt="Woggli screen 2" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/woggli/03.webp" alt="Woggli screen 3" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/woggli/04.webp" alt="Woggli screen 4" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/woggli/05.webp" alt="Woggli screen 5" width="420" height="860" loading="lazy">
-                        </div>
-                    </div>
-                    <button class="cbtn cprev" type="button" data-i18n-aria-label="carousel.prev"
-                        aria-label="Previous screen">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                    </button>
-                    <button class="cbtn cnext" type="button" data-i18n-aria-label="carousel.next"
-                        aria-label="Next screen">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </button>
-                    <div class="dots"></div>
-                </div>
-                <div class="feature-body">
-                    <div class="kicker">
-                        <span class="badge" data-i18n="badge.play">LIVE · GOOGLE PLAY</span>
-                        <span data-i18n="work.woggliKicker">Kicker</span>
-                    </div>
-                    <h3>Woggli</h3>
-                    <p data-i18n="work.woggliDesc">Description</p>
-                    <p data-i18n="work.woggliTech">Tech</p>
-                    <div class="tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Expo</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Supabase</span>
-                        <span class="tag">Realtime</span>
-                        <span class="tag">Postgres RPC</span>
-                        <span class="tag">i18n</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.woggli" target="_blank" rel="noopener">Google Play</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="feature reveal">
-                <div class="phone" data-carousel>
-                    <div class="phone-frame">
-                        <div class="track" tabindex="0" role="group" aria-label="Stusher screens">
-                            <img src="./assets/shots/stusher/01.webp" alt="Stusher screen 1" width="420" height="860">
-                            <img src="./assets/shots/stusher/02.webp" alt="Stusher screen 2" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/stusher/03.webp" alt="Stusher screen 3" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/stusher/04.webp" alt="Stusher screen 4" width="420" height="860" loading="lazy">
-                            <img src="./assets/shots/stusher/05.webp" alt="Stusher screen 5" width="420" height="860" loading="lazy">
-                        </div>
-                    </div>
-                    <button class="cbtn cprev" type="button" data-i18n-aria-label="carousel.prev"
-                        aria-label="Previous screen">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                    </button>
-                    <button class="cbtn cnext" type="button" data-i18n-aria-label="carousel.next"
-                        aria-label="Next screen">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </button>
-                    <div class="dots"></div>
-                </div>
-                <div class="feature-body">
-                    <div class="kicker">
-                        <span class="badge" data-i18n="badge.play">LIVE · GOOGLE PLAY</span>
-                        <span data-i18n="work.stusherKicker">Kicker</span>
-                    </div>
-                    <h3>Stusher</h3>
-                    <p data-i18n="work.stusherDesc">Description</p>
-                    <p data-i18n="work.stusherTech">Tech</p>
-                    <div class="tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Expo</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Edge Functions</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://play.google.com/store/apps/details?id=com.teddycode.stusher" target="_blank" rel="noopener">Google Play</a>
-                        <a class="link" href="https://stusher.app/" target="_blank" rel="noopener">stusher.app</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="feature flip reveal">
-                <div class="feature-shot browser">
-                    <img src="./assets/shots/qualipath.webp" alt="QualiPath home page" loading="lazy" width="1200" height="750">
-                </div>
-                <div class="feature-body">
-                    <div class="kicker">
-                        <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
-                        <span data-i18n="work.qualipathKicker">Kicker</span>
-                    </div>
-                    <h3>QualiPath</h3>
-                    <p data-i18n="work.qualipathDesc">Description</p>
-                    <p data-i18n="work.qualipathTech">Tech</p>
-                    <div class="tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Structured data</span>
-                        <span class="tag">SEO</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://qualipath.co/" target="_blank" rel="noopener">qualipath.co</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="feature reveal">
-                <div class="feature-shot browser">
-                    <img src="./assets/shots/hallazgo.webp" alt="Hallazgo home page" loading="lazy" width="1200" height="750">
-                </div>
-                <div class="feature-body">
-                    <div class="kicker">
-                        <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
-                        <span data-i18n="work.hallazgoKicker">Kicker</span>
-                    </div>
-                    <h3>Hallazgo</h3>
-                    <p data-i18n="work.hallazgoDesc">Description</p>
-                    <p data-i18n="work.hallazgoTech">Tech</p>
-                    <div class="tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">Supabase</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">ISR</span>
-                        <span class="tag">Claude API</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://hallazgo.app/" target="_blank" rel="noopener">hallazgo.app</a>
-                    </div>
-                </div>
-            </article>
-
-            <div class="section-head reveal" style="margin-top:48px">
-                <div class="eyebrow" data-i18n="work.moreEyebrow">The rest of the catalogue</div>
-                <h2 data-i18n="work.moreTitle">Eleven more products in production</h2>
-            </div>
-
-            <div class="grid-cards">
-                <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/channelberry.webp" alt="ChannelBerry screenshot"
-                            loading="lazy"></div>
-                    <div class="card-head">
-                        <div>
-                            <h3>ChannelBerry</h3>
-                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
-                        </div>
-                    </div>
-                    <p data-i18n="cards.channelberry">An editorial guide to YouTube.</p>
-                    <div class="tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">YouTube API</span>
-                        <span class="tag">i18n</span>
-                        <span class="tag">ISR</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://channelberry.com/" target="_blank"
-                            rel="noopener">channelberry.com</a>
-                    </div>
-                </article>
-
-                <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/quecalifico.webp" alt="QueCalifico screenshot"
-                            loading="lazy"></div>
-                    <div class="card-head">
-                        <div>
-                            <h3>QueCalifico</h3>
-                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
-                        </div>
-                    </div>
-                    <p data-i18n="cards.quecalifico">A financial eligibility engine.</p>
-                    <div class="tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">Static export</span>
-                        <span class="tag">Tailwind</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://quecalifico.com/" target="_blank"
-                            rel="noopener">quecalifico.com</a>
-                    </div>
-                </article>
-
-                <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/fadechats.webp" alt="FadeChats screenshot"
-                            loading="lazy"></div>
-                    <div class="card-head">
-                        <div>
-                            <h3>FadeChats</h3>
-                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
-                        </div>
-                    </div>
-                    <p data-i18n="cards.fadechats">A disposable chat for two people.</p>
-                    <div class="tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">WebRTC</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://fadechats.app/" target="_blank" rel="noopener">fadechats.app</a>
-                    </div>
-                </article>
-
-                <article class="card reveal">
-                    <div class="card-shot"><img src="./assets/shots/playroweb.webp" alt="Playro Web screenshot"
-                            loading="lazy"></div>
-                    <div class="card-head">
-                        <img src="./assets/apps/playro-icon.png" alt="Playro icon" loading="lazy">
-                        <div>
-                            <h3>Playro Web</h3>
-                            <span class="badge" data-i18n="badge.web">LIVE · WEB</span>
-                        </div>
-                    </div>
-                    <p data-i18n="cards.playroweb">The web counterpart of the Playro app.</p>
-                    <div class="tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">Supabase</span>
-                        <span class="tag">RLS</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://playro.app/" target="_blank"
-                            rel="noopener">playro.app</a>
-                    </div>
-                </article>
-
-                <article class="card reveal">
-                    <div class="card-head">
-                        <div>
-                            <h3 data-i18n="cards.utilitiesTitle">Seven utility apps</h3>
-                            <span class="badge" data-i18n="badge.play7">LIVE · 7 APPS</span>
-                        </div>
-                    </div>
-                    <div class="icon-row">
-                        <img src="./assets/apps/decibra-icon.png" alt="Decibra icon" loading="lazy">
-                        <img src="./assets/apps/magniyo-icon.png" alt="Magniyo icon" loading="lazy">
-                        <img src="./assets/apps/osito-icon.png" alt="Osito icon" loading="lazy">
-                        <img src="./assets/apps/arrullo-icon.png" alt="Arrullo icon" loading="lazy">
-                        <img src="./assets/apps/avicalma-icon.png" alt="AviCalma icon" loading="lazy">
-                        <img src="./assets/apps/tiltza-icon.png" alt="Tiltza icon" loading="lazy">
-                        <img src="./assets/apps/wheelza-icon.png" alt="Wheelza icon" loading="lazy">
-                    </div>
-                    <p data-i18n="cards.utilities">Seven focused offline-first utilities.</p>
-                    <div class="tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Expo</span>
-                        <span class="tag">MMKV</span>
-                        <span class="tag">EAS CI/CD</span>
-                    </div>
-                    <div class="links">
-                        <a class="link" href="https://play.google.com/store/apps/developer?id=Teddy+Code+Studios"
-                            target="_blank" rel="noopener" data-i18n="cards.allApps">All apps on Google Play</a>
-                    </div>
-                </article>
-            </div>
+      </a>
+      <a class="wcard rv" style="--i:1" href="https://fadechats.app/" target="_blank" rel="noopener">
+        <div class="browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr"><svg class="icon"><use href="#so-lock-keyhole-minimalistic-bold"/></svg>fadechats.app</span></div>
+          <div class="shot"><img src="./assets/redesign/web/fadechats/screnshot.webp" alt="FadeChats" loading="lazy" width="1280" height="1165"></div>
         </div>
-    </section>
-
-    <section id="experience">
-        <div class="wrap">
-            <div class="section-head reveal">
-                <div class="eyebrow" data-i18n="exp.eyebrow">Experience</div>
-                <h2 data-i18n="exp.title">Production code, and a business background under it</h2>
-            </div>
-
-            <div class="exp">
-                <article class="exp-card reveal">
-                    <div class="exp-top">
-                        <h3>Syzlab</h3>
-                        <span class="exp-when" data-i18n="exp.syzlabWhen">Dec 2025 · present</span>
-                    </div>
-                    <div class="exp-role" data-i18n="exp.syzlabRole">Backend Developer</div>
-                    <div class="exp-meta" data-i18n="exp.syzlabMeta">Consumer dating platform in production · Django,
-                        JavaScript, HTMX, WebSockets, PostgreSQL, AWS S3, Docker</div>
-                    <ul>
-                        <li data-i18n="exp.syzlab1">Built an A/B testing system end to end: live user split by variant,
-                            tracking of conversion, behaviour, cancellations and revenue per group, and reports the team
-                            can actually read.</li>
-                        <li data-i18n="exp.syzlab2">Shipped a reported-image control using SHA-256 and perceptual
-                            hashing to catch repeat uploads and flag suspicious profiles.</li>
-                        <li data-i18n="exp.syzlab3">Built Ghost Mode, an internal survey manager and the support
-                            helpdesk workflow inside an existing codebase.</li>
-                        <li data-i18n="exp.syzlab4">Work across backend, frontend, data models, testing, deployment and
-                            production troubleshooting. English at work, every day.</li>
-                    </ul>
-                    <div class="callout">
-                        <div class="callout-title" data-i18n="exp.calloutTitle">What that A/B system taught me</div>
-                        <p data-i18n="exp.callout">I tested giving the location filter away for free, expecting an easy
-                            win. Engagement went up and revenue went down. The test did not just pick a winner, it
-                            proved the filter was something people would pay for instead of a nice to have. Happy users
-                            and a healthy business are two different metrics.</p>
-                    </div>
-                </article>
-
-                <article class="exp-card reveal">
-                    <div class="exp-top">
-                        <h3>Teddy Code LLC</h3>
-                        <span class="exp-when" data-i18n="exp.teddyWhen">Sep 2025 · present</span>
-                    </div>
-                    <div class="exp-role" data-i18n="exp.teddyRole">Founder and Software Developer</div>
-                    <div class="exp-meta" data-i18n="exp.teddyMeta">React Native, Expo, Next.js, TypeScript, Supabase,
-                        EAS cloud builds, Vercel, Cloudflare</div>
-                    <ul>
-                        <li data-i18n="exp.teddy1">Ten Android apps and six web products released, each one from idea
-                            to store listing or production domain, after hours and next to a full-time job.</li>
-                        <li data-i18n="exp.teddy2">One shared release pipeline across the mobile catalogue: EAS cloud
-                            builds, versioned store assets, in-app legal pages mirrored on the web.</li>
-                        <li data-i18n="exp.teddy3">Product decisions included: what to build, what to cut, what to
-                            monetize and when a product is not worth finishing.</li>
-                    </ul>
-                </article>
-
-                <article class="exp-compact reveal">
-                    <div class="exp-top">
-                        <h3 data-i18n="exp.financeTitle">Audit, accounting and finance</h3>
-                        <span class="exp-when">2006 · 2024</span>
-                    </div>
-                    <p data-i18n="exp.financeBody">Controller and Head of Accounting at GL Events Chile, and before that
-                        roles at Bupa, Edelcta, CMPC, Unilever, PDVSA Industrial, UHY International and KPMG, where I
-                        started as an auditor. I built a finance team from scratch, wrote its procedures, ran ERP
-                        migrations and reported to people who only cared about the number at the end. That is the part
-                        that does not show up in a git history and shows up in every technical decision.</p>
-                    <div class="tags">
-                        <span class="tag" data-i18n="exp.tag1">Business impact</span>
-                        <span class="tag" data-i18n="exp.tag2">Internal controls</span>
-                        <span class="tag" data-i18n="exp.tag3">IFRS and compliance</span>
-                        <span class="tag" data-i18n="exp.tag4">Team leadership</span>
-                        <span class="tag" data-i18n="exp.tag5">Stakeholder reporting</span>
-                    </div>
-                </article>
-            </div>
+        <div class="body">
+          <div class="head"><div class="wmark dark"><img src="./assets/redesign/web/fadechats/logo-wordmark.webp" alt="FadeChats" width="435" height="84"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
+          <p data-i18n="web.fadechats">Disposable two-person chat with no signup. Peer to peer, messages never touch a server.</p>
+          <div class="tags"><span>Next.js</span><span>WebRTC</span><span>P2P</span></div>
         </div>
-    </section>
-
-    <section class="how" id="how">
-        <div class="wrap">
-            <div class="section-head reveal">
-                <div class="eyebrow" data-i18n="how.eyebrow">How I build</div>
-                <h2 data-i18n="how.title">Coding agents, used the way a lead uses a team</h2>
-                <p data-i18n="how.subtitle">Sixteen products in twelve months next to a full-time job only works with
-                    agents in the loop. It works because of how I use them, not because they write code while I look
-                    away.</p>
-            </div>
-
-            <div class="how-grid">
-                <article class="how-item reveal">
-                    <h3><span class="how-num">01</span><span data-i18n="how.t1">Plan first</span></h3>
-                    <p data-i18n="how.d1">Architecture, scope and data model are decided before a single line is
-                        generated. The agent implements a plan, it does not invent one.</p>
-                </article>
-                <article class="how-item reveal">
-                    <h3><span class="how-num">02</span><span data-i18n="how.t2">Small diffs</span></h3>
-                    <p data-i18n="how.d2">One change at a time, reviewed line by line. A diff I cannot explain does not
-                        get merged, no matter how well it runs.</p>
-                </article>
-                <article class="how-item reveal">
-                    <h3><span class="how-num">03</span><span data-i18n="how.t3">I own the result</span></h3>
-                    <p data-i18n="how.d3">If it breaks in production it is mine. I read what ships, I debug it myself
-                        and I can defend every decision in a review.</p>
-                </article>
-                <article class="how-item reveal">
-                    <h3><span class="how-num">04</span><span data-i18n="how.t4">In production, not just in my
-                            editor</span></h3>
-                    <p data-i18n="how.d4">The Claude API runs inside Hallazgo's publishing pipeline, MCP servers and
-                        headless automation handle the repetitive parts, and CI on EAS and Vercel ships the rest.</p>
-                </article>
-            </div>
+      </a>
+      <a class="wcard rv" style="--i:2" href="https://channelberry.com/" target="_blank" rel="noopener">
+        <div class="browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr"><svg class="icon"><use href="#so-lock-keyhole-minimalistic-bold"/></svg>channelberry.com</span></div>
+          <div class="shot"><img src="./assets/redesign/web/channelberry/screenshot-1280.webp" alt="ChannelBerry" loading="lazy" width="1280" height="800"></div>
         </div>
-    </section>
-
-    <section id="contact">
-        <div class="wrap">
-            <div class="section-head reveal">
-                <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
-                <h2 data-i18n="contact.title">Looking for a remote engineering role</h2>
-                <p data-i18n="contact.subtitle">Product engineering, backend or full-stack, in a team that ships. I work
-                    from Santiago, Chile (UTC-3), with comfortable overlap for the Americas and most of Europe, and I
-                    can be hired as a contractor, through an EOR or B2B. I work in Spanish and English.</p>
-            </div>
-
-            <div class="contact-grid">
-                <div>
-                    <div class="contact-list">
-                        <a class="contact-item" href="mailto:gguerra.code@gmail.com">
-                            <span class="contact-ico">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                                    <path d="m2 7 10 6 10-6" />
-                                </svg>
-                            </span>
-                            <span>
-                                <span class="contact-k" data-i18n="contact.email">Email</span>
-                                <span class="contact-v">gguerra.code@gmail.com</span>
-                            </span>
-                        </a>
-                        <a class="contact-item" href="https://www.linkedin.com/in/gguerra-code/" target="_blank"
-                            rel="noopener">
-                            <span class="contact-ico">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24H.24Zm7.5 0h4.31v2.15h.06a4.72 4.72 0 0 1 4.25-2.33c4.55 0 5.39 3 5.39 6.86V24h-4.5v-7.17c0-1.71-.03-3.9-2.38-3.9-2.38 0-2.74 1.86-2.74 3.78V24h-4.5Z" />
-                                </svg>
-                            </span>
-                            <span>
-                                <span class="contact-k">LinkedIn</span>
-                                <span class="contact-v">/in/gguerra-code</span>
-                            </span>
-                        </a>
-                        <a class="contact-item" href="https://github.com/gaborgr" target="_blank" rel="noopener">
-                            <span class="contact-ico">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.15v3.19c0 .31.21.67.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z" />
-                                </svg>
-                            </span>
-                            <span>
-                                <span class="contact-k">GitHub</span>
-                                <span class="contact-v">/gaborgr</span>
-                            </span>
-                        </a>
-                        <a class="contact-item" href="./cv/gabriel-guerra-cv.pdf" target="_blank" rel="noopener">
-                            <span class="contact-ico">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 3v5h5M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" />
-                                </svg>
-                            </span>
-                            <span>
-                                <span class="contact-k" data-i18n="contact.cvLabel">Resume</span>
-                                <span class="contact-v" data-i18n="contact.cvValue">Download the CV in PDF</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <form action="https://formspree.io/f/xblkyrbq" method="POST">
-                    <div>
-                        <label for="name" data-i18n="contact.nameLabel">Your name</label>
-                        <input id="name" type="text" name="name" required data-i18n-placeholder="contact.namePh"
-                            placeholder="Jane Doe">
-                    </div>
-                    <div>
-                        <label for="email" data-i18n="contact.emailLabel">Email</label>
-                        <input id="email" type="email" name="email" required data-i18n-placeholder="contact.emailPh"
-                            placeholder="jane@company.com">
-                    </div>
-                    <div>
-                        <label for="message" data-i18n="contact.msgLabel">Message</label>
-                        <textarea id="message" name="message" rows="4" required data-i18n-placeholder="contact.msgPh"
-                            placeholder="Role, team and what you are building"></textarea>
-                    </div>
-                    <button class="btn btn-primary" type="submit" data-i18n="contact.send">Send message</button>
-                </form>
-            </div>
+        <div class="body">
+          <div class="head"><div class="wmark"><img src="./assets/redesign/web/channelberry/logo-wordmark.webp" alt="ChannelBerry" width="804" height="150"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
+          <p data-i18n="web.channelberry">Editorial guide to YouTube: 93 hand-reviewed channels published in 5 languages.</p>
+          <div class="tags"><span>Next.js</span><span>YouTube API</span><span>ISR</span></div>
         </div>
-    </section>
-
-    <button class="to-top" id="to-top" aria-label="Back to top" data-i18n-aria-label="a11y.top">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 19V5M5 12l7-7 7 7" />
-        </svg>
-    </button>
-
-    <footer>
-        <div class="wrap foot">
-            <span>© 2026 Gabriel Guerra</span>
-            <span data-i18n="footer.built">Plain HTML and CSS. No framework, no build step.</span>
+      </a>
+      <a class="wcard rv" href="https://hallazgo.app/" target="_blank" rel="noopener">
+        <div class="browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr"><svg class="icon"><use href="#so-lock-keyhole-minimalistic-bold"/></svg>hallazgo.app</span></div>
+          <div class="shot"><img src="./assets/redesign/web/hallazgo/screenshot-1280.webp" alt="Hallazgo" loading="lazy" width="1280" height="800"></div>
         </div>
-    <a href="https://teddy-code.com/es/privacy-policy" rel="noopener noreferrer">Privacidad de la medición web</a>
+        <div class="body">
+          <div class="head"><div class="wmark tall"><img src="./assets/redesign/web/hallazgo/logo-wordmark.webp" alt="Hallazgo" width="489" height="150"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
+          <p data-i18n="web.hallazgo">Daily magazine of global opportunities, researched and published by an AI pipeline.</p>
+          <div class="tags"><span>Next.js</span><span>Supabase</span><span>Claude API</span></div>
+        </div>
+      </a>
+      <a class="wcard rv" style="--i:1" href="https://qualipath.co/" target="_blank" rel="noopener">
+        <div class="browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr"><svg class="icon"><use href="#so-lock-keyhole-minimalistic-bold"/></svg>qualipath.co</span></div>
+          <div class="shot"><img src="./assets/redesign/web/qualipath/screenshot-1280.webp" alt="QualiPath" loading="lazy" width="1280" height="800"></div>
+        </div>
+        <div class="body">
+          <div class="head"><div class="wmark tall"><img src="./assets/redesign/web/qualipath/logo-wordmark.webp" alt="QualiPath" width="572" height="132"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
+          <p data-i18n="web.qualipath">Recognition of regulated professions abroad: 83 verified routes across 18 destinations.</p>
+          <div class="tags"><span>Next.js</span><span>TypeScript</span><span>SEO</span></div>
+        </div>
+      </a>
+      <a class="wcard rv" style="--i:2" href="https://quecalifico.com/" target="_blank" rel="noopener">
+        <div class="browser">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr"><svg class="icon"><use href="#so-lock-keyhole-minimalistic-bold"/></svg>quecalifico.com</span></div>
+          <div class="shot"><img src="./assets/redesign/web/quecalifico/screenshot-1280.webp" alt="QueCalifico" loading="lazy" width="1280" height="800"></div>
+        </div>
+        <div class="body">
+          <div class="head"><div class="wmark tall"><img src="./assets/redesign/web/quecalifico/logo-wordmark.webp" alt="QueCalifico" width="616" height="132"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
+          <p data-i18n="web.quecalifico">Financial eligibility engine for people in the US without an SSN, across 48 institutions.</p>
+          <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Static</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile apps -->
+<section class="band band-white" id="apps">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 class="sec-title"><span class="ico"><svg class="icon"><use href="#so-smartphone-linear"/></svg></span><span data-i18n="apps.title">Mobile Apps</span></h2>
+      <p class="sec-meta live"><i></i><span data-i18n="apps.meta">Live on Google Play</span> · <a href="https://play.google.com/store/apps/developer?id=Teddy+Code+Studios" target="_blank" rel="noopener"><span data-i18n="apps.all">See all</span><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></a></p>
+    </div>
+    <div class="app-grid">
+      <a class="acard rv" href="https://play.google.com/store/apps/details?id=com.teddycode.woggli" target="_blank" rel="noopener">
+        <div class="phone"><div class="screen" data-cycle>
+          <img src="./assets/redesign/mobile/woggli/01-feed.webp" alt="Woggli" loading="lazy" width="540" height="1101">
+          <img data-src="./assets/redesign/mobile/woggli/02-trade.webp" alt="">
+          <img data-src="./assets/redesign/mobile/woggli/05-chat.webp" alt="">
+          <img data-src="./assets/redesign/mobile/woggli/03-explore.webp" alt="">
+        </div></div>
+        <div class="name"><img src="./assets/redesign/mobile/woggli/icon-512.webp" alt="" loading="lazy" width="28" height="28"><h3>Woggli</h3></div>
+        <p data-i18n="apps.woggli">Marketplace and social network for Scout collectors. Realtime chat, 5 languages.</p>
+        <div class="tags"><span>Supabase</span></div>
+      </a>
+      <a class="acard rv" style="--i:1" href="https://play.google.com/store/apps/details?id=com.teddycode.stusher" target="_blank" rel="noopener">
+        <div class="phone"><div class="screen" data-cycle>
+          <img src="./assets/redesign/mobile/stusher/Screenshot_20260521_094940_Stusher.webp" alt="Stusher" loading="lazy" width="540" height="1099">
+          <img data-src="./assets/redesign/mobile/stusher/Screenshot_20260521_095305_Stusher.webp" alt="">
+          <img data-src="./assets/redesign/mobile/stusher/Screenshot_20260521_095352_Stusher.webp" alt="">
+          <img data-src="./assets/redesign/mobile/stusher/Screenshot_20260521_100225_Stusher.webp" alt="">
+        </div></div>
+        <div class="name"><img src="./assets/redesign/mobile/stusher/stusher_1024.webp" alt="" loading="lazy" width="28" height="28"><h3>Stusher</h3></div>
+        <p data-i18n="apps.stusher">Three movie and series picks in 30 seconds, from the services you already pay for.</p>
+        <div class="tags"><span>Edge Functions</span></div>
+      </a>
+      <a class="acard rv" style="--i:2" href="https://play.google.com/store/apps/details?id=com.teddycode.arrullo" target="_blank" rel="noopener">
+        <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/arrullo/01-mixer.webp" alt="Arrullo" loading="lazy" width="540" height="1107"></div></div>
+        <div class="name"><img src="./assets/redesign/mobile/arrullo/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>Arrullo</h3></div>
+        <p data-i18n="apps.arrullo">Sleep sounds with procedurally generated audio. Mix up to four at once.</p>
+        <div class="tags"><span>Audio</span></div>
+      </a>
+      <a class="acard rv" style="--i:3" href="https://play.google.com/store/apps/details?id=com.teddycode.avicalma" target="_blank" rel="noopener">
+        <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/avicalma/01-today.webp" alt="AviCalma" loading="lazy" width="540" height="1085"></div></div>
+        <div class="name"><img src="./assets/redesign/mobile/avicalma/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>AviCalma</h3></div>
+        <p data-i18n="apps.avicalma">A calmer way to face your next flight. Bilingual, works offline.</p>
+        <div class="tags"><span>Offline</span></div>
+      </a>
+      <a class="acard rv" style="--i:4" href="https://play.google.com/store/apps/details?id=com.teddycode.osito" target="_blank" rel="noopener">
+        <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/osito/01-today.webp" alt="Osito" loading="lazy" width="540" height="1105"></div></div>
+        <div class="name"><img src="./assets/redesign/mobile/osito/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>Osito</h3></div>
+        <p data-i18n="apps.osito">Baby log for feeds, diapers and sleep, with timers since the last one.</p>
+        <div class="tags"><span>Offline</span></div>
+      </a>
+      <a class="acard rv" style="--i:5" href="https://play.google.com/store/apps/details?id=com.teddycode.wheelza" target="_blank" rel="noopener">
+        <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/wheelza/01-spin.webp" alt="Wheelza" loading="lazy" width="540" height="1106"></div></div>
+        <div class="name"><img src="./assets/redesign/mobile/wheelza/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>Wheelza</h3></div>
+        <p data-i18n="apps.wheelza">A decision wheel for tiny choices. Custom wheels, quick starts.</p>
+        <div class="tags"><span>Offline</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Journey -->
+<section class="band band-soft" id="journey">
+  <div class="wrap">
+    <div class="journey-head rv">
+      <h2 class="sec-title"><span class="ico"><svg class="icon"><use href="#so-graph-new-up-linear"/></svg></span><span data-i18n="journey.title">From Finance to Software</span></h2>
+      <p class="journey-sub" data-i18n="journey.sub">A deliberate move: from analyzing businesses to building the software they run on.</p>
+    </div>
+    <ol class="timeline">
+      <li class="step rv">
+        <span class="dot"><svg class="icon"><use href="#so-wallet-money-linear"/></svg></span>
+        <span class="span" data-i18n="journey.n1">18 years</span>
+        <h3 data-i18n="journey.s1">Finance</h3>
+        <span class="when">2006 – 2024</span>
+        <p data-i18n="journey.d1">From auditor to Controller and Head of Accounting. Reporting, internal controls, IFRS and ERP migrations.</p>
+        <div class="chips"><span>KPMG</span><span>Unilever</span><span>CMPC</span><span>Bupa</span><span>GL Events</span></div>
+      </li>
+      <li class="step rv" style="--i:1">
+        <span class="dot"><svg class="icon"><use href="#so-square-academic-cap-linear"/></svg></span>
+        <span class="span" data-i18n="journey.n2">1 year</span>
+        <h3 data-i18n="journey.s2">Transition</h3>
+        <span class="when">2024 – 2025</span>
+        <p data-i18n="journey.d2">Harvard CS50x and intensive self-directed training, building real products from the first week.</p>
+        <div class="chips"><span>Harvard CS50x</span></div>
+      </li>
+      <li class="step rv" style="--i:2">
+        <span class="dot"><svg class="icon"><use href="#so-code-linear"/></svg></span>
+        <span class="span" data-i18n="journey.n3">Now</span>
+        <h3 data-i18n="journey.s3">Software Developer</h3>
+        <span class="when" data-i18n="journey.w3">2025 – Present</span>
+        <p data-i18n="journey.d3">Backend developer on a production Django platform, and builder of my own web and mobile products under Teddy Code.</p>
+        <div class="chips"><span>Syzlab</span><span>Teddy Code</span></div>
+      </li>
+      <li class="rv" style="--i:3">
+        <div class="dest">
+          <span class="live"><i></i><span data-i18n="journey.open">Open to new opportunities</span></span>
+          <h3 data-i18n="journey.s4">Software with a finance brain</h3>
+          <p data-i18n="journey.d4">I ask what a feature does to the business before asking how to build it.</p>
+          <ul>
+            <li><svg class="icon"><use href="#so-map-point-linear"/></svg><span data-i18n="journey.loc">Santiago, Chile · UTC-3</span></li>
+            <li><svg class="icon"><use href="#so-global-linear"/></svg><span data-i18n="journey.lang">English and Spanish</span></li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<!-- Contact -->
+<footer class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <h2 data-i18n="contact.title">Let's talk</h2>
+      <p class="cp" data-i18n="contact.p">I'm currently open to new opportunities. I'm looking for a place where I can keep learning, work with great people, and deliver real value through what I build. If that sounds good to you, I'd love to chat.</p>
+    </div>
+    <div class="contact-links rv" style="--i:1">
+      <a href="mailto:gguerra.code@gmail.com"><svg class="icon"><use href="#so-letter-bold"/></svg>gguerra.code@gmail.com</a>
+      <a href="https://www.linkedin.com/in/gguerra-code/" target="_blank" rel="noopener"><svg class="icon"><use href="#f-linkedin-logo"/></svg>linkedin.com/in/gguerra-code</a>
+      <a href="https://github.com/gaborgr" target="_blank" rel="noopener"><svg class="icon"><use href="#s-github"/></svg>github.com/gaborgr</a>
+    </div>
+    <div class="contact-cta rv" style="--i:2">
+      <a class="btn btn-primary" href="mailto:gguerra.code@gmail.com"><svg class="icon"><use href="#so-chat-round-dots-bold"/></svg><span data-i18n="contact.cta">Get in Touch</span></a>
+      <a class="btn btn-ghost" href="./cv/gabriel-guerra-cv.pdf" download data-cv><svg class="icon"><use href="#so-download-bold"/></svg><span data-i18n="nav.cv">Download CV</span></a>
+    </div>
+  </div>
+  <div class="foot"><div class="wrap"><span>© 2026 Gabriel Guerra</span><span data-i18n="footer.built">Hand-written HTML, CSS and a little JS. No framework, no build step.</span></div></div>
 </footer>
 
-    <script>
-        const i18n = {
-            en: {
-                "meta.title": "Gabriel Guerra · Software Developer · Django, React Native, Next.js",
-                "a11y.skip": "Skip to the work",
-                "a11y.menu": "Open menu",
-                "a11y.top": "Back to top",
-                "nav.work": "Work",
-                "nav.experience": "Experience",
-                "nav.how": "How I build",
-                "nav.contact": "Contact",
-                "nav.cv": "CV",
-                "hero.status": "Open to remote roles · Santiago, Chile (UTC-3) · EN / ES",
-                "hero.title": "Sixteen products live.<br><span class=\"hl\">Built and shipped by me.</span>",
-                "hero.lead": "I am a software developer working on a production <strong>Django</strong> platform at Syzlab, and the founder of <strong>Teddy Code</strong>, where I have released 10 Android apps and 6 web products in the last 12 months. Before software I spent nearly 18 years in audit and finance, up to Controller, which is why I ask what a feature does to the business before asking how to build it.",
-                "hero.ctaWork": "See the work",
-                "hero.ctaCv": "Download CV",
-                "stats.apps": "Android apps live on Google Play",
-                "stats.web": "Web products in production",
-                "stats.months": "Months to ship all of it",
-                "stats.job": "Full-time engineering job in parallel",
-                "stack.title": "Daily stack",
-                "work.eyebrow": "Selected work",
-                "work.title": "Products you can open right now",
-                "work.subtitle": "Every product below is live, public and was designed, built and released by me under Teddy Code. No mockups, no case studies of work that never shipped.",
-                "badge.play": "Live · Google Play",
-                "badge.play7": "Live · 7 apps",
-                "badge.web": "Live · Web",
-                "work.playroKicker": "Social product · Mobile + web",
-                "work.playroDesc": "Social matchmaking for gamers: find teammates by game, platform, language and playstyle, then chat before jumping into a lobby.",
-                "work.playroTech": "Full product cycle on my own: definition, UI design, React Native app, Supabase backend with row level security, push notifications, store assets and the release pipeline. The web counterpart runs against the same production backend.",
-                "work.woggliKicker": "Latest release · Social marketplace",
-                "work.woggliDesc": "A peer to peer marketplace and social network for the world Scout movement: collectors trade badges, neckerchiefs and woggles, the ring that gives the app its name.",
-                "work.woggliTech": "The most demanding product I have built so far. A follow graph with friendship derived automatically, realtime chat and shipment events, reporting and moderation, with every critical transition going through a Postgres RPC instead of a direct table write. Supabase for auth, storage and realtime, a home-made i18n layer in 5 languages, and Maestro for end to end tests.",
-                "work.stusherKicker": "Recommendation engine · Mobile",
-                "work.stusherDesc": "Three personalized movie and series picks in 30 seconds, based on the streaming services you already pay for, so the night does not start with twenty minutes of scrolling.",
-                "work.stusherTech": "Every third-party API call runs inside a serverless Edge Function, so the keys never reach the client bundle. The app explains why it picked each title, which turned out to matter more than the catalogue size.",
-                "carousel.prev": "Previous screen",
-                "carousel.next": "Next screen",
-                "carousel.screen": "Screen",
-                "work.qualipathKicker": "Decision engine · Verified data",
-                "work.qualipathDesc": "Tell it your profession, where you qualified and where you want to work, and it returns the competent authority, the documents, the fees and the work permit route.",
-                "work.qualipathTech": "83 verified routes across 18 destinations. Every requirement is linked to its official source with the date it was checked, so the answer can be audited instead of trusted. Structured data and SEO built in from the first commit.",
-                "work.hallazgoKicker": "Editorial · Automated pipeline",
-                "work.hallazgoDesc": "A daily Spanish-language magazine of verified global opportunities: migration, housing, funding and tech programs.",
-                "work.hallazgoTech": "The interesting part is not the site, it is the pipeline behind it. An AI agent runs headless on a schedule, researches, and publishes straight to the database. Incremental static regeneration picks it up, so there is no deploy per article and no human in the loop for a normal day.",
-                "work.moreEyebrow": "The rest of the catalogue",
-                "work.moreTitle": "Eleven more products in production",
-                "cards.channelberry": "An editorial guide to YouTube: 93 channels reviewed by hand and published in 5 languages, on a git-versioned catalogue plus the YouTube Data API with ISR caching to stay inside the free quota.",
-                "cards.quecalifico": "A financial eligibility engine for people living in the United States without a Social Security Number. Compares cards, loans and accounts across 48 institutions, each requirement traced to its source. Fully static, no backend to pay for.",
-                "cards.fadechats": "A disposable chat for two people with no signup. Peer to peer over WebRTC, so message content never touches a server and the room disappears when it ends.",
-                "cards.playroweb": "The web counterpart of the Playro app, sharing the same production Supabase backend and the same row level security policies as the mobile client.",
-                "cards.utilitiesTitle": "Seven utility apps",
-                "cards.utilities": "Decibra (sound meter), Magniyo (magnifier), Osito (baby log), Arrullo (sleep sounds, procedurally generated audio), AviCalma (fear of flying, bilingual), Tiltza (bubble level) and Wheelza (decision wheel). All offline-first, all on one shared release pipeline.",
-                "cards.allApps": "All apps on Google Play",
-                "exp.eyebrow": "Experience",
-                "exp.title": "Production code, and a business background under it",
-                "exp.syzlabWhen": "Dec 2025 · present",
-                "exp.syzlabRole": "Backend Developer",
-                "exp.syzlabMeta": "Consumer dating platform in production · Django, JavaScript, HTMX, WebSockets, PostgreSQL, AWS S3, Docker",
-                "exp.syzlab1": "Built an A/B testing system end to end: live user split by variant, tracking of conversion, behaviour, cancellations and revenue per group, and reports the team can actually read.",
-                "exp.syzlab2": "Shipped a reported-image control using SHA-256 and perceptual hashing to catch repeat uploads and flag suspicious profiles.",
-                "exp.syzlab3": "Built Ghost Mode, an internal survey manager and the support helpdesk workflow inside an existing codebase.",
-                "exp.syzlab4": "Work across backend, frontend, data models, testing, deployment and production troubleshooting. English at work, every day.",
-                "exp.calloutTitle": "What that A/B system taught me",
-                "exp.callout": "I tested giving the location filter away for free, expecting an easy win. Engagement went up and revenue went down. The test did not just pick a winner, it proved the filter was something people would pay for instead of a nice to have. Happy users and a healthy business are two different metrics.",
-                "exp.teddyWhen": "Sep 2025 · present",
-                "exp.teddyRole": "Founder and Software Developer",
-                "exp.teddyMeta": "React Native, Expo, Next.js, TypeScript, Supabase, EAS cloud builds, Vercel, Cloudflare",
-                "exp.teddy1": "Ten Android apps and six web products released, each one from idea to store listing or production domain, after hours and next to a full-time job.",
-                "exp.teddy2": "One shared release pipeline across the mobile catalogue: EAS cloud builds, versioned store assets, in-app legal pages mirrored on the web.",
-                "exp.teddy3": "Product decisions included: what to build, what to cut, what to monetize and when a product is not worth finishing.",
-                "exp.financeTitle": "Audit, accounting and finance",
-                "exp.financeBody": "Controller and Head of Accounting at GL Events Chile, and before that roles at Bupa, Edelcta, CMPC, Unilever, PDVSA Industrial, UHY International and KPMG, where I started as an auditor. I built a finance team from scratch, wrote its procedures, ran ERP migrations and reported to people who only cared about the number at the end. That is the part that does not show up in a git history and shows up in every technical decision.",
-                "exp.tag1": "Business impact",
-                "exp.tag2": "Internal controls",
-                "exp.tag3": "IFRS and compliance",
-                "exp.tag4": "Team leadership",
-                "exp.tag5": "Stakeholder reporting",
-                "how.eyebrow": "How I build",
-                "how.title": "Coding agents, used the way a lead uses a team",
-                "how.subtitle": "Sixteen products in twelve months next to a full-time job only works with agents in the loop. It works because of how I use them, not because they write code while I look away.",
-                "how.t1": "Plan first",
-                "how.d1": "Architecture, scope and data model are decided before a single line is generated. The agent implements a plan, it does not invent one.",
-                "how.t2": "Small diffs",
-                "how.d2": "One change at a time, reviewed line by line. A diff I cannot explain does not get merged, no matter how well it runs.",
-                "how.t3": "I own the result",
-                "how.d3": "If it breaks in production it is mine. I read what ships, I debug it myself and I can defend every decision in a review.",
-                "how.t4": "In production, not just in my editor",
-                "how.d4": "The Claude API runs inside Hallazgo's publishing pipeline, MCP servers and headless automation handle the repetitive parts, and CI on EAS and Vercel ships the rest.",
-                "contact.eyebrow": "Contact",
-                "contact.title": "Looking for a remote engineering role",
-                "contact.subtitle": "Product engineering, backend or full-stack, in a team that ships. I work from Santiago, Chile (UTC-3), with comfortable overlap for the Americas and most of Europe, and I can be hired as a contractor, through an EOR or B2B. I work in Spanish and English.",
-                "contact.email": "Email",
-                "contact.cvLabel": "Resume",
-                "contact.cvValue": "Download the CV in PDF",
-                "contact.nameLabel": "Your name",
-                "contact.namePh": "Jane Doe",
-                "contact.emailLabel": "Email",
-                "contact.emailPh": "jane@company.com",
-                "contact.msgLabel": "Message",
-                "contact.msgPh": "Role, team and what you are building",
-                "contact.send": "Send message",
-                "footer.built": "Plain HTML and CSS. No framework, no build step."
-            },
-            es: {
-                "meta.title": "Gabriel Guerra · Desarrollador de software · Django, React Native, Next.js",
-                "a11y.skip": "Ir a los productos",
-                "a11y.menu": "Abrir menú",
-                "a11y.top": "Volver arriba",
-                "nav.work": "Productos",
-                "nav.experience": "Experiencia",
-                "nav.how": "Cómo trabajo",
-                "nav.contact": "Contacto",
-                "nav.cv": "CV",
-                "hero.status": "Abierto a roles remotos · Santiago, Chile (UTC-3) · ES / EN",
-                "hero.title": "Dieciséis productos en producción.<br><span class=\"hl\">Construidos y publicados por mí.</span>",
-                "hero.lead": "Soy desarrollador de software y trabajo sobre una plataforma <strong>Django</strong> en producción en Syzlab. También soy fundador de <strong>Teddy Code</strong>, donde publiqué 10 apps Android y 6 productos web en los últimos 12 meses. Antes del software pasé casi 18 años en auditoría y finanzas, hasta Controller, y por eso pregunto qué le hace una feature al negocio antes de preguntar cómo se construye.",
-                "hero.ctaWork": "Ver los productos",
-                "hero.ctaCv": "Descargar CV",
-                "stats.apps": "Apps Android publicadas en Google Play",
-                "stats.web": "Productos web en producción",
-                "stats.months": "Meses para publicarlo todo",
-                "stats.job": "Trabajo full-time en paralelo",
-                "stack.title": "Stack del día a día",
-                "work.eyebrow": "Trabajo seleccionado",
-                "work.title": "Productos que puedes abrir ahora mismo",
-                "work.subtitle": "Todo lo que sigue está publicado, es público y fue diseñado, construido y lanzado por mí bajo Teddy Code. Sin mockups ni casos de estudio de cosas que nunca salieron.",
-                "badge.play": "Live · Google Play",
-                "badge.play7": "Live · 7 apps",
-                "badge.web": "Live · Web",
-                "work.playroKicker": "Producto social · Mobile y web",
-                "work.playroDesc": "Matchmaking social para gamers: encuentra compañeros por juego, plataforma, idioma y estilo de juego, y conversa antes de entrar a la partida.",
-                "work.playroTech": "Ciclo completo de producto, solo: definición, diseño de UI, app en React Native, backend en Supabase con row level security, notificaciones push, assets de tienda y pipeline de release. La versión web corre contra el mismo backend de producción.",
-                "work.woggliKicker": "Lo más reciente · Marketplace social",
-                "work.woggliDesc": "Marketplace peer to peer y red social para el movimiento Scout mundial: los coleccionistas intercambian insignias, pañoletas y woggles, el anillo que le da el nombre a la app.",
-                "work.woggliTech": "El producto más exigente que he construido hasta ahora. Grafo de seguidores con amistad derivada automáticamente, chat y eventos de envío en tiempo real, reportes y moderación, y cada transición crítica pasando por un RPC de Postgres en vez de una escritura directa a tabla. Supabase para auth, storage y realtime, capa de i18n propia en 5 idiomas y Maestro para pruebas end to end.",
-                "work.stusherKicker": "Motor de recomendación · Mobile",
-                "work.stusherDesc": "Tres recomendaciones personalizadas de películas y series en 30 segundos, según los servicios de streaming que ya pagas, para que la noche no empiece con veinte minutos de scroll.",
-                "work.stusherTech": "Cada llamada a APIs de terceros corre dentro de una Edge Function serverless, así las keys nunca llegan al bundle del cliente. La app explica por qué eligió cada título, y eso terminó importando más que el tamaño del catálogo.",
-                "carousel.prev": "Pantalla anterior",
-                "carousel.next": "Pantalla siguiente",
-                "carousel.screen": "Pantalla",
-                "work.qualipathKicker": "Motor de decisión · Datos verificados",
-                "work.qualipathDesc": "Le dices tu profesión, dónde te titulaste y dónde quieres trabajar, y te devuelve la autoridad competente, los documentos, los costos y la ruta de permiso de trabajo.",
-                "work.qualipathTech": "83 rutas verificadas en 18 destinos. Cada requisito está enlazado a su fuente oficial con la fecha en que se comprobó, así la respuesta se puede auditar en vez de creer. Datos estructurados y SEO desde el primer commit.",
-                "work.hallazgoKicker": "Editorial · Pipeline automatizado",
-                "work.hallazgoDesc": "Revista diaria en español de oportunidades globales verificadas: migración, vivienda, financiamiento y programas tech.",
-                "work.hallazgoTech": "Lo interesante no es el sitio, es el pipeline detrás. Un agente de IA corre headless según un cron, investiga y publica directo a la base de datos. La regeneración estática incremental lo levanta, así que no hay deploy por artículo ni humano en el medio en un día normal.",
-                "work.moreEyebrow": "El resto del catálogo",
-                "work.moreTitle": "Once productos más en producción",
-                "cards.channelberry": "Guía editorial de YouTube: 93 canales revisados a mano y publicados en 5 idiomas, sobre un catálogo versionado en git más la YouTube Data API con caché ISR para no salirse de la cuota gratuita.",
-                "cards.quecalifico": "Motor de elegibilidad financiera para quienes viven en Estados Unidos sin Social Security Number. Compara tarjetas, préstamos y cuentas de 48 instituciones, con cada requisito trazado a su fuente. Totalmente estático, sin backend que pagar.",
-                "cards.fadechats": "Chat desechable de dos personas sin registro. Peer to peer sobre WebRTC, así el contenido de los mensajes nunca toca un servidor y la sala desaparece al terminar.",
-                "cards.playroweb": "La versión web de la app Playro, compartiendo el mismo backend Supabase de producción y las mismas políticas de row level security que el cliente móvil.",
-                "cards.utilitiesTitle": "Siete apps de utilidad",
-                "cards.utilities": "Decibra (sonómetro), Magniyo (lupa), Osito (registro de bebé), Arrullo (sonidos para dormir con audio generado proceduralmente), AviCalma (miedo a volar, bilingüe), Tiltza (nivel de burbuja) y Wheelza (ruleta de decisiones). Todas offline-first y sobre un mismo pipeline de release.",
-                "cards.allApps": "Todas las apps en Google Play",
-                "exp.eyebrow": "Experiencia",
-                "exp.title": "Código en producción, con criterio de negocio debajo",
-                "exp.syzlabWhen": "dic 2025 · actualidad",
-                "exp.syzlabRole": "Backend Developer",
-                "exp.syzlabMeta": "Plataforma de citas de consumo en producción · Django, JavaScript, HTMX, WebSockets, PostgreSQL, AWS S3, Docker",
-                "exp.syzlab1": "Construí un sistema de A/B testing end to end: split de usuarios en vivo por variante, seguimiento de conversión, comportamiento, cancelaciones e ingresos por grupo, y reportes que el equipo puede leer de verdad.",
-                "exp.syzlab2": "Publiqué un control de imágenes reportadas con SHA-256 y hashing perceptual para detectar resubidas y marcar perfiles sospechosos.",
-                "exp.syzlab3": "Construí Ghost Mode, un gestor interno de encuestas y el flujo de helpdesk de soporte dentro de una base de código existente.",
-                "exp.syzlab4": "Trabajo en backend, frontend, modelos de datos, testing, despliegue y resolución de problemas en producción. Inglés en el trabajo, todos los días.",
-                "exp.calloutTitle": "Lo que me enseñó ese sistema de A/B",
-                "exp.callout": "Probé regalar el filtro de ubicación esperando una victoria fácil. El engagement subió y los ingresos bajaron. El test no solo eligió un ganador: demostró que el filtro era algo por lo que la gente paga, no un nice to have. Usuarios contentos y negocio sano son dos métricas distintas.",
-                "exp.teddyWhen": "sep 2025 · actualidad",
-                "exp.teddyRole": "Fundador y desarrollador de software",
-                "exp.teddyMeta": "React Native, Expo, Next.js, TypeScript, Supabase, builds en la nube con EAS, Vercel, Cloudflare",
-                "exp.teddy1": "Diez apps Android y seis productos web publicados, cada uno desde la idea hasta la ficha de tienda o el dominio en producción, fuera de horario y en paralelo a un trabajo full-time.",
-                "exp.teddy2": "Un mismo pipeline de release para todo el catálogo móvil: builds en la nube con EAS, assets de tienda versionados y legales in-app espejados en la web.",
-                "exp.teddy3": "Decisiones de producto incluidas: qué construir, qué recortar, qué monetizar y cuándo un producto no vale la pena terminarlo.",
-                "exp.financeTitle": "Auditoría, contabilidad y finanzas",
-                "exp.financeBody": "Controller y Jefe de Contabilidad en GL Events Chile, y antes roles en Bupa, Edelcta, CMPC, Unilever, PDVSA Industrial, UHY International y KPMG, donde empecé como auditor. Armé un equipo de finanzas desde cero, escribí sus procedimientos, participé en migraciones de ERP y reporté a gente a la que solo le importaba el número final. Esa es la parte que no aparece en un historial de git y aparece en cada decisión técnica.",
-                "exp.tag1": "Impacto de negocio",
-                "exp.tag2": "Control interno",
-                "exp.tag3": "IFRS y compliance",
-                "exp.tag4": "Liderazgo de equipo",
-                "exp.tag5": "Reporte a stakeholders",
-                "how.eyebrow": "Cómo trabajo",
-                "how.title": "Agentes de código, usados como un lead usa a su equipo",
-                "how.subtitle": "Dieciséis productos en doce meses junto a un trabajo full-time solo funciona con agentes en el proceso. Y funciona por cómo los uso, no porque escriban código mientras miro para otro lado.",
-                "how.t1": "Primero el plan",
-                "how.d1": "Arquitectura, alcance y modelo de datos se deciden antes de que se genere una sola línea. El agente implementa un plan, no lo inventa.",
-                "how.t2": "Diffs pequeños",
-                "how.d2": "Un cambio a la vez, revisado línea por línea. Un diff que no puedo explicar no entra, por bien que funcione.",
-                "how.t3": "El resultado es mío",
-                "how.d3": "Si se rompe en producción, es mío. Leo lo que sale, lo debuggeo yo y puedo defender cada decisión en una revisión.",
-                "how.t4": "En producción, no solo en mi editor",
-                "how.d4": "La Claude API corre dentro del pipeline de publicación de Hallazgo, los MCP y la automatización headless se encargan de lo repetitivo, y el CI en EAS y Vercel publica el resto.",
-                "contact.eyebrow": "Contacto",
-                "contact.title": "Busco un rol de ingeniería remoto",
-                "contact.subtitle": "Product engineering, backend o full-stack, en un equipo que publica. Trabajo desde Santiago de Chile (UTC-3), con solapamiento cómodo con América y casi toda Europa, y puedo contratarme como contractor, vía EOR o B2B. Trabajo en español y en inglés.",
-                "contact.email": "Correo",
-                "contact.cvLabel": "Currículum",
-                "contact.cvValue": "Descargar el CV en PDF",
-                "contact.nameLabel": "Tu nombre",
-                "contact.namePh": "Juana Pérez",
-                "contact.emailLabel": "Correo",
-                "contact.emailPh": "juana@empresa.com",
-                "contact.msgLabel": "Mensaje",
-                "contact.msgPh": "Rol, equipo y qué están construyendo",
-                "contact.send": "Enviar mensaje",
-                "footer.built": "HTML y CSS a mano. Sin framework y sin build."
-            }
-        };
+<a class="to-top" href="#home" aria-label="Back to top" data-i18n-aria-label="a11y.top"><svg class="icon"><use href="#so-alt-arrow-up-bold"/></svg></a>
 
-        const STORE_KEY = "gg-lang";
+<script>
+(function () {
+  "use strict";
+  document.body.classList.remove("no-js");
 
-        function applyLanguage(lang) {
-            const code = i18n[lang] ? lang : "en";
-            const dict = i18n[code];
+  const i18n = {
+    en: {
+      "meta.title": "Gabriel Guerra · Software Developer · From finance to software",
+      "a11y.skip": "Skip to the work",
+      "a11y.menu": "Open menu", "a11y.top": "Back to top",
+      "nav.home": "Home", "nav.about": "About", "nav.projects": "Projects", "nav.apps": "Apps",
+      "nav.journey": "Transition", "nav.contact": "Contact", "nav.cv": "Download CV",
+      "hero.eyebrow": "Python · Django · TypeScript · React Native",
+      "hero.t1": "Software Developer |",
+      "hero.t2": "From Finance to<br>Software Engineering",
+      "hero.lead": "I build web and mobile products by connecting business logic with user experience. I focus on what a feature costs, the real value it brings, and what makes people want to come back.",
+      "hero.cta1": "View Projects", "hero.cta2": "Contact",
+      "hero.p1": "Backend & APIs", "hero.p2": "Web & mobile", "hero.p3": "From idea to launch",
+      "about.title": "About Me",
+      "about.p": "My journey into programming started in the corporate world. I worked in audit and finance, eventually becoming a Controller, which taught me how to read businesses from the inside out. Today, I bring that same perspective to software: before writing any code, I need to understand the business model, who the user is, and the actual value we're delivering.",
+      "about.p2": "I'm currently working as a <strong>Backend Developer</strong> on a production Django platform, while also building and launching my own <strong>web and mobile apps</strong>. I value teamwork and transparency. When I come across something I don't know, I just ask or figure out how to learn it. I'm not afraid to make decisions, and I welcome constructive feedback, because at the end of the day, I care more about getting things right than being right.",
+      "skills.title": "Skills",
+      "web.title": "Featured Web Projects",
+      "web.meta": "Live in production",
+      "web.hallazgo": "Daily magazine of global opportunities, researched and published by an AI pipeline.",
+      "web.qualipath": "Recognition of regulated professions abroad: 83 verified routes across 18 destinations.",
+      "web.quecalifico": "Financial eligibility engine for people in the US without an SSN, across 48 institutions.",
+      "web.channelberry": "Editorial guide to YouTube: 93 hand-reviewed channels published in 5 languages.",
+      "web.fadechats": "Disposable two-person chat with no signup. Peer to peer, messages never touch a server.",
+      "web.playro": "Matchmaking for gamers on the web, sharing the mobile app's production backend.",
+      "apps.title": "Mobile Apps",
+      "apps.meta": "Live on Google Play",
+      "apps.all": "See all",
+      "apps.woggli": "Marketplace and social network for Scout collectors. Realtime chat, 5 languages.",
+      "apps.stusher": "Three movie and series picks in 30 seconds, from the services you already pay for.",
+      "apps.arrullo": "Sleep sounds with procedurally generated audio. Mix up to four at once.",
+      "apps.avicalma": "A calmer way to face your next flight. Bilingual, works offline.",
+      "apps.osito": "Baby log for feeds, diapers and sleep, with timers since the last one.",
+      "apps.wheelza": "A decision wheel for tiny choices. Custom wheels, quick starts.",
+      "journey.title": "From Finance to Software",
+      "journey.lang": "English and Spanish",
+      "journey.loc": "Santiago, Chile · UTC-3",
+      "journey.open": "Open to new opportunities",
+      "journey.n3": "Now",
+      "journey.n2": "1 year",
+      "journey.n1": "18 years",
+      "journey.sub": "A deliberate move: from analyzing businesses to building the software they run on.",
+      "journey.s1": "Finance",
+      "journey.d1": "From auditor to Controller and Head of Accounting. Reporting, internal controls, IFRS and ERP migrations.",
+      "journey.s2": "Transition",
+      "journey.d2": "Harvard CS50x and intensive self-directed training, building real products from the first week.",
+      "journey.s3": "Software Developer",
+      "journey.w3": "2025 – Present",
+      "journey.d3": "Backend developer on a production Django platform, and builder of my own web and mobile products under Teddy Code.",
+      "journey.s4": "Software with a finance brain",
+      "journey.d4": "I ask what a feature does to the business before asking how to build it.",
+      "contact.title": "Let's talk",
+      "contact.p": "I'm currently open to new opportunities. I'm looking for a place where I can keep learning, work with great people, and deliver real value through what I build. If that sounds good to you, I'd love to chat.",
+      "contact.cta": "Get in Touch",
+      "footer.built": "Hand-written HTML, CSS and a little JS. No framework, no build step."
+    },
+    es: {
+      "meta.title": "Gabriel Guerra · Desarrollador de software · De finanzas a software",
+      "a11y.skip": "Ir a los proyectos",
+      "a11y.menu": "Abrir menú", "a11y.top": "Volver arriba",
+      "nav.home": "Inicio", "nav.about": "Sobre mí", "nav.projects": "Proyectos", "nav.apps": "Apps",
+      "nav.journey": "Transición", "nav.contact": "Contacto", "nav.cv": "Descargar CV",
+      "hero.eyebrow": "Python · Django · TypeScript · React Native",
+      "hero.t1": "Software Developer |",
+      "hero.t2": "De Finanzas a<br>Ingeniería de Software",
+      "hero.lead": "Construyo productos web y móviles conectando la lógica de negocio con la experiencia del usuario. Pienso en cuánto cuesta una feature, qué valor real aporta y qué hace que las personas quieran volver.",
+      "hero.cta1": "Ver proyectos", "hero.cta2": "Contacto",
+      "hero.p1": "Backend y APIs", "hero.p2": "Web y móvil", "hero.p3": "De la idea al lanzamiento",
+      "about.title": "Sobre mí",
+      "about.p": "Mi camino hacia la programación empezó en el mundo corporativo. Trabajé en auditoría y finanzas hasta llegar a Controller, lo que me enseñó a leer las empresas desde adentro. Hoy aplico esa misma mirada al software: antes de programar, necesito entender el modelo de negocio, quién es el usuario y qué valor real le estamos entregando.",
+      "about.p2": "Actualmente soy <strong>Backend Developer</strong> en una plataforma Django en producción y, en paralelo, desarrollo y lanzo mis propias <strong>aplicaciones web y móviles</strong>. Me gusta la colaboración y la transparencia en los equipos. Cuando me encuentro con algo que no sé, simplemente pregunto o lo investigo. Tomo decisiones con seguridad y recibo muy bien las críticas, porque al final del día me interesa más hacer un buen trabajo que tener la razón.",
+      "skills.title": "Skills",
+      "web.title": "Proyectos web destacados",
+      "web.meta": "En producción",
+      "web.hallazgo": "Revista diaria de oportunidades globales, investigada y publicada por un pipeline de IA.",
+      "web.qualipath": "Reconocimiento de profesiones reguladas en el extranjero: 83 rutas verificadas en 18 destinos.",
+      "web.quecalifico": "Motor de elegibilidad financiera para quienes viven en EE. UU. sin SSN, con 48 instituciones.",
+      "web.channelberry": "Guía editorial de YouTube: 93 canales revisados a mano y publicados en 5 idiomas.",
+      "web.fadechats": "Chat desechable de dos personas sin registro. Peer to peer, los mensajes nunca tocan un servidor.",
+      "web.playro": "Matchmaking para gamers en la web, sobre el mismo backend de producción de la app.",
+      "apps.title": "Apps móviles",
+      "apps.meta": "Publicadas en Google Play",
+      "apps.all": "Ver todas",
+      "apps.woggli": "Marketplace y red social para coleccionistas Scout. Chat en tiempo real, 5 idiomas.",
+      "apps.stusher": "Tres películas o series en 30 segundos, según los servicios que ya pagas.",
+      "apps.arrullo": "Sonidos para dormir con audio generado proceduralmente. Mezcla hasta cuatro.",
+      "apps.avicalma": "Una forma más tranquila de enfrentar tu próximo vuelo. Bilingüe y offline.",
+      "apps.osito": "Registro de bebé: tomas, pañales y sueño, con el tiempo desde la última vez.",
+      "apps.wheelza": "Una ruleta para las decisiones pequeñas. Ruletas propias y atajos rápidos.",
+      "journey.title": "De Finanzas a Software",
+      "journey.lang": "Español e inglés",
+      "journey.loc": "Santiago, Chile · UTC-3",
+      "journey.open": "Abierto a nuevas oportunidades",
+      "journey.n3": "Hoy",
+      "journey.n2": "1 año",
+      "journey.n1": "18 años",
+      "journey.sub": "Una transición deliberada: de analizar negocios a construir el software sobre el que corren.",
+      "journey.s1": "Finanzas",
+      "journey.d1": "De auditor a Controller y Jefe de Contabilidad. Reportes, control interno, IFRS y migraciones de ERP.",
+      "journey.s2": "Transición",
+      "journey.d2": "Harvard CS50x y formación autodidacta intensiva, construyendo productos reales desde la primera semana.",
+      "journey.s3": "Desarrollador de Software",
+      "journey.w3": "2025 – Actualidad",
+      "journey.d3": "Backend developer en una plataforma Django en producción, y creador de mis propios productos web y móviles con Teddy Code.",
+      "journey.s4": "Software con cabeza de finanzas",
+      "journey.d4": "Pregunto qué le hace una feature al negocio antes de preguntar cómo se construye.",
+      "contact.title": "¿Hablemos?",
+      "contact.p": "Estoy abierto a nuevas oportunidades. Busco un lugar donde pueda seguir aprendiendo, hacer buen equipo con buena gente y aportar valor real con lo que construyo. Si esto te suena bien, me encantaría que conversemos.",
+      "contact.cta": "Escríbeme",
+      "footer.built": "HTML, CSS y un poco de JS a mano. Sin framework y sin build."
+    }
+  };
 
-            document.documentElement.lang = code;
-            document.title = dict["meta.title"];
+  const STORE_KEY = "gg-lang";
+  function applyLanguage(lang) {
+    const code = i18n[lang] ? lang : "en";
+    const d = i18n[code];
+    document.documentElement.lang = code;
+    document.title = d["meta.title"];
+    document.querySelectorAll("[data-i18n]").forEach((el) => { const v = d[el.dataset.i18n]; if (v) el.textContent = v; });
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => { const v = d[el.dataset.i18nHtml]; if (v) el.innerHTML = v; });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => { const v = d[el.dataset.i18nAriaLabel]; if (v) el.setAttribute("aria-label", v); });
+    document.querySelectorAll("[data-lang]").forEach((b) => b.classList.toggle("active", b.dataset.lang === code));
+    document.querySelectorAll(".lang").forEach((l) => { l.dataset.active = code; });
+    try { localStorage.setItem(STORE_KEY, code); } catch (e) { /* private mode */ }
+  }
+  let stored = null;
+  try { stored = localStorage.getItem(STORE_KEY); } catch (e) { /* private mode */ }
+  // Ingles por defecto: el visitante objetivo es un recruiter internacional.
+  applyLanguage(stored === "es" ? "es" : "en");
+  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => applyLanguage(b.dataset.lang)));
 
-            document.querySelectorAll("[data-i18n]").forEach((el) => {
-                const v = dict[el.dataset.i18n];
-                if (v) el.textContent = v;
-            });
-            document.querySelectorAll("[data-i18n-html]").forEach((el) => {
-                const v = dict[el.dataset.i18nHtml];
-                if (v) el.innerHTML = v;
-            });
-            document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-                const v = dict[el.dataset.i18nPlaceholder];
-                if (v) el.setAttribute("placeholder", v);
-            });
-            document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
-                const v = dict[el.dataset.i18nAriaLabel];
-                if (v) el.setAttribute("aria-label", v);
-            });
+  // Nombre que se tipea al entrar, con el cursor parpadeando al final
+  const typeEl = document.querySelector(".brand .type");
+  const typed = typeEl && typeEl.querySelector(".typed");
+  if (typed && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const full = typed.textContent;
+    typed.textContent = "";
+    typeEl.classList.add("typing");
+    let k = 0;
+    const step = () => {
+      typed.textContent = full.slice(0, ++k);
+      if (k < full.length) setTimeout(step, full[k] === " " ? 160 : 70 + Math.random() * 60);
+      else setTimeout(() => typeEl.classList.remove("typing"), 250);
+    };
+    setTimeout(step, 550);
+  }
 
-            document.querySelectorAll("[data-lang]").forEach((b) => {
-                b.classList.toggle("active", b.dataset.lang === code);
-            });
+  // Header: fondo solido al hacer scroll
+  const nav = document.getElementById("nav");
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-            carousels.forEach((c) => c.relabel && c.relabel());
+  // Menu movil
+  const menuBtn = document.querySelector(".menu-btn");
+  const drawer = document.getElementById("drawer");
+  const setMenu = (open) => {
+    drawer.classList.toggle("open", open);
+    nav.classList.toggle("menu-open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.querySelector("use").setAttribute("href", open ? "#so-close-circle-bold" : "#so-hamburger-menu-bold");
+  };
+  menuBtn.addEventListener("click", () => setMenu(!drawer.classList.contains("open")));
+  drawer.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
-            try { localStorage.setItem(STORE_KEY, code); } catch (e) { /* private mode */ }
-        }
+  // Link activo segun la seccion visible
+  const links = Array.from(document.querySelectorAll(".nav-links a"));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  ["home", "about", "projects", "apps", "journey", "contact"].forEach((id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
 
-        function initialLanguage() {
-            let stored = null;
-            try { stored = localStorage.getItem(STORE_KEY); } catch (e) { /* private mode */ }
-            // Por defecto ingles siempre: el visitante objetivo es un recruiter internacional.
-            // El espanol queda a un clic y se recuerda una vez elegido.
-            return stored === "es" || stored === "en" ? stored : "en";
-        }
+  // Aparicion al hacer scroll
+  const rv = new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); rv.unobserve(en.target); } });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  document.querySelectorAll(".rv").forEach((el) => rv.observe(el));
 
-        document.querySelectorAll("[data-lang]").forEach((b) => {
-            b.addEventListener("click", () => applyLanguage(b.dataset.lang));
-        });
+  // Pantallas que rotan dentro del telefono (Woggli, Stusher), solo cuando se ven
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) {
+    document.querySelectorAll("[data-cycle]").forEach((screen, n) => {
+      const imgs = Array.from(screen.querySelectorAll("img"));
+      let i = 0, timer = null, loaded = false;
+      const tick = () => { imgs[i].classList.remove("on"); i = (i + 1) % imgs.length; imgs[i].classList.add("on"); };
+      new IntersectionObserver(([en]) => {
+        if (en.isIntersecting) {
+          if (!loaded) { imgs.forEach((im) => { if (im.dataset.src) im.src = im.dataset.src; }); imgs[0].classList.add("on"); loaded = true; }
+          if (!timer) timer = setTimeout(function loop() { tick(); timer = setTimeout(loop, 2800); }, 1600 + n * 700);
+        } else { clearTimeout(timer); timer = null; }
+      }, { threshold: 0.4 }).observe(screen);
+    });
+  }
 
 
-        const carousels = [];
+  // Boton volver arriba
+  const toTop = document.querySelector(".to-top");
+  addEventListener("scroll", () => toTop.classList.toggle("show", scrollY > innerHeight * 1.2), { passive: true });
 
-        function initCarousels() {
-            document.querySelectorAll("[data-carousel]").forEach((root) => {
-                const track = root.querySelector(".track");
-                const dotsWrap = root.querySelector(".dots");
-                const slides = Array.from(track.children);
-                if (slides.length < 2) return;
-
-                slides.forEach((_, i) => {
-                    const b = document.createElement("button");
-                    b.type = "button";
-                    b.className = "dot" + (i === 0 ? " active" : "");
-                    b.dataset.index = String(i);
-                    dotsWrap.appendChild(b);
-                });
-                const dots = Array.from(dotsWrap.children);
-                const current = () => Math.round(track.scrollLeft / track.clientWidth);
-                const go = (i) => {
-                    const n = (i + slides.length) % slides.length;
-                    track.scrollTo({ left: track.clientWidth * n, behavior: "smooth" });
-                };
-
-                dots.forEach((d) => d.addEventListener("click", () => go(Number(d.dataset.index))));
-                root.querySelector(".cprev").addEventListener("click", () => go(current() - 1));
-                root.querySelector(".cnext").addEventListener("click", () => go(current() + 1));
-
-                track.addEventListener("keydown", (e) => {
-                    if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
-                    if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
-                });
-
-                let t;
-                track.addEventListener("scroll", () => {
-                    clearTimeout(t);
-                    t = setTimeout(() => {
-                        const c = current();
-                        dots.forEach((d, i) => d.classList.toggle("active", i === c));
-                    }, 60);
-                }, { passive: true });
-
-                root.relabel = () => {
-                    const dict = i18n[document.documentElement.lang] || i18n.en;
-                    dots.forEach((d, i) => d.setAttribute("aria-label", dict["carousel.screen"] + " " + (i + 1)));
-                };
-                root.relabel();
-                carousels.push(root);
-            });
-        }
-
-        const nav = document.getElementById("nav");
-        const menuBtn = document.getElementById("menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const toTop = document.getElementById("to-top");
-
-        menuBtn.addEventListener("click", () => {
-            const open = mobileMenu.classList.toggle("open");
-            menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-        });
-
-        document.querySelectorAll("[data-mobile]").forEach((a) => {
-            a.addEventListener("click", () => {
-                mobileMenu.classList.remove("open");
-                menuBtn.setAttribute("aria-expanded", "false");
-            });
-        });
-
-        toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-        let ticking = false;
-        window.addEventListener("scroll", () => {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(() => {
-                nav.classList.toggle("scrolled", window.scrollY > 8);
-                toTop.classList.toggle("visible", window.scrollY > 600);
-                ticking = false;
-            });
-        }, { passive: true });
-
-        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if ("IntersectionObserver" in window && !reduced) {
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("in");
-                        io.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
-            document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-        } else {
-            document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
-        }
-
-        initCarousels();
-        applyLanguage(initialLanguage());
-    </script>
-    <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1fd71116c88f4567b82836948c72e16a"}'></script><!-- End Cloudflare Web Analytics -->
+  // Medicion: descarga de CV
+  document.querySelectorAll("[data-cv]").forEach((a) => a.addEventListener("click", () => {
+    const area = a.closest("header, .drawer") ? "header" : a.closest("footer") ? "footer" : "content";
+    if (window.tcBusinessTrack) window.tcBusinessTrack("cv_download", area);
+    else (window.tcBusinessQueue = window.tcBusinessQueue || []).push({ event: "cv_download", area });
+  }));
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1fd71116c88f4567b82836948c72e16a"}'></script><!-- End Cloudflare Web Analytics -->
 <script src="/assets/js/business-metrics.js?v=1" async fetchpriority="low"></script>
 </body>
-
 </html>
