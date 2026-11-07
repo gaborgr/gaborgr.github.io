@@ -557,8 +557,7 @@ section { position: relative; }
   .wmark.tall { height: 1.55rem; }
   .wmark.dark { height: 1.55rem; padding: 3px 7px; border-radius: 6px; }
   .wcard p { margin-top: .4rem; font-size: .8rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .wcard .tags { padding-top: .45rem; gap: .25rem; }
-  .wcard .tags span { font-size: .64rem; padding: .12rem .4rem; }
+  .wcard .tags, .acard .tags, #projects .sec-meta.live { display: none; }
   .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
   .acard { display: flex; flex-direction: column; padding: .8rem .75rem .85rem; border-radius: 14px; }
   .acard:hover { transform: none; }
@@ -569,8 +568,6 @@ section { position: relative; }
   .acard .name img { width: 22px; height: 22px; border-radius: 6px; }
   .acard h3 { font-size: .92rem; }
   .acard p { font-size: .76rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .acard .tags { padding-top: .5rem; }
-  .acard .tags span { font-size: .64rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -701,7 +698,7 @@ section { position: relative; }
         </div>
         <div class="body">
           <div class="head"><div class="wmark dark"><img src="./assets/redesign/web/playro/logo-wordmark.webp" alt="Playro" width="480" height="122"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
-          <p data-i18n="web.playro">Matchmaking for gamers on the web, sharing the mobile app's production backend.</p>
+          <p data-i18n="web.playro">Gamer matchmaking on the web, on the app's backend.</p>
           <div class="tags"><span>Next.js</span><span>Supabase</span><span>RLS</span></div>
         </div>
       </a>
@@ -712,7 +709,7 @@ section { position: relative; }
         </div>
         <div class="body">
           <div class="head"><div class="wmark dark"><img src="./assets/redesign/web/fadechats/logo-wordmark.webp" alt="FadeChats" width="435" height="84"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
-          <p data-i18n="web.fadechats">Disposable two-person chat with no signup. Peer to peer, messages never touch a server.</p>
+          <p data-i18n="web.fadechats">Disposable peer-to-peer chat. No signup, no server.</p>
           <div class="tags"><span>Next.js</span><span>WebRTC</span><span>P2P</span></div>
         </div>
       </a>
@@ -723,7 +720,7 @@ section { position: relative; }
         </div>
         <div class="body">
           <div class="head"><div class="wmark"><img src="./assets/redesign/web/channelberry/logo-wordmark.webp" alt="ChannelBerry" width="804" height="150"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
-          <p data-i18n="web.channelberry">Editorial guide to YouTube: 93 hand-reviewed channels published in 5 languages.</p>
+          <p data-i18n="web.channelberry">93 hand-picked YouTube channels, in 5 languages.</p>
           <div class="tags"><span>Next.js</span><span>YouTube API</span><span>ISR</span></div>
         </div>
       </a>
@@ -734,7 +731,7 @@ section { position: relative; }
         </div>
         <div class="body">
           <div class="head"><div class="wmark tall"><img src="./assets/redesign/web/hallazgo/logo-wordmark.webp" alt="Hallazgo" width="489" height="150"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
-          <p data-i18n="web.hallazgo">Daily magazine of global opportunities, researched and published by an AI pipeline.</p>
+          <p data-i18n="web.hallazgo">Daily magazine of global opportunities, run by AI.</p>
           <div class="tags"><span>Next.js</span><span>Supabase</span><span>Claude API</span></div>
         </div>
       </a>
@@ -745,7 +742,7 @@ section { position: relative; }
         </div>
         <div class="body">
           <div class="head"><div class="wmark tall"><img src="./assets/redesign/web/qualipath/logo-wordmark.webp" alt="QualiPath" width="572" height="132"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
-          <p data-i18n="web.qualipath">Recognition of regulated professions abroad: 83 verified routes across 18 destinations.</p>
+          <p data-i18n="web.qualipath">Work abroad in a regulated profession: 83 verified routes.</p>
           <div class="tags"><span>Next.js</span><span>TypeScript</span><span>SEO</span></div>
         </div>
       </a>
@@ -756,7 +753,7 @@ section { position: relative; }
         </div>
         <div class="body">
           <div class="head"><div class="wmark tall"><img src="./assets/redesign/web/quecalifico/logo-wordmark.webp" alt="QueCalifico" width="616" height="132"></div><span class="go"><svg class="icon"><use href="#so-arrow-right-up-bold"/></svg></span></div>
-          <p data-i18n="web.quecalifico">Financial eligibility engine for people in the US without an SSN, across 48 institutions.</p>
+          <p data-i18n="web.quecalifico">Financial eligibility for people in the US without an SSN.</p>
           <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Static</span></div>
         </div>
       </a>
@@ -780,7 +777,7 @@ section { position: relative; }
           <img data-src="./assets/redesign/mobile/woggli/03-explore.webp" alt="">
         </div></div>
         <div class="name"><img src="./assets/redesign/mobile/woggli/icon-512.webp" alt="" loading="lazy" width="28" height="28"><h3>Woggli</h3></div>
-        <p data-i18n="apps.woggli">Marketplace and social network for Scout collectors. Realtime chat, 5 languages.</p>
+        <p data-i18n="apps.woggli">Marketplace and chat for Scout collectors.</p>
         <div class="tags"><span>Supabase</span></div>
       </a>
       <a class="acard rv" style="--i:1" href="https://play.google.com/store/apps/details?id=com.teddycode.stusher" target="_blank" rel="noopener">
@@ -791,31 +788,31 @@ section { position: relative; }
           <img data-src="./assets/redesign/mobile/stusher/Screenshot_20260521_100225_Stusher.webp" alt="">
         </div></div>
         <div class="name"><img src="./assets/redesign/mobile/stusher/stusher_1024.webp" alt="" loading="lazy" width="28" height="28"><h3>Stusher</h3></div>
-        <p data-i18n="apps.stusher">Three movie and series picks in 30 seconds, from the services you already pay for.</p>
+        <p data-i18n="apps.stusher">What to watch in 30 seconds, from your services.</p>
         <div class="tags"><span>Edge Functions</span></div>
       </a>
       <a class="acard rv" style="--i:2" href="https://play.google.com/store/apps/details?id=com.teddycode.arrullo" target="_blank" rel="noopener">
         <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/arrullo/01-mixer.webp" alt="Arrullo" loading="lazy" width="540" height="1107"></div></div>
         <div class="name"><img src="./assets/redesign/mobile/arrullo/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>Arrullo</h3></div>
-        <p data-i18n="apps.arrullo">Sleep sounds with procedurally generated audio. Mix up to four at once.</p>
+        <p data-i18n="apps.arrullo">Procedural sleep sounds. Mix up to four.</p>
         <div class="tags"><span>Audio</span></div>
       </a>
       <a class="acard rv" style="--i:3" href="https://play.google.com/store/apps/details?id=com.teddycode.avicalma" target="_blank" rel="noopener">
         <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/avicalma/01-today.webp" alt="AviCalma" loading="lazy" width="540" height="1085"></div></div>
         <div class="name"><img src="./assets/redesign/mobile/avicalma/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>AviCalma</h3></div>
-        <p data-i18n="apps.avicalma">A calmer way to face your next flight. Bilingual, works offline.</p>
+        <p data-i18n="apps.avicalma">Calmer flights. Bilingual, works offline.</p>
         <div class="tags"><span>Offline</span></div>
       </a>
       <a class="acard rv" style="--i:4" href="https://play.google.com/store/apps/details?id=com.teddycode.osito" target="_blank" rel="noopener">
         <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/osito/01-today.webp" alt="Osito" loading="lazy" width="540" height="1105"></div></div>
         <div class="name"><img src="./assets/redesign/mobile/osito/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>Osito</h3></div>
-        <p data-i18n="apps.osito">Baby log for feeds, diapers and sleep, with timers since the last one.</p>
+        <p data-i18n="apps.osito">Baby log for feeds, diapers and sleep.</p>
         <div class="tags"><span>Offline</span></div>
       </a>
       <a class="acard rv" style="--i:5" href="https://play.google.com/store/apps/details?id=com.teddycode.wheelza" target="_blank" rel="noopener">
         <div class="phone"><div class="screen"><img src="./assets/redesign/mobile/wheelza/01-spin.webp" alt="Wheelza" loading="lazy" width="540" height="1106"></div></div>
         <div class="name"><img src="./assets/redesign/mobile/wheelza/icon.webp" alt="" loading="lazy" width="28" height="28"><h3>Wheelza</h3></div>
-        <p data-i18n="apps.wheelza">A decision wheel for tiny choices. Custom wheels, quick starts.</p>
+        <p data-i18n="apps.wheelza">A decision wheel for tiny choices.</p>
         <div class="tags"><span>Offline</span></div>
       </a>
     </div>
@@ -916,21 +913,21 @@ section { position: relative; }
       "skills.title": "Skills",
       "web.title": "Featured Web Projects",
       "web.meta": "Live in production",
-      "web.hallazgo": "Daily magazine of global opportunities, researched and published by an AI pipeline.",
-      "web.qualipath": "Recognition of regulated professions abroad: 83 verified routes across 18 destinations.",
-      "web.quecalifico": "Financial eligibility engine for people in the US without an SSN, across 48 institutions.",
-      "web.channelberry": "Editorial guide to YouTube: 93 hand-reviewed channels published in 5 languages.",
-      "web.fadechats": "Disposable two-person chat with no signup. Peer to peer, messages never touch a server.",
-      "web.playro": "Matchmaking for gamers on the web, sharing the mobile app's production backend.",
+      "web.hallazgo": "Daily magazine of global opportunities, run by AI.",
+      "web.qualipath": "Work abroad in a regulated profession: 83 verified routes.",
+      "web.quecalifico": "Financial eligibility for people in the US without an SSN.",
+      "web.channelberry": "93 hand-picked YouTube channels, in 5 languages.",
+      "web.fadechats": "Disposable peer-to-peer chat. No signup, no server.",
+      "web.playro": "Gamer matchmaking on the web, on the app's backend.",
       "apps.title": "Mobile Apps",
       "apps.meta": "Live on Google Play",
       "apps.all": "See all",
-      "apps.woggli": "Marketplace and social network for Scout collectors. Realtime chat, 5 languages.",
-      "apps.stusher": "Three movie and series picks in 30 seconds, from the services you already pay for.",
-      "apps.arrullo": "Sleep sounds with procedurally generated audio. Mix up to four at once.",
-      "apps.avicalma": "A calmer way to face your next flight. Bilingual, works offline.",
-      "apps.osito": "Baby log for feeds, diapers and sleep, with timers since the last one.",
-      "apps.wheelza": "A decision wheel for tiny choices. Custom wheels, quick starts.",
+      "apps.woggli": "Marketplace and chat for Scout collectors.",
+      "apps.stusher": "What to watch in 30 seconds, from your services.",
+      "apps.arrullo": "Procedural sleep sounds. Mix up to four.",
+      "apps.avicalma": "Calmer flights. Bilingual, works offline.",
+      "apps.osito": "Baby log for feeds, diapers and sleep.",
+      "apps.wheelza": "A decision wheel for tiny choices.",
       "journey.title": "From Finance to Software",
       "journey.lang": "English and Spanish",
       "journey.loc": "Santiago, Chile · UTC-3",
@@ -971,21 +968,21 @@ section { position: relative; }
       "skills.title": "Skills",
       "web.title": "Proyectos web destacados",
       "web.meta": "En producción",
-      "web.hallazgo": "Revista diaria de oportunidades globales, investigada y publicada por un pipeline de IA.",
-      "web.qualipath": "Reconocimiento de profesiones reguladas en el extranjero: 83 rutas verificadas en 18 destinos.",
-      "web.quecalifico": "Motor de elegibilidad financiera para quienes viven en EE. UU. sin SSN, con 48 instituciones.",
-      "web.channelberry": "Guía editorial de YouTube: 93 canales revisados a mano y publicados en 5 idiomas.",
-      "web.fadechats": "Chat desechable de dos personas sin registro. Peer to peer, los mensajes nunca tocan un servidor.",
-      "web.playro": "Matchmaking para gamers en la web, sobre el mismo backend de producción de la app.",
+      "web.hallazgo": "Revista diaria de oportunidades globales, hecha con IA.",
+      "web.qualipath": "Tu profesión regulada afuera: 83 rutas verificadas.",
+      "web.quecalifico": "Elegibilidad financiera en EE. UU. sin SSN.",
+      "web.channelberry": "93 canales de YouTube elegidos a mano, en 5 idiomas.",
+      "web.fadechats": "Chat P2P desechable. Sin registro, sin servidor.",
+      "web.playro": "Matchmaking gamer web, con el backend de la app.",
       "apps.title": "Apps móviles",
       "apps.meta": "Publicadas en Google Play",
       "apps.all": "Ver todas",
-      "apps.woggli": "Marketplace y red social para coleccionistas Scout. Chat en tiempo real, 5 idiomas.",
-      "apps.stusher": "Tres películas o series en 30 segundos, según los servicios que ya pagas.",
-      "apps.arrullo": "Sonidos para dormir con audio generado proceduralmente. Mezcla hasta cuatro.",
-      "apps.avicalma": "Una forma más tranquila de enfrentar tu próximo vuelo. Bilingüe y offline.",
-      "apps.osito": "Registro de bebé: tomas, pañales y sueño, con el tiempo desde la última vez.",
-      "apps.wheelza": "Una ruleta para las decisiones pequeñas. Ruletas propias y atajos rápidos.",
+      "apps.woggli": "Marketplace y chat para coleccionistas Scout.",
+      "apps.stusher": "Qué ver en 30 segundos, según lo que ya pagas.",
+      "apps.arrullo": "Sonidos para dormir procedurales. Mezcla hasta cuatro.",
+      "apps.avicalma": "Vuela más tranquilo. Bilingüe y offline.",
+      "apps.osito": "Registro de bebé: tomas, pañales y sueño.",
+      "apps.wheelza": "Una ruleta para las decisiones pequeñas.",
       "journey.title": "De Finanzas a Software",
       "journey.lang": "Español e inglés",
       "journey.loc": "Santiago, Chile · UTC-3",
